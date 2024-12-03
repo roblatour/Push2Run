@@ -7,9 +7,9 @@ Push2Run is a free open source home automation program that lets you control you
  - automation service (such as Home Assistant, Node-Red, or Tasker), and/or
  - Windows batch/script/command line processing.
 
-In various combinations PushBullet, Pushover, Dropbox, IFTTT, MQTT, PC Commander, and/or Everything may also be needed to glue things together as explained in the setup and help documentation linked below.
+In various combinations [PushBullet](https://www.pushbullet.com/), [Pushover](https://pushover.net/), [Dropbox](https://dropbox.com/), [IFTTT](https://ifttt.com/), [MQTT](https://en.wikipedia.org/wiki/MQTT), [PC Commander](https://pccommander.net/), and/or [Everything](https://www.voidtools.com/) may also be needed to glue things together as explained in the setup and help documentation linked below.
 
-screenshot	
+![my screenshot](images/indexscreenshot.jpg)
  	
 For issuing verbal commands, maximum versatility is available when using an Amazon Alexa device with the PC Commander skill and Pushbullet, or an Apple iPhone/iPad with Siri (please see the setup link below for more information).  With these setups you can use variable expressions.  For example you can tell your computer to:
 
@@ -29,4 +29,14 @@ Also, in all cases, Push2Run can even do a bit of typing for you, sending keystr
  	
 You're welcome to use Push2Run for free on as many computers as you like!   
  	 	 
-Push2Run is funded by kind donations from people such as yourself
+Push2Run is funded by kind donations from people such as yourself.
+
+ ## Help Documentation
+
+
+
+ ## Support
+
+[<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
+ 
+

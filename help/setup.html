@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.8.0">
+  <title>Push2Run - Setup instructions</title>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="Control computer using Google Assistant, Setup, home automation" name="keywords">
+  <meta content="Push2Run setup instructions" name="description">
+  <meta http-equiv="content-language" content="en">
+  <link href="lightbox/css/lightbox.css" rel="stylesheet">
+  <style type="text/css">
+    .style1 {
+                text-align: left;
+            }
+            .style10 {
+                text-align: center;
+            }
+            .style11 {
+                font-size: small;
+            }
+            .style13 {
+                font-family: Arial;
+            }
+            .style15 {
+                font-family: Arial;
+                font-size: small;
+            }
+            .style16 {
+                text-align: right;
+            }
+            .style17 {
+                border-width: 0;
+            }
+            .style18 {
+                text-align: left;
+                font-family: Arial;
+            }
+            .style19 {
+                margin-left: 1px;
+                margin-right: 1px;
+            }
+            p.center
+        {margin-right:0cm;
+        margin-left:0cm;
+        font-size:12.0pt;
+        font-family:"Times New Roman",serif;
+        }
+    .auto-style2 {
+          font-size: large;
+  }
+  .auto-style5 {
+        color: #808080;
+  }
+  .auto-style6 {
+        border-style: solid;
+        border-color: #0061FF;
+  }
+  .auto-style7 {
+        border-style: solid;
+        border-color: #3399FF;
+  }
+  .auto-style8 {
+        border-style: solid;
+        border-color: #529BE6;
+  }
+  .auto-style9 {
+        border-style: solid;
+        border-color: #529BE6;
+        font-size: large;
+  }
+  .auto-style10 {
+          font-size: large;
+          color: #0000FF;
+  }
+  .auto-style11 {
+        margin-left: 40px;
+  }
+  .auto-style13 {
+	color: #000000;
+}
+.auto-style14 {
+	color: #0000FF;
+}
+  .auto-style15 {
+	text-decoration: underline;
+}
+  </style><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script type="text/plain" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-M8NJYSMS76"></script>
+  <script type="text/plain" cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M8NJYSMS76');
+  </script>
+</head>
+<body>
+  <table border="0" cellpadding="0" style="width: 752px; height: 615px; text-align: left; margin-left: auto; margin-right: auto;" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="text-align: center;">&nbsp;</td>
+        <td colspan="3" style="text-align: center;">
+          <h1 class="style10"><span style="font-family: Arial;"><a href="https://push2run.com/index.html">Push2Run</a> 
+		  <span class="style11">Set up</span></span></h1>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">&nbsp;</td>
+        <td colspan="3" style="text-align: center;">
+          <hr style="width: 747px; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style18">&nbsp;</td>
+        <td class="style13" colspan="3" valign="top">
+          &nbsp;<br>Welcome to the Push2Run set up page.<br><br>In short, Push2Run needs 
+		  to be triggered to do things and this webpage explains how to do that.<br>
+          <br>
+		  There are 
+		  various options for triggering Push2Run, these include using:<br>
+          <table style="width: 100%">
+            <tr>
+              <td>
+                <p class="auto-style11"><strong>an Amazon Alexa device, the 
+				<a href="https://pccommander.net/">PC Commander</a> skill and 
+				Pushbullet.&nbsp; </strong>This set-up provides maximum 
+				versatility as it supports the use variable expressions - 
+				meaning you can say a phrase that doesn't need to be fully 
+				pre-determined.&nbsp; For example, you could say "Alexa, tell my 
+				computer to play 99 Red Balloons" (or any other song you like);</p>
+				<p class="auto-style11"><strong>an Apple iPhone/iPad and either 
+				</strong><a href="https://www.dropbox.com/"><strong>Dropbox</strong></a><strong> or
+				</strong><a href="https://www.pushbullet.com"><strong>Pushbullet</strong></a><strong>.</strong>&nbsp; 
+				This set-ups also provides maximum versatility as it too supports the 
+				use variable expressions.&nbsp;&nbsp; However, you need to 
+				include a slight pause after the trigger phrase, for example you 
+				could say "Siri, tell my computer to" (pause for a few seconds 
+				and then say) "play 99 Red Balloons";</p>
+				<p class="auto-style11"><strong>a Google 
+				Device, or other service supported by
+				<a href="https://ifttt.com">IFTTT</a>,</strong>&nbsp; <strong>
+				and one or more of the following: Dropbox, Pushbullet and/or
+				</strong> <a href="https://pushover.net/"><strong>Pushover</strong></a>.&nbsp; With these set-ups, you can say something 
+				like "Ok Google, (trigger) 
+				shutdown my computer".&nbsp;&nbsp; However, the things you say 
+				will need to be specific, and configured as unique 
+				IFTTT applets ahead of time;</p>
+				<p class="auto-style11">
+                <strong>MQTT.</strong>&nbsp; With this set up you can have 
+				Push2Run control your computer based on a MQTT messages;<br>
+                <br>
+                <strong>the Windows command line</strong>; and</p>
+				<p class="auto-style11">
+                <strong>the Push2Run application itself.</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <br>Detailed instructions for the various options above are 
+				either linked to or written up further below. <br> <br></td>
+            </tr>
+          </table>Now, a few words about the use of
+		  PCCommander, IFTTT, Dropbox, Pushbullet and/or Pushover in conjunction 
+		  Push2Run ...<br><br>All services are quite reliable and have many features going beyond those needed in support of Push2Run.<br>
+		  <br>IFTTT offers both free and paid subscription plans; here is where 
+		  you can find more information about that:&nbsp;
+		  <a href="https://ifttt.com/plans">https://ifttt.com/plans</a> .&nbsp; 
+		  Also, at one point IFTTT was able to work with Google in such a way that 
+		  variable text was supported.&nbsp; Sadly, however this was 
+		  discontinued by Google in September 2022.&nbsp; The result of this is 
+		  where it once was that only one IFTTT applet was required for most, 
+		  if not all the needs of Push2Run, now one specific applet is need for 
+		  each specific action you would like Push2Run to take.&nbsp; <br><br>PC 
+		  Commander is an Alexa skill specifically designed to work hand in hand 
+		  with Pushbullet to trigger Push2Run.&nbsp; Using Alexa, PC Commander, 
+		  Pushbullet and Push2Run you can execute a wide range of tasks on your 
+		  Windows computer using simple voice commands. Whether you’re looking 
+		  to open applications, control media playback or manage system 
+		  settings, using PC Commander provides an excellent, user-friendly and 
+		  efficient way to enhance your home automation setup.&nbsp; PC commanders 
+		  offers 150 free uses a month, but also a paid subscription if you need 
+		  more. <br><br>Here 
+		  too is a recap of the Dropbox, Pushbullet and Pushover services, with some key differences as they relate to their use with Push2Run:<br>
+          <br>
+          <table style="width: 100%">
+            <tr>
+              <td style="height: 22px; width: 245px" class="auto-style6"><strong><span class="auto-style2">Dropbox</span></strong></td>
+              <td style="height: 22px; width: 243px" class="auto-style7"><strong><span class="auto-style2">Pushbullet</span></strong></td>
+              <td class="auto-style9" style="height: 22px" valign="top"><strong>Pushover</strong></td>
+            </tr>
+            <tr>
+              <td style="width: 245px; height: 27px" valign="top" class="auto-style6"><strong>Free account limits<br></strong>effectively unlimited in terms of using with Push2Run (only one very small file is temporarily created and used)<br>
+              <br></td>
+              <td style="width: 243px; height: 27px" valign="top" class="auto-style7"><strong>Free account limits</strong><br>
+              unlimited time; 500 pushes per month</td>
+              <td style="height: 27px" valign="top" class="auto-style8"><strong>Free account limits&nbsp;</strong><br>
+              30 days; 25,000 pushes</td>
+            </tr>
+            <tr>
+              <td style="width: 245px" valign="top" class="auto-style6">
+                <strong>Paid account <sup><span class="auto-style5">(*)</span></sup></strong><br>
+                Not required for use with&nbsp; Push2Run but if you would like additional Dropbox space please see <a href="https://www.dropbox.com/individual/plans-comparison">here</a><br>
+                &nbsp;<br>
+              </td>
+              <td style="width: 243px" valign="top" class="auto-style7"><strong>Paid account <sup><span class="auto-style5">(*)</span></sup></strong><br>
+              $4.99 US per month or<br>
+              $39.99 US per year</td>
+              <td valign="top" class="auto-style8"><strong>Paid account <sup><span class="auto-style5">(*)</span></sup></strong><br>
+              one time license of $4.99 US per platform; Push2Run only needs the Desktop platform</td>
+            </tr>
+            <tr>
+              <td style="width: 245px" valign="top" class="auto-style6"><strong>Use with IFTTT and Push2Run</strong><br>
+              each IFTTT applet allows you to identify on exactly which&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; computer(s) you want a particular IFTTT triggered command to run</td>
+              <td style="width: 243px" valign="top" class="auto-style7"><strong>Use with IFTTT and Push2Run</strong><br>
+              each IFTTT applet allows you to identify on exactly which&nbsp;&nbsp;&nbsp; computer(s) you want a particular IFTTT triggered command to run</td>
+              <td class="auto-style8"><strong>Use with IFTTT and Push2Run</strong><br>
+              each IFTTT applet triggers one or all Pushover devices, so if you are running Push2Run on three or more computers you may not be able to tailor exactly which computers you want a particular IFTTT triggered command to run<br>
+              &nbsp;<br></td>
+            </tr>
+            <tr>
+              <td style="width: 245px" valign="top" class="auto-style6"><strong>Status reporting</strong><br>
+              There is no status at bottom of the main window or systray icon<br>
+              <br></td>
+              <td style="width: 243px" valign="top" class="auto-style7"><strong>Status reporting<br></strong> Status at bottom of the main window and systray icon confirms when 
+			  the connection is active<br>
+              &nbsp;</td>
+              <td valign="top" class="auto-style8"><strong>Status reporting<br></strong>Status at bottom of the main window and systray icon confirms when 
+			  the connection is active</td>
+            </tr>
+            <tr>
+              <td style="width: 245px" valign="top" class="auto-style6"><strong>Misc. notes<br></strong> Requires at least 7 seconds between commands.<strong><br>
+              <br></strong> Push2Run only monitors the one Dropbox folder (which you specify) and only interacts with one file (which you specify) in that folder.<br>
+              <br></td>
+              <td style="width: 243px" valign="top" class="auto-style7"><strong>Misc. notes<br></strong> If you are using the free Pushbullet service and if you go beyond a month not using either Push2Run with Pushbullet, or Pushbullet separately, then Pushbullet may deactivate your free account in which case you may need to set up a new one.</td>
+              <td valign="top" class="auto-style8"><strong>Misc. notes<br></strong>Service may require re-authentication if you switch network services when Push2Run is running. For example, if you switch between using your regular network and a VPN the service may require re-authentication.</td>
+            </tr>
+            <tr>
+              <td valign="top" colspan="3" style="height: 79px">
+                <br><br><span class="auto-style15"><strong>Of note</strong></span>: Push2Run is funded solely by the <a href="donate.html">donations</a> of kind people such as yourself and advertisements on the Push2Run website (so if you're using an ad blocker please consider white-listing this site).&nbsp; IFTTT, Dropbox, Pushbullet, and Pushover do not provide commissions in support of Push2Run.<br>
+              </td>
+            </tr>
+          </table>
+          <div class="style1">
+              <br>
+          </div>
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 763px; height: 22px;">
+                For further set up instructions please click on a link below for 
+				triggering Push2Run with:<br><br>
+				<table style="width: 100%">
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px"><strong>Triggered by</strong></td>
+						<td><strong>Please also see the Misc. Notes<br>(directly 
+						below)</strong></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+						<a href="setup_Apple_Dropbox.html">an Apple iPhone/iPad with 
+						Dropbox</a></td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+						<a href="setup_Apple_Pushbullet.html">an Apple iPhone/iPad with 
+						Pushbullet </a> </td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+						<a href="setup_Apple_Pushover.html">an Apple iPhone/iPad 
+						with Pushover</a></td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+						<br>
+						<a href="https://pccommander.net/howto/push2run/">an Amazon Alexa device, the PCCommander skill and Pushbullet 
+						</a><br>&nbsp;<br></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+						<a href="setup_Google_IFTTT_Dropbox.html">a Google Assistant device with 
+				IFTTT and Dropbox</a> </td>
+						<td>B, C</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+				<a href="setup_Google_IFTTT_Pushbullet.html">a Google Assistant device 
+				with IFTTT and Pushbullet</a></td>
+						<td>B, C</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+				<a href="setup_Google_IFTTT_Pushover.html">a Google Assistant device with 
+				IFTTT and Pushover</a></td>
+						<td>B, C</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px">
+						<br>
+						<a href="setup_mqtt.html">MQTTT</a></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px"><a href="#part3">the Windows 
+						command line</a></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td style="width: 383px"><a href="#part4">Push2Run itself.</a></td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				&nbsp;&nbsp; &nbsp;<br>
+              </td>
+              <td style="height: 22px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="width: 763px; height: 22px;">
+                <strong>Misc. Notes:<br><br>A. For all Apple iPhone/iPad set ups:<br><br></strong>Please also see '<a href="everything.html">Using 
+				Everything</a>' for optional intergration with the Everything 
+		  freeware file search utility<strong>.<br><br>B. For all set ups involving 
+		  IFTTT:<br><br></strong>As of September 2020 it's is possible to set up Push2Run to use one, two or three of the Dropbox, Pushbullet and Pushover services in conjunction with IFTTT.&nbsp; However, for this you will require a subscription to <a href="https://ifttt.com/plans">IFTTT's Pro service</a>.<br>
+                <br>
+                IFTTT's Pro service provides for several advantages, but in particular for use with Push2Run it allows the triggering of more than one action.&nbsp;<br>
+                <br>
+                The reason you might want to do this is for redundancy.&nbsp; For example, if one of Dropbox, Pushbullet or Pushover was down or responding slowly, triggered actions would still flow through the other two.&nbsp;&nbsp;<br>
+                <br>
+                Push2Run has built in logic to ignore multiple triggered actions for the same thing. So, in short, Push2Run works the same with or without redundant services, however it is more reliable with redundant services enabled.<br>
+                <br>
+                To set up an IFTTT Pro applet just follow the instructions above for setting up a Dropbox, Pushbullet, or Pushover applet. Once done, add either one or two of the other services as additional actions.&nbsp; Please refer to the 
+		  set up instructions above for the details on how to set up each service.<br>
+				<br>** currently there seems to be an issue with IFTTT and 
+				Google such that newly entered IFTTT applets may not work 
+				unless you go into the Google Home app on your phone and relink 
+				the IFTTT service. To do this, when you are in your Google Home 
+				app, tap on the '+' sign at the top right of the screen, tap on 
+				'Set up device', tap on 'Works with Google', tap on 'IFTTT', tap 
+				on Reconnect account', tap on 'Continue', after which time you 
+				can leave the Google Home app. **<br><br><strong>C. For all set ups 
+				involving Google Assistant device:</strong><br><br>In working 
+				with my Google Assistant device and IFTTT, I found a way to say 
+				"OK Google, do something" instead of "OK Google, activate do 
+				something" and have it work. <br><br>If you would like to do 
+				this too, then to get this to work go into the Google Home app 
+				on your phone, tap the 'Routines' icon, tap the colourful '+' 
+				sign in the bottom right of the screen, tap 'Add Starter', tap 
+				'When I say to Google Assistant', enter phase you are working 
+				with but do not include the word 'activate' - for example "open 
+				the calculator" (without the quotes), tap 'Add starter', tap 
+				'Add Action', tap 'Try adding your own', enter the same phase as 
+				above but this time be sure to include the 'activate' at the 
+				beginning of it - for example "activate open the calculator" 
+				(without the quotes), tap 'Done'. <br><br>Of note, with the 
+				above Google will not respond with a confirmation. If you would 
+				like to also hear a confirmation, then tap on 'Add action', tap 
+				on 'Communicate and announce', tap on the check box beside 'Make 
+				an announcement, tap on the option 'Announce on the device that 
+				started the routine', enter whatever you want in 'Your Message' 
+				- for example "OK, opening the calculator", tap on the check 
+				symbol at the top right of the screen, tap 'Save', tap 'Done'.
+				<br><br>Tap 'Save', and leave the Google Home app. <br><br>After 
+				that, I can say "OK Google, open the calculator" and it will 
+				work. <br>&nbsp;
+              </td>
+              <td style="height: 22px;"></td>
+            </tr>
+          </table>
+          <hr style="width: 747px; height: 2px;">
+          <br>
+          <span class="auto-style10"><a name="part3" id="part3"></a>Triggering with the Windows command line</span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+          <br>
+          Push2Run does not need any configuration to allow it to trigger actions from the command line.<br>
+          <br>
+          To open the Windows command line, just press the [Windows] and [R] keys together at the same time, and enter:<br>
+          cmd<br>
+          <br>
+          So for example, out of the box, from the Windows Command line you can simply type:<br>
+          <br>
+          "C:\Program Files\Push2Run\Push2Run" open the calculator<br>
+          <br>
+          and it will work.<span class="auto-style14"><span class="auto-style13"><br><br>
+          <hr style="width: 747px; height: 2px;">
+          <br>
+		  <span class="auto-style10"><a name="part4" id="part4"></a>Triggering by using Push2Run itself</span>&nbsp;<br><br>From within the Push2Run main 
+		  window, you can run any card&nbsp; by left clicking on it and pressing 
+		  F12 or by selecting 'Actions' - 'Run' from the main menu.&nbsp; <br>
+		  <br>You can also run it by right clicking on it, and selecting 'Run'</span></span>.<br><br>
+        </td>
+      </tr>
+      <tr>
+        <td class="style18">&nbsp;</td>
+        <td class="style13" colspan="3" valign="top">
+          &nbsp;</td>
+      </tr>
+      <tr>
+        <td class="style18">&nbsp;</td>
+        <td class="style13" colspan="3" valign="top">
+          <hr style="width: 747px; height: 2px;">
+          </td>
+      </tr>
+      <tr>
+        <td class="style18">&nbsp;</td>
+        <td class="style18" colspan="3">
+          <br>
+          <strong>For additional help</strong><br>
+          <br>
+          Please see the <a href="help_v4.8.0.0.html">Push2Run Help webpage</a>.
+        </td>
+      </tr>
+      <tr>
+        <td class="style1">&nbsp;</td>
+        <td class="style1" colspan="3"><span class="textstyle0" style="font-family: Arial;"><span class="style13">&nbsp;</span></span></td>
+      </tr>
+      <tr>
+        <td class="style10">&nbsp;</td>
+        <td class="style10" colspan="3">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style10">&nbsp;</td>
+        <td class="style10" colspan="3">
+          <script type="text/plain" cookie-consent="targeting" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Horizontal 728x90 --><ins class="adsbygoogle" data-ad-client="ca-pub-5016632661961945" data-ad-slot="3954089027" style="display:inline-block;width:728px;height:90px"></ins> 
+          <script type="text/plain" cookie-consent="targeting">
+
+          ( adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td class="style10">&nbsp;</td>
+        <td class="style10" colspan="3">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style1">&nbsp;</td>
+        <td class="style1"><span style="font-family: Arial;"><small><big><a href="mailto:info@push2run.com">info@push2run.com</a></big></small></span></td>
+        <td class="style1">&nbsp;</td>
+        <td class="style16"><span style="font-family: Arial;">Copyright &#169; 2018 - 2024 Rob Latour</span></td>
+      </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+        <td colspan="3" valign="top">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style10" valign="top">&nbsp;</td>
+        <td class="style10" colspan="3" valign="top"><span class="style11 style13">Other great software by Rob Latour:<br>
+        &nbsp;&nbsp; <a href="https://www.arulerforwindows.com/index.html?push2run">A Ruler for Windows</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/aformfiller/index.html?push2run">A Form Filler</a>&nbsp;&nbsp; <a href="https://www.callclerk.com/index.html?push2run">CallClerk</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/concentration/index.html?push2run">Concentration</a>&nbsp; <a href=
+        "https://www.rlatour.com/fml/index.html?push2run">FixMyLocation</a>&nbsp;<br>
+        &nbsp; <a href="https://www.rlatour.com/myarp/index.html?push2run">MyArp</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/r4r/index.html?push2run">Reporting for Rackspace</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/s-controller/index.html?push2run">S-Controller</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/setvol/index.html?push2run">SetVol</a>&nbsp;&nbsp; <a href=
+        "https://www.udprun.com/index.html?push2run">UDPRun</a>&nbsp;&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+        <td colspan="3" valign="top">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+    </tbody>
+  </table><!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
+  <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script> 
+  <script type="text/javascript" charset="UTF-8">
+
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"rlatour.com","website_privacy_policy_url":"https://rlatour.com/privacy.html"});
+  });
+  </script> <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="nofollow noopener">Free Privacy Policy Generator website</a></noscript> <!-- End Cookie Consent -->
+</body>
+</html>

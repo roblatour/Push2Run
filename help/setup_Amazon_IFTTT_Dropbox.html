@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.8.0">
+  <title>Push2Run - Setup instructions for Pushover</title>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="Control computer using Google Assistant, Setup, home automation" name="keywords">
+  <meta content="Push2Run setup instructions" name="description">
+  <meta http-equiv="content-language" content="en">
+  <link href="lightbox/css/lightbox.css" rel="stylesheet">
+  <style type="text/css">
+    .style1 {
+                text-align: left;
+            }
+            .style10 {
+                text-align: center;
+            }
+            .style11 {
+                font-size: small;
+            }
+            .style13 {
+                font-family: Arial;
+            }
+            .style15 {
+                font-family: Arial;
+                font-size: small;
+            }
+            .style16 {
+                text-align: right;
+            }
+            .style17 {
+                border-width: 0;
+            }
+            .style18 {
+                text-align: left;
+                font-family: Arial;
+            }
+            .style19 {
+                margin-left: 1px;
+                margin-right: 1px;
+            }
+            p.center
+        {margin-right:0cm;
+        margin-left:0cm;
+        font-size:12.0pt;
+        font-family:"Times New Roman",serif;
+        }
+    .auto-style1 {
+        text-decoration: underline;
+  }
+  .auto-style2 {
+        color: #0000FF;
+  }
+  .auto-style3 {
+        margin-left: 40px;
+  }
+  </style><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script type="text/plain" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-M8NJYSMS76"></script>
+  <script type="text/plain" cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M8NJYSMS76');
+  </script>
+</head>
+<body>
+  <table border="0" cellpadding="0" style="width: 752px; height: 615px; text-align: left; margin-left: auto; margin-right: auto;" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="text-align: center;">&nbsp;</td>
+        <td colspan="3" style="text-align: center;">
+          <h1 class="style10"><span style="font-family: Arial;"><a href="https://push2run.com/index.html">Push2Run</a> <span class="style11">
+		  set up for using an Amazon Alexa Device with IFTTT and Dropbox</span></span></h1>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">&nbsp;</td>
+        <td colspan="3" style="text-align: center;">
+          <hr style="width: 747px; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style18">&nbsp;</td>
+        <td class="style13" colspan="3" valign="top">
+          Welcome to the Push2Run set up page for using an Amazon Alexa device 
+		  with IFTTT and Dropbox.<br>
+          <br>
+          Of note, Push2Run is not released nor supported by Amazon, IFTTT or Dropbox.<br>
+          <br>
+          This page explains how to setup Push2Run and control your Windows computer using 
+		  an Amazon Alexa device, IFTTT and Dropbox.<br>
+          <br>
+          The example below shows you how to open the Windows calculator on your 
+		  PC or laptop.<br>
+          &nbsp;<br>
+          <strong>What you will need, a:<br>
+          &nbsp;</strong><br>
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 23px">&nbsp;</td>
+              <td>
+                1. Amazon Alexa device<br>
+                <br>
+                2. Windows computer<br>
+                <br>
+                3. (free or paid) account with <a href="https://www.dropbox.com/individual/plans-comparison">Dropbox</a><br>
+                <br>
+                4. (free) copy of <a href="https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/Push2RunSetup.exe">Push2Run</a><br>
+                <br>
+                5. (free) account with <a href="https://ifttt.com">IFTTT</a> 
+				(note: a free IFTTT account only allows you to create two 
+				applets / Push2Run commands) <br>
+                &nbsp;
+              </td>
+            </tr>
+          </table><strong><br>
+          What to do:<br></strong><br>
+          Now comes the part that's kind of like <a href="https://en.wikipedia.org/wiki/Mouse_Trap_(game)">Mousetrap</a>, here is how it all fits together ...<br>
+          <br>
+          <table style="width: 100%">
+            <tr>
+              <td valign="top">1.</td>
+              <td>
+                Signup for a Dropbox account at the <a href="https://www.dropbox.com/">Dropbox website</a> and then download and install the <a href="https://www.dropbox.com/install">Dropbox software</a> on your computer<br>
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td valign="top">2.</td>
+              <td>Install and run Push2Run on your PC or Laptop<br>
+              <br>
+              When Push2Run is first run you should be prompted to setup up Dropbox, Pushbullet, Pushover, or MQTT; these instructions explain how to setup Dropbox.<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">3.</td>
+              <td>On the Push2Run - Options window, in the Dropbox settings:<br>
+              <br>
+              -&nbsp; check 'Enable Dropbox'<br>
+              <br>
+              - enter a Dropbox folder path specific to use with Push2Run.&nbsp; The folder name can be anything you want on your local Dropbox drive, and be more than one layer down (as in the example below - where it is folder called Push2Run inside another folder called Apps).&nbsp; The Dropbox folder path entered here should end in a "\" (without the quotes.&nbsp; Please enter the Dropbox
+              folder path including the drive letter (as seen below).&nbsp; You need to remember what you set up here for step 14 below.<br>
+              <br>
+              - enter a file name specific for use with Dropbox.&nbsp; The default is Command.txt but it can be anything you want.&nbsp; You need to remember what you set up here for step 14 below.<br>
+              <br>
+              -&nbsp;leave the Device name set to its default value (although you can change it if you like) - this too is also used in step 14 below.<br>
+              <br></td>
+            </tr>
+          </table>&nbsp;<br>
+          <table style="width: 100%">
+            <tr>
+              <td>&nbsp;</td>
+              <td><img alt="Push2Run Pushbullet Options window" height="328" src="../images/optionsdropbox.jpg" width="781"></td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>&nbsp;<br>
+          &nbsp;&nbsp;- click OK to close the Options window<br>
+          <br>
+          <table style="width: 100%">
+            <tr>
+              <td valign="top">4.</td>
+              <td>
+                Sign onto <a href="https://ifttt.com">IFTTT</a><br>
+                &nbsp;<br>
+                Notes:<br>
+                <br>
+                a) if you don't already have an IFTTT account, you will need to click on 'Sign up' to create one; its easiest if you sign on using your gmail account via the 'Continue with Google' option<br>
+                <br>
+                b) if you haven't already linked your amazon device, click on the icon of a person's head (top right), click on 'My 
+				Services' - from this window link your Amazon Alexa account to IFTTT. 
+				<br><br>You should also link your Dropbox account; if you don't 
+				do this now you will be prompted to do this in step 14.<br>
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top">5.</td>
+              <td>&nbsp;In IFTTT click on the icon of a person's head (top right), click on 'Create',<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">6.</td>
+              <td>&nbsp;On the IFTTT "Create" window, click on the "<strong>+ this</strong>" in the "<strong>if + this then that</strong>",<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">7.</td>
+              <td>In the search for services, search for "Amazon Alexa" and select it,<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">8.</td>
+              <td>Select "Say a specific phrase"<br>
+              <br>
+              <img alt="text ingredient" height="943" longdesc="text ingredient" src="../images/AmazonSayASpecificPhrase.jpg" width="976"><br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">9.</td>
+              <td>Select your linked account and enter a phrase which you will 
+			  use to trigger the action in Push2Run:</td>
+            </tr>
+          </table>&nbsp;&nbsp;<br>
+          <table style="width: 100%">
+            <tr>
+              <td class="style10"><span style="font-family: Arial">
+			  <img alt="instructions - 1" src="../images/AmazonSayASpecificPhraseForm.jpg" height="943" width="976" longdesc="instructions - 1"></span></td>
+            </tr>
+          </table>
+          <p class="auto-style3">Note: the phrase is part of what you will 
+		  say when you want to run this specific action.&nbsp; In the example 
+		  above, it is "open the calculator" but of course it can be something 
+		  else.&nbsp;1<br></p>
+          <table style="width: 100%">
+            <tr>
+              <td valign="top">10</td>
+              <td>&nbsp;Click on "Create trigger",<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">11.</td>
+              <td>Click on "<strong>then that</strong>" in the "<strong>if + this then that</strong>",<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">12.</td>
+              <td>Click on Dropbox,<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">13.</td>
+              <td>Click on 'Create a text file',<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top">14.<br></td>
+              <td>Complete the IFTTT-Pushover 'Complete action fields' window as below<br>
+              <br>
+              <strong>Notes:<br>
+              <br>
+              Linking you Dropbox account:<br></strong>If you have not linked your Dropbox account to IFTTT before, you will be prompted to do so in this step.<br>
+              <br><strong>Dropbox Account:<br></strong>select your dropbox 
+			  account from the dropdown field<strong> <br></strong>
+              <br>
+              <strong>the File name field:</strong><br>
+              should have the same value as was used in step 3 above.&nbsp; The default is:<br>
+              Command.txt<br>
+              <br>
+              <strong>the Content field:</strong><br>
+              should contain:<br>
+              the Device name you used in step 3 above.&nbsp; It should be followed by "&lt;br&gt;" without the quotes as shown below,<br>
+              followed by the IFTTT ingredient {{SceneName}} and by "&lt;br&gt;" without the quotes as shown below,<br>
+              followed by the IFTTT ingredient {{ActivatedAt}} and by "&lt;br&gt;" without the quotes as shown below.<br>
+			  (do not have any blank or extra lines after that)<br>
+              <br>
+              <strong>the Dropbox folder path:</strong><br>
+              should contain the part of the folder path used in step 3 above which <strong>follows ....\Dropbox\<br></strong>the Dropbox folder path used here should <strong>not</strong> end in a slash.<br>
+              <br>
+              Please see the screenshot below for greater clarity.<br>
+              <br>
+              <span class="auto-style2"><strong>*** Important ***</strong></span> If you include a slash in the Dropbox folder path as in the screen shot below, please make sure it is a forward slash ("/") <span class="auto-style1">not</span> a backslash ("\").&nbsp; If you use a forward slash your IFTTT applet will work, if you use a backslash it will not work and you will get an error message
+              in your IFTTT activity history that says the Applet failed and there was a problem with the Dropbox service (but no other clue as to what the problem may be).<br>
+              <br>
+              <br></td>
+            </tr>
+          </table>&nbsp;<br>
+          <table style="width: 100%">
+            <tr>
+              <td class="style10"><img alt="instructions - 2" src="../images/Dropboxsetup.jpg"></td>
+            </tr>
+          </table><br>
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 27px" valign="top">15.</td>
+              <td>Click on "Create action",<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td style="width: 27px" valign="top">16.</td>
+              <td>Click "Finish",<br>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td style="width: 27px" valign="top">17.</td>
+              <td>Give it a try by saying to your Amazon device<br>
+              &nbsp;<br>
+              "<strong>Alexa trigger open the calculator</strong>".</td>
+            </tr>
+            <tr>
+              <td style="width: 27px" valign="top">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+          Note: depending on the virus software you are running, when Push2Run first attempts to access your Dropbox folder you may be prompted to give it permission to do so.&nbsp; When working with Dropbox Push2Run only works with the Dropbox folder path and filename you specify (in step 3 above).<br>
+        </td>
+      </tr>
+      <tr>
+        <td class="style18">&nbsp;</td>
+        <td class="style18" colspan="3">
+          <br>
+          <strong>For additional help</strong><br>
+          <br>
+          Please see the <a href="help_v4.8.0.0.html">Push2Run Help webpage</a>.
+        </td>
+      </tr>
+      <tr>
+        <td class="style1">&nbsp;</td>
+        <td class="style1" colspan="3"><span class="textstyle0" style="font-family: Arial;"><span class="style13">&nbsp;</span></span></td>
+      </tr>
+      <tr>
+        <td class="style10">&nbsp;</td>
+        <td class="style10" colspan="3">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style10">&nbsp;</td>
+        <td class="style10" colspan="3">
+          <script type="text/plain" cookie-consent="targeting" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Horizontal 728x90 --><ins class="adsbygoogle" data-ad-client="ca-pub-5016632661961945" data-ad-slot="3954089027" style="display:inline-block;width:728px;height:90px"></ins> 
+          <script type="text/plain" cookie-consent="targeting">
+
+          ( adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td class="style10">&nbsp;</td>
+        <td class="style10" colspan="3">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style1">&nbsp;</td>
+        <td class="style1"><span style="font-family: Arial;"><small><big><a href="mailto:info@push2run.com">info@push2run.com</a></big></small></span></td>
+        <td class="style1">&nbsp;</td>
+        <td class="style16"><span style="font-family: Arial;">Copyright &#169; 2018 - 2024 Rob Latour</span></td>
+      </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+        <td colspan="3" valign="top">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+      <tr>
+        <td class="style10" valign="top">&nbsp;</td>
+        <td class="style10" colspan="3" valign="top"><span class="style11 style13">Other great software by Rob Latour:<br>
+        &nbsp;&nbsp; <a href="https://www.arulerforwindows.com/index.html?push2run">A Ruler for Windows</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/aformfiller/index.html?push2run">A Form Filler</a>&nbsp;&nbsp; <a href="https://www.callclerk.com/index.html?push2run">CallClerk</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/concentration/index.html?push2run">Concentration</a>&nbsp; <a href=
+        "https://www.rlatour.com/fml/index.html?push2run">FixMyLocation</a>&nbsp;<br>
+        &nbsp; <a href="https://www.rlatour.com/myarp/index.html?push2run">MyArp</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/r4r/index.html?push2run">Reporting for Rackspace</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/s-controller/index.html?push2run">S-Controller</a>&nbsp;&nbsp; <a href="https://www.rlatour.com/setvol/index.html?push2run">SetVol</a>&nbsp;&nbsp; <a href=
+        "https://www.udprun.com/index.html?push2run">UDPRun</a>&nbsp;&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+        <td colspan="3" valign="top">
+          <hr style="width: 100%; height: 2px;">
+        </td>
+      </tr>
+    </tbody>
+  </table><!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
+  <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script> 
+  <script type="text/javascript" charset="UTF-8">
+
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"rlatour.com","website_privacy_policy_url":"https://rlatour.com/privacy.html"});
+  });
+  </script> <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="nofollow noopener">Free Privacy Policy Generator website</a></noscript> <!-- End Cookie Consent -->
+</body>
+</html>
