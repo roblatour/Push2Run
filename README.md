@@ -31,11 +31,13 @@ You're welcome to use Push2Run for free on as many computers as you like!
  	 	 
 Push2Run is funded by kind donations from people such as yourself.
 
- ## Help Documentation
+ ## Setup 
 
+ ## Help
 
+ ## Download
 
- ## Support
+ ## Support Push2Run
 
 [<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
  
