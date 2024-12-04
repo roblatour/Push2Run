@@ -559,9 +559,10 @@ If you are curious as to what is stored in these files, you can open them using 
 You can run Push2Run itself from the command line and pass into the program, even if it is currently running, a phrase that Push2Run has been set up to listen for.  For example, from the windows cmd window, from the Push2Run program directory, you can enter:  
 **c:\\Program Files\\Push2Run>Push2Run open the calculator**
 
+* * *
+ ## Support Push2Run
 
-* * * 
-## Support Push2Run
+ To help support Push2Run, or to just say thanks, you're welcome to 'buy me a coffee'<br><br>
 [<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
 * * *
 Copyright © 2018 - 2024 Rob Latour

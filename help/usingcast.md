@@ -103,77 +103,15 @@ i. you will need to change the location of the cast.exe program if it was not in
 ii. in the above example, cast will broadcast the text to all your Google Devices.  If you want to broadcast your text to specific devices only, in the parameters field you would enter the same type of command as is shown in Step 3 above (but exclude the word Cast).  For example you would enter in the parameters field:  
 \-device "Office Home" "Basement Mini" -text yes, your computer is on  
   
-iii. the [Push2Run Setup Instructions](setup.html) show you how to create an IFTTT applet that is triggered by the expression, "OK Google tell my computer to $".    However, in this example you find it better to create another IFTTT applet that is triggered by the expression, "OK Google ask my computer if it is on" and has a fixed PushBullet body text of "if it is on".   
-
- 
-
- 
+iii. the [Push2Run Setup Instructions](setup.md) show you how to create an IFTTT applet that is triggered by the expression, "OK Google tell my computer to $".    However, in this example you find it better to create another IFTTT applet that is triggered by the expression, "OK Google ask my computer if it is on" and has a fixed PushBullet body text of "if it is on".   
 
 That's it, hope this write up will be of use to you.  
 
-(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')\[0\]; s.parentNode.insertBefore(po, s); })(); window.dataLayer = window.dataLayer || \[\]; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-1232692-8');
-
-  
-Questions or comments can be posted on the [Push2Run Community Forum](https://www.push2run.com/phpbb/)
-
- 
-
- 
-
 * * *
+ ## Support Push2Run
 
- 
-
-**You're welcome to download and use Push2Run for free on as many computers as you like!** 
-
- 
-
+ To help support Push2Run, or to just say thanks, you're welcome to 'buy me a coffee'<br><br>
+[<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
 * * *
-
- 
-
- 
-
+Copyright © 2018 - 2024 Rob Latour
 * * *
-
- 
-
-  
-
-[Click here to download Push2Run](https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/Push2RunSetup.exe)  
-  
-  
-[PayPal donations are very much appreciated](donate.html)
-
- 
-
- 
-
-* * *
-
- 
-
-[info@push2run.com](mailto:info@push2run.com)
-
- 
-
-Copyright © 2018 - 2020, Rob Latour.  
-All Rights Reserved.
-
- 
-
-* * *
-
- 
-
-Other great software by Rob Latour:  
-   [A Ruler for Windows](https://www.arulerforwindows.com/index.html?push2run)   [A Form Filler](https://www.rlatour.com/aformfiller/index.html?push2run)   [CallClerk](https://www.callclerk.com/index.html?push2run)   [Concentration](https://www.rlatour.com/concentration/index.html?push2run)  [FixMyLocation](https://www.rlatour.com/fml/index.html?push2run)   
-  [MyArp](https://www.rlatour.com/myarp/index.html?push2run)   [Reporting for Rackspace](https://www.rlatour.com/r4r/index.html?push2run)   [S-Controller](https://www.rlatour.com/s-controller/index.html?push2run)   [SetVol](https://www.rlatour.com/setvol/index.html?push2run)   [UDPRun](https://www.udprun.com/index.html?push2run)  
-
- 
-
-* * *
-
-document.addEventListener('DOMContentLoaded', function () { cookieconsent.run({"notice\_banner\_type":"simple","consent\_type":"express","palette":"light","language":"en","page\_load\_consent\_levels":\["strictly-necessary"\],"notice\_banner\_reject\_button\_hide":false,"preferences\_center\_close\_button\_hide":false,"page\_refresh\_confirmation\_buttons":false,"website\_name":"rlatour.com","website\_privacy\_policy\_url":"https://rlatour.com/privacy.html"}); });
-
-Cookie Consent by [Free Privacy Policy Generator website](https://www.freeprivacypolicy.com/)
