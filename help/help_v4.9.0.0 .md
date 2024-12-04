@@ -17,6 +17,7 @@ For an example of how to send a custom text, as words to be spoken, to your Goog
 For the community forum, please see [the community support forum](https://www.push2run.com/phpbb/)
 <br>For the version history, please see [the Push2Run Version History page](versionhistory.md).<br>
 
+<a name="overview" id="overview"></a>
 **An overview of Push2Run**  
   
 Push2Run is free program which allows you to control your Windows computer based on voice commands given to your Apple iPhone/iPad, Amazon Alexa, Google Assistant (Google Home, Google Mini, Google Max, or smart phone running Google Assistant) with the help of [IFTTT](https://ifttt.com/) and [Pushbullet](https://www.pushbullet.com/), [Pushover](https://pushover.net/), [Dropbox](https://www.dropbox.com/) and or MQTT.  You can also give it commands via the Windows command line, batch or script files.  
@@ -30,7 +31,8 @@ With an Apple iPhone/iPad setup you can also do all of that, plus use variable p
 With MQTT, you can have Push2Run subscribe to topics on your MQTT server and react to them as they are published.  
   
 As you can give these commands via your iPhone/iPad, Amazon Alexa, or Google Assistant you don’t even need to be at your computer to do so.   Handy for giving certain commands from another room or place.  
-  
+
+<a name="icon" id="icon"></a>
 **The Push2Run icon on your screen and in your systray** ![Push2Run icon](../images/Push2RunIcon128x128.jpg)To start Push2Run you can click on the Push2Run icon on your desktop (if you have it there) or in the list of your Windows programs accessible from the Windows' start icon.   
   
 The program may also be started automatically when you sign onto Windows based on your choice in the program's Options window.    
