@@ -1,26 +1,25 @@
 # Push2Run Help v4.9
 
-
-Welcome to the Push2Run version 4.8.3 Help page.<br><br>
-This page covers the following:<br>
+Welcome to the Push2Run version 4.9 Help page.<br>
+## This page covers the following:<br>
 [An overview of Push2Run](#overview)<br>
 [The Push2Run icon on your screen and in your systray](#icon)<br>
-[The Main window](#main) [The Options window](#options)<br>
+[The Main window](#main) 
+[The Options window](#options)<br>
 [The Add/Change window](#change)<br>
 [The Session log window](#sessionlog)<br>
 [The About/Help window](#help)<br>
 [Performing actions when there are no matching or enabled phrases](#nomatch)<br>
-[Using Push2Run from the command line](#command)<br><br>
-**Other topics:**  
-For first time setup, please see [the Push2Run Setup page](setup.html)<br>
-For an example of how to send a custom text, as words to be spoken, to your Google device please see this [how to page](https://www.push2run.com/usingcast.html)<br>
-For the community forum, please see [the community support forum](https://www.push2run.com/phpbb/)
+[Dragging and Dropping vs Importing and Exporting](#dragging)<br>
+[Using Push2Run from the command line](#command)<br>
+## Other topics
+For first time setup, please see [the Push2Run Setup page](setup.md)<br>
+For an example of how to send a custom text, as words to be spoken, to your Google device please see this [how to page](usingcast.md)
 <br>For the version history, please see [the Push2Run Version History page](versionhistory.md).<br>
 
 <a name="overview" id="overview"></a>
-**An overview of Push2Run**  
-  
-Push2Run is free program which allows you to control your Windows computer based on voice commands given to your Apple iPhone/iPad, Amazon Alexa, Google Assistant (Google Home, Google Mini, Google Max, or smart phone running Google Assistant) with the help of [IFTTT](https://ifttt.com/) and [Pushbullet](https://www.pushbullet.com/), [Pushover](https://pushover.net/), [Dropbox](https://www.dropbox.com/) and or MQTT.  You can also give it commands via the Windows command line, batch or script files.  
+## An overview of Push2Run
+Push2Run is free program which allows you to control your Windows computer based on voice commands given to your Apple iPhone/iPad, Amazon Alexa, Google Assistant (Google Home, Google Mini, Google Max, or smart phone running Google Assistant) with the help of [IFTTT](https://ifttt.com/) and [Pushbullet](https://www.pushbullet.com/), [Pushover](https://pushover.net/), [Dropbox](https://www.dropbox.com/) and or [MQTT](https://en.wikipedia.org/wiki/MQTT).  You can also give it commands via the Windows command line, batch or script files.  
   
 With Push2Run you will be able to say things like "Siri tell my computer to" / "Alexa trigger" / "OK Google action" ... "check the CBC news website", "open my budget", "run a quick backup" or "shutdown my computer".  
   
@@ -33,20 +32,24 @@ With MQTT, you can have Push2Run subscribe to topics on your MQTT server and rea
 As you can give these commands via your iPhone/iPad, Amazon Alexa, or Google Assistant you don’t even need to be at your computer to do so.   Handy for giving certain commands from another room or place.  
 
 <a name="icon" id="icon"></a>
-**The Push2Run icon on your screen and in your systray** ![Push2Run icon](../images/Push2RunIcon128x128.jpg)To start Push2Run you can click on the Push2Run icon on your desktop (if you have it there) or in the list of your Windows programs accessible from the Windows' start icon.   
+## The Push2Run icon on your screen and in your systray
+![Push2Run icon](../images/Push2RunIcon128x128.jpg)<br>To start Push2Run you can click on the Push2Run icon on your desktop (if you have it there) or in the list of your Windows programs accessible from the Windows' start icon.   
   
 The program may also be started automatically when you sign onto Windows based on your choice in the program's Options window.    
   
 When running, the Push2run icon will appear in your systray (usually found in the bottom right hand side of your screen, near your system clock).  Double clicking on the Push2Run icon on your screen or in your systray will cause the Push2Run Main window to open.  Left clicking on the Push2run systray icon the program will provide you quick menu of Push2Run windows to open.  Another option you will see when you left click on the Push2run systray icon is the option to Pause.  You can toggle the Pause option on or off - it is the same as turning the master switch off or on.  
   
-When Push2Run is running normally the background of the Push2Run systray icon will be white.  However, if the master switch is turned off, the systray Pause option is checked, or if the program is not connected to Pushbullet then the background of the Push2run systray icon will be red. **The Main window  
-****![Push2Run Main window](../images/screenshotv32.jpg)**
+When Push2Run is running normally the background of the Push2Run systray icon will be white.  However, if the master switch is turned off, the systray Pause option is checked, or if the program is not connected to Pushbullet then the background of the Push2run systray icon will be red.
+
+## The Main window
+<a name="main" id="main"></a>
+![Push2Run Main window](../images/screenshotv32.jpg)
 
 The Main window allows you to add, change and remove what Push2Run listens for and how it reacts to what it hears.  The Main window also allows you to tailor what information is shown and how.  As well, it provides access to the session log and help / about windows.  
   
-**What Push2Run listens for and how it reacts to what it hears  
+### What Push2Run listens for and how it reacts to what it hears 
   
-**Push2Run listens for specific phrases, and when it hears them runs the commands / programs you tell it to.  
+Push2Run listens for specific phrases, and when it hears them runs the commands / programs you tell it to.  
   
 From the Main window you can toggle on and off the monitoring all at once or individually by command.  
   
@@ -58,7 +61,7 @@ Monitoring of individual command can be turned on and off by clicking their asso
   
 Individual commands can be added, changed, and removed via the Actions item on the Main windows' menu bar, this is described in more detail below.  
   
-**What is shown on the Main window**  
+### What is shown on the Main window
   
 The Main window also allows you to arrange/organize the order of what it is monitored, as well as the information displayed on each line.  
   
@@ -69,27 +72,22 @@ Along the top of the Main window there is a menu bar.  In the menu bar there ar
 | --- | --- | --- | --- |
 | **Under the 'File' menu item you can:** |     |     |     |
 | **Set Options** |     | Click 'Options' to open the Options window. |     |
-| **Import cards into Push2Run** |     | Click 'Import' to import cards into the Push2Run database.  <br>  <br>Duplicate cards - Push2Run cards being imported and which are already in the database will be ignored, even if the description of the card is different.  <br>  <br>If the Action 'Sort by description' is checked the imported cards will appear on the Main window sorted in alphabetically based on their description along with the cards already in the database.   If the Action 'Sort by description' is not checked, the imported cards will be shown at the bottom of the main  window.  <br>  <br>You can also import cards by dragging and dropping a Push2Run export file into the Main window.  <br>  <br>Imported cards will be added with their On/Off switch set as per your preference in the Options - Imports window.  <br>  <br>Imported cards can have their descriptions appended with '(Imported)' as per your preference in the Options - Imports window. |     |
-| **Export all your cards from Push2Run** |     | Click 'Export' to export all your Push2Run cards into a separate export file.  <br>  <br>If the options require a password to be entered at start-up, you will be prompted to enter that password again before the export proceeds.  If you do not enter the right password (click 'Cancel' on the password entry screen) then the export will not proceed and Push2Run will exit.  <br>  <br>Of note: while the contents of your Push2Run database are encrypted, the content of the file into which the Push2Run cards are exported will NOT be encrypted.  This is important to know especially if you have any information contained in you Push2Run cards, such as a password used in the 'Keys to Send' field, which you would like to safeguard. |     |
+| **Import cards into Push2Run** |     | Click 'Import' to import cards into the Push2Run database.  <br>  <br>Duplicate cards - Push2Run cards being imported and which are already in the database will be ignored, even if the description of the card is different.  <br>  <br>If the Action 'Sort by description' is checked the imported cards will appear on the Main window sorted in alphabetically based on their description along with the cards already in the database.   If the Action 'Sort by description' is not checked, the imported cards will be shown at the bottom of the main  window.  <br>  <br>You can also import cards by dragging and dropping a Push2Run export file into the Main window.  <br>  <br>Imported cards will be added with their On/Off switch set as per your preference in the Options - Imports window.  <br>  <br>Imported cards can have their descriptions appended with '(Imported)' as per your preference in the Options - Imports window. |     | | 
+**Export all your cards from Push2Run** |     | Click 'Export' to export all your Push2Run cards into a separate export file.  <br>  <br>If the options require a password to be entered at start-up, you will be prompted to enter that password again before the export proceeds.  If you do not enter the right password (click 'Cancel' on the password entry screen) then the export will not proceed and Push2Run will exit.  <br>  <br>Of note: while the contents of your Push2Run database are encrypted, the content of the file into which the Push2Run cards are exported will NOT be encrypted.  This is important to know especially if you have any information contained in you Push2Run cards, such as a password used in the 'Keys to Send' field, which you would like to safeguard. |     |
 | **Exit the program** |     | Click 'Exit' to stop Push2Run from running.  <br>  <br>Of note, clicking on the red 'X' in the top right of the Main window will not cause the program to exit, rather it will simply be minimized to the systray (usually found at the bottom right of the primary screen - near the system clock).  The first time you do this, a pop-up window will appear to inform you of this.  There will be an option on that window that you can select to not be reminded of this again. |     |
-|     |     |     |     |
 | **Under the 'Actions' menu item you can:** |     |     |     |
-|     |     |     |     |
 | **Arrange the  <br>order of the rows you see in the  <br>Main windows** |     | Chose to have Main window command line rows either automatically or manually arranged.  To make this choice either check or uncheck the option 'Sort by description'.  When this option is checked the command lines will be automatically sorted on an ongoing basis, when it is unchecked you will be able to arrange the command lines your self by moving them up and down, inserting blank lines, etc.. |     |
 | **Undo the effects of the last card update** |     | Click 'Undo' to undo the effects of your last update. |     |
 | **Run the currently selected card** |     | Click 'Run' to run the currently selected card.  <br>  <br>If the currently selected card requires a variable phrase, you will be prompted to enter it. |     |
 | **Change  <br>administrative  <br>privileges  <br>** |     | Change is Push to run is running with administrative privileges or not. Click on 'Actions - Give Push2Run administrator privileges' / 'Remove administrator privileges form Push2Run' to toggle between running Push2Run with or without administrator privileges.   If Push2Run is running with administrator privileges then it will be able to run other programs with administrator privileges without the Window's UAC notification prompt.  <br>  <br>Note: If you are using a version of Windows that predates Windows 10, and you have the Windows UAC feature turned off you will not see the option to change administrative privileges. |     |
-|     |     |     |     |
-| **Under the 'View' menu item you can:** |     |     |     |
-|     |     |     |     |
-| **C****hose which  <br>columns you  <br>would like  <br>to see  <br>** |     | Click on any column name to toggle if you would like that column to be shown or not; you can hide any of the columns except for the switch. |     |
+| **Under the 'View' menu item you can:** 
+| **Chose which  <br>columns you  <br>would like  <br>to see  <br>** |     | Click on any column name to toggle if you would like that column to be shown or not; you can hide any of the columns except for the switch. |     |
 | **Chose to see Cards that have been turned off** |     | With the 'View' - 'Cards that are off' option selected all Push2Run cards (those that are toggled on or off) will be shown.  However, with this feature deselected only cards that are toggled on will be shown. |     |
 | **Chose to see a filter line near the bottom of the window** |     | With the 'View' - 'Filters' option selected a line of filter boxes will appear near the bottom of the screen.  These will be aligned with the various columns of the Main window, for example: Description, Listen To, Open, etc..  <br>  <br>What is typed in a filter box is used to narrow down the rows displayed in the Main window.  For example if you want to see only entries with the word 'calculator' in the description, just type 'calculator' (without the quotes) in the filter box below the 'Description' column.   <br>  <br>The 'Clear filters' button clears all filters.  <br>  <br>Note: when the filter is on various menu options - such as add, delete, and undo will be disabled.  These will however be re-enabled when the filters are cleared. |     |
 | **Chose to  <br>see the  <br>Session Log** |     | Click on 'Session log' to toggle viewing of the Session log. |     |
-|     |     |     |     |
 | **Under the 'Help' menu item you can:** |     |     |     |
-|     |     |     |     |
 | **Chose to  <br>see the  <br>About/Help window** |     | Click on 'About/Help' to toggle viewing of the About/Help window. |     |
+|     |     |     |     |
 
  **Dragging and Dropping:** You can drag and drop both to and from the Main window.  
   
@@ -109,15 +107,18 @@ You cannot drag and drop into the Main window if Push2Run is running with admini
 **Other ways to open a Push2Run file:**  
 A Push2Run file created by dragging it from the Main window can also be opened by double clicking on it or by entering its full name (including its extension) at a Windows command prompt.  
   
- **The Options window** ![Options](../images/optionsv4.jpg)  
+<a name="options" id="options"></a> 
+## The Options window
+
+![Options](../images/optionsv4.jpg)
 In the Options window there are two panels.  You can select the option you want to work with in the first (left) panel, and then adjust their settings in the right panel (for all but the Settings and Database files option).  
   
-For first time setup, please see [the Push2Run Setup page](setup.html)  
+For first time setup, please see [the Push2Run Setup page](setup.md)  
   
-Most of the options are self explanatory.  However, some call for a bit of an explanation / context**:  
-**  
-**MQTT  
-**  
+Most of the options are self explanatory.  However, some call for a bit of an explanation / context:  
+
+#### MQTT  
+
 You may subscribe to as many MQTT topics as you like; just add these into the MQTT Topic Filter field in the MQTT Options window, with a space between each topic.  For example:  
   
     weather/temperature weather/pressure weather/humidity  
@@ -215,10 +216,10 @@ By default the password feature is turned off.  If you turn it on, you can turn
   
  
 
-|     |     |     |
-| --- | --- | --- |
-| **The Add/Change window** |     |     |
-|     | ![Add / Change window](../images/addchangev220.jpg) |     |
+<a name="change" id="change"></a> 
+## The Add/Change window
+
+![Add / Change window](../images/addchangev220.jpg)
 |     |     |     |
 | The Add/Change window is where Push2Run is setup to listen for commands and to react to them.  The following describes the Add/Change window: |     |     |
 |     |     |     |
@@ -480,7 +481,9 @@ If you launch a program with a hidden window, you may not be able to close it wi
 1\. To help fill this screen out you can drag and drop a program, file, or website short cut into one of the empty text fields on the Add/Change window.  If you do this, Push2Run will automatically fill in the empty fields in the window with what it thinks is best.  
   
 2\. [Windows Environmental Variables](help_env_vars.html) may be used in the Open, Start Directory, and Parameters fields.  
- **The Session log window** ![Push2Run Session log](../images/sessionlogv4_8.jpg)   
+<a name="sessionlog" id="sessionlog"></a>
+ ## The Session log window
+![Push2Run Session log](../images/sessionlogv4_8.jpg)   
 The Session log window keeps a running report of Push2Run's activities since the program was last started.  As new activity happens new entries are automatically added to the bottom of the log.  The Session log holds up to 10,000 lines.  After the maximum limit of lines has been reached, the oldest entries are removed to make room for the newest ones.  
   
 A button at the bottom of the window allows Auto Scrolling to be turned on or off.  With Auto Scrolling turned on the window will automatically scroll itself to keep pace with new activities, with Auto Scrolling turned off you control the scrolling using the scroll bar on the right.  
@@ -489,7 +492,9 @@ Another button at the bottom of the window allows you to copy the contents of th
   
 The 'Clear' button will clear the session log, but will not clear the log that is being written to disk if you have that option selected in the Push2Run - Options.  
    
-**The About/Help window**  ![push2run Main window](../images/abouthelpv4_8.jpg)   
+<a name="help" id="help"></a>
+## The About/Help window
+![push2run Main window](../images/abouthelpv4_9.jpg)   
 On the About / Help window you can click on various links to be opened in your default browser.   
   
 These include:
@@ -504,9 +509,9 @@ These include:
 
    **Some additional notes:**  
   
-****Performing actions when there are no matching or enabled phrases  
-**  
-**There are two reasons why Push2Run may not run the command you have given, these are:   
+**Performing actions when there are no matching or enabled phrases**
+
+There are two reasons why Push2Run may not run the command you have given, these are:
   
    1. there is no Push2Run card with a ‘Listen for’ phrase matching the command you have given, or  
   
@@ -517,8 +522,11 @@ In the above cases, by default, Push2Run does not do any additional processing, 
 In the first of the two cases above, sometimes the command you gave is interpreted and passed to Push2Run in a way that you had not expected.   For example, you may have said "tell my computer to shutdown", but instead of "shutdown" being passed over as you had expected, what was passed over was "shut down" (with the space between the two words).  Adding different 'Listen for' phrases in the same card is generally how you can solve this.  For example in a single card you can have Push2Run Listen for "shut down my computer" and "shutdown my computer" and in this way either will trigger the same action.  
   
 Accordingly, if a command did not run as expected, its a good idea to check your Push2Run - Session log to find out why.   
+
+<a name="nomatch" id="nomatch"></a>
+### Performing actions when there are no matching or enabled phrases
   
-Having that said, Push2Run also allows you to optionally use two special-use 'Listen for' phrases to tell it to do something specific when there are no matching or enabled phrases as described above.  For this you just need to add either or both of the following 'Listen for' phrases to a Push2Run card:  
+Push2Run also allows you to optionally use two special-use 'Listen for' phrases to tell it to do something specific when there are no matching or enabled phrases as described above.  For this you just need to add either or both of the following 'Listen for' phrases to a Push2Run card:  
   
     no matching phrases  
     no matching enabled phrases    
@@ -530,8 +538,9 @@ and Push2Run will run that card if the command you give doesn't match the phrase
 As with all other Push2Run cards you can use the $ symbol to substitute the words you have spoken into the 'Open' and/or 'Parameters' fields.  
   
 Also, as with all other Push2Run cards, cards containing these special-use phrases need to be turned on in the Main window in order to run.  For more information please see this [post](https://www.push2run.com/phpbb/viewtopic.php?f=9&t=951&p=2266#p2266) )**  
-  
-Dragging and Dropping vs Importing and Exporting  
+
+<a name="dragging" id="dragging"></a>  
+### Dragging and Dropping vs Importing and Exporting
   
 **When a Push2Run card is dragged from the Main window onto the desktop it creates a Push2Run file (.p2r) which works as described within the section entitled 'Dragging and Dropping' above.   
   
@@ -541,12 +550,12 @@ An Exported Push2Run file can also be opened by double clicking on it or by ente
   
 If you are curious as to what is stored in these files, you can open them using a text editor such as MS Notepad.   
   
-**  
-**The Push2Run command line**  
+<a name="command" id="command"></a>
+### The Push2Run command line
   
-**You can run Push2Run itself from the command line and pass into the program, even if it is currently running, a phrase that Push2Run has been set up to listen for.  For example, from the windows cmd window, from the Push2Run program directory, you can enter:  
-**c:\\Program Files\\Push2Run>Push2Run open the calculator  
-**  
+You can run Push2Run itself from the command line and pass into the program, even if it is currently running, a phrase that Push2Run has been set up to listen for.  For example, from the windows cmd window, from the Push2Run program directory, you can enter:  
+**c:\\Program Files\\Push2Run>Push2Run open the calculator**
+
 
 - - -
 Copyright © 2018 - 2024 Rob Latour 

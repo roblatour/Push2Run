@@ -35,6 +35,7 @@ Push2Run is funded by kind donations from people such as yourself.
 
  ## Help
 
+<a name="download" id="download"></a>
  ## Download
 
  ## Support Push2Run
