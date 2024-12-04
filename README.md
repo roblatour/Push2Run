@@ -33,13 +33,22 @@ Push2Run is funded by kind donations from people such as yourself.
 
  ## Setup 
 
+For information on how to setup Push2Run please [click here](https://github.com/roblatour/Push2Run/blob/main/help/setup.md)
+
  ## Help
+
+For detaild help information please [click here](https://github.com/roblatour/Push2Run/blob/main/help/help_v4.9.0.0.md)
 
 <a name="download" id="download"></a>
  ## Download
 
+ To download the Push2Run Windows installer file please [click here](https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/Push2RunSetup.exe)
+
+* * *
  ## Support Push2Run
 
+ To help support Push2Run, or to just say thanks, you're welcome to 'buy me a coffee'<br><br>
 [<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
- 
-
+* * *
+Copyright © 2018 - 2024 Rob Latour
+* * *
