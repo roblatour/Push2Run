@@ -73,6 +73,9 @@ This page details the changes made with various versions of Push2Run.
 1 | 2018-01-20 | initial release
 </div>
 
-* * *  
-
-Copyright © 2018 - 2024 Rob Latour.  
+* * *
+ ## Support Push2Run
+[<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
+* * *
+Copyright © 2018 - 2024 Rob Latour
+* * *

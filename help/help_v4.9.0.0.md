@@ -134,9 +134,9 @@ For now, Push2Run's MQTT feature only works with normal MQTT messaging.  That i
   
 **Using Pushbullet, Pushover, and Dropbox**  
   
-You can use one or more of the following services in conjunction with IFTTT to trigger Push2Run processing:  Pushbullet, Pushover, and Dropbox.   To use a service, click on the appropriate option on the left panel of the option window, and then on the right panel check the option to enable it.  
- **  
-Pushbullet - Access Token** - you get this from Pushbullet website - Settings - Access Tokens   
+You can use one or more of the following services in conjunction with IFTTT to trigger Push2Run processing:  Pushbullet, Pushover, and Dropbox.   To use a service, click on the appropriate option on the left panel of the option window, and then on the right panel check the option to enable it.<br>
+
+**Pushbullet - Access Token** - you get this from Pushbullet website - Settings - Access Tokens   
   
 **Pushbullet - Title Filter -** this is the phrase you use when setting up IFTTT, it separates pushes to be handled by Push2Run from all other pushes.   
   
@@ -190,20 +190,23 @@ Separating words in the list are separated by a comma.
   
 Separating words are ignored by commands using the $ in the listen for phrase.  
   
-For a deeper explanation of this, you are welcome to review the following YouTube video: [https://youtu.be/mDwJ2fT8rBE](https://youtu.be/mDwJ2fT8rBE)  
-**  
-start-up - Password required** - if this option is checked Push2Run will require a password to be entered each time it starts and when doing exports.  If the correct password is not entered, Push2Run will exit.  
+For a deeper explanation of this, you are welcome to review the following YouTube video: [https://youtu.be/mDwJ2fT8rBE](https://youtu.be/mDwJ2fT8rBE)
+<br>
+
+**Start-up - Password required** - if this option is checked Push2Run will require a password to be entered each time it starts and when doing exports.  If the correct password is not entered, Push2Run will exit.  
   
 The password is case sensitive.    
   
 If you set a password and later no longer know it, neither you nor Push2Run will be unable to use your Push2Run related data - and effectively you will need to start over in terms of configuring the program and repopulating all your cards.    
   
-By default the password feature is turned off.  If you turn it on, you can turn the it off again - but to do that you will need to know the password which you had last set.  
-  
-  
-**Settings and Database files** - the location of the Settings and Database files are shown but can't be changed.   Clicking on the associated buttons that appear, opens the folders in which the files are kept.   It is a good idea to periodically backup these files to a different location - such as offsite.  Push2Run will periodically back them up for you, but only to the same folder as they currently reside in.   A 'Readme.txt' file can also be found in the same folders that the Settings and Database files reside.  This Readme.txt file explains how to do a restore.  
-  
-**Confirm when importing is done** - is an option that shows up in two places: once under 'Confirmations' and once under 'Imports'.     While the option shows up in two places, it is really only one option and changing it in one place automatically changes it in the other.  This is by design to make it easy for you to find and work with the option.   
+By default the password feature is turned off.  If you turn it on, you can turn the it off again - but to do that you will need to know the password which you had last set.
+<br>  
+
+**Settings and Database files** - the location of the Settings and Database files are shown but can't be changed.   Clicking on the associated buttons that appear, opens the folders in which the files are kept.   It is a good idea to periodically backup these files to a different location - such as offsite.  Push2Run will periodically back them up for you, but only to the same folder as they currently reside in.   A 'Readme.txt' file can also be found in the same folders that the Settings and Database files reside.  This Readme.txt file explains how to do a restore.
+<br>  
+
+**Confirm when importing is done** - is an option that shows up in two places: once under 'Confirmations' and once under 'Imports'. While the option shows up in two places, it is really only one option and changing it in one place automatically changes it in the other.  This is by design to make it easy for you to find and work with the option.
+<br>
   
 **[User Access Controls (UAC)](https://docs.microsoft.com/en-us/windows/access-protection/user-account-control/user-account-control-overview)**  - some programs require administrative privileges to run correctly.  With Windows if you have UAC notification turned on then either:  
 
@@ -220,11 +223,8 @@ By default the password feature is turned off.  If you turn it on, you can turn
 ## The Add/Change window
 
 ![Add / Change window](../images/addchangev220.jpg)
-|     |     |     |
-| The Add/Change window is where Push2Run is setup to listen for commands and to react to them.  The following describes the Add/Change window: |     |     |
-|     |     |     |
 
-  
+The Add/Change window is where Push2Run is setup to listen for commands and to react to them.  The following describes the Add/Change window:  
 
 **Description** The description is shown as the first column to the right of the switch on the Main window, it is used to help identify what a particular entry is all about  
    
@@ -279,9 +279,9 @@ If the file ends with an [extension which your system knows](https://www.lifewir
   
 As your system also knows how to deal with websites, you can also enter the name of a website, such as [www.Push2Run.com](http://www.Push2Run.com)  
   
-If the 'Listen For' phrase ends with a dollar sign ('$') you can also include the '$' sign to represent the end part of the phrase that Push2Run heard (as described above).  For example in the 'Open' field you can enter [https://google.com/search?q=$](https://google.com/search?q=$)  .   
+If the 'Listen For' phrase ends with a dollar sign ('$') you can also include the '$' sign to represent the end part of the phrase that Push2Run heard (as described above).  For example in the 'Open' field you can enter https://google.com/search?q=$    
   
-Another example is [https://www.google.com/search?tbm=isch&q=$](https://www.google.com/search?tbm=isch&q=$) if your 'Listen to' phrase was "to search for pictures of $"  and/or  "to search for images of $".  
+Another example is https://www.google.com/search?tbm=isch&q=$ if your 'Listen to' phrase was "to search for pictures of $"  and/or  "to search for images of $".
   
 The '$' can be placed anywhere in the url, including at the very end.  
   
@@ -301,11 +301,11 @@ If the Open field contains just 'MQTT' (without the quotes) and MQTT is enabled 
   
 where the Topic and Subtopic are 'personal/status' and the Payload is 'gone fishing'.  
   
-**Using Everything**   
+**Using Everything**  
+ 
 Please see this [link](everything.html) which describes how to use the Push2Run Open field in conjunction with the Everything search program.  
-  
-  
-**Notes**:  
+
+**Additional Notes:**
   
 In keeping with MQTT standards, the Topic and Subtopics may only contain letters and numbers.  The forward slash ('/') is used to separate Topics from Subtopics, and Subtopics from further Subtopics.  Also the Topic and any and all Subtopics are case sensitive, so 'Personal/status" is not the same as "personal/status".  
   
@@ -557,6 +557,9 @@ You can run Push2Run itself from the command line and pass into the program, eve
 **c:\\Program Files\\Push2Run>Push2Run open the calculator**
 
 
-- - -
-Copyright © 2018 - 2024 Rob Latour 
-
+* * * 
+## Support Push2Run
+[<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
+* * *
+Copyright © 2018 - 2024 Rob Latour
+* * *

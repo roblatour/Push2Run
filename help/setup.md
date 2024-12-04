@@ -128,17 +128,13 @@ From within the Push2Run main window, you can run any card  by left clicking on
 You can also run it by right clicking on it, and selecting 'Run'.  
   
 * * *
-
- 
-
   
 **For additional help**  
   
-Please see the [Push2Run Help documentation](help_v4.8.0.0.html).
+Please see the [Push2Run Help documentation](help_v4.9.0.0.md).
 * * *
-
-[info@push2run.com](mailto:info@push2run.com)
-
+ ## Support Push2Run
+[<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
+* * *
 Copyright © 2018 - 2024 Rob Latour
-
 * * *
