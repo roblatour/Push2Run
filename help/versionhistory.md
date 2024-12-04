@@ -1,18 +1,17 @@
 
-[Push2Run](http://www.push2run.com/index.html) Version History
+Push2Run Version History
 ==============================================================
 
 Welcome to the Push2Run Version History page.  
   
 This page details the changes made with various versions of Push2Run.  
   
-To download the most current version please click [here](https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/Push2RunSetup.exe).  
-
 * * *
 <div class="comparison">
 
  **Version** | **Release date** | **Update**
 ------ | ------- | ----- |
+5.0 | 2024-12-xx | Released as open source on Github <br>Improvements to allow for faster processing when main window is not visible<br>Updated several underlying components
 4.8.3 | 2024-06-14 | Added support for Pushover authorization when 2FA is required
 4.8.2 | 2024-03-10 | Corrected a bug introduced in v4.8.1 when using up or down key arrow on the main window when the viewing of all cards is off.  
 4.8.1 | 2024-03-09 | An option has been added to the main window to filter out cards that are off.<br>Other minor updates and corrections.
