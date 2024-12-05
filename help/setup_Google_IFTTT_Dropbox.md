@@ -1,4 +1,4 @@
-#P ush2Run
+# Push2Run
 ## Set up for using a Google Assistant device with IFTTT and Dropbox
 
 Welcome to the Push2Run set up page for using a Google Assistant device with IFTTT and Dropbox.  
@@ -57,7 +57,7 @@ Note: the scene name is part of what you will say when you want to run this spec
 | 11. | Click on "**then that**" in the "**if + this then that**", |
 | 12. | Click on Dropbox, |
 | 13. | Click on 'Create a text file', |
-| 14. | Complete the IFTTT-Dropbox 'Complete action fields' window as below  <br>  <br>**Notes:  <br>  <br>Linking you Dropbox account:  <br>**If you have not linked your Dropbox account to IFTTT before, you will be prompted to do so in this step.  <br>  <br>**Dropbox Account:  <br>**select your dropbox account from the dropdown field  <br>**the File name field:**  <br>should have the same value as was used in step 3 above.  The default is:  <br>Command.txt  <br>  <br>**the Content field:**  <br>should contain:  <br>the Device name you used in step 3 above.  It should be followed by "<br>" without the quotes as shown below,  <br>followed by the IFTTT ingredient {{SceneName}} and by "<br>" without the quotes as shown below,  <br>followed by the IFTTT ingredient {{ActivatedAt}} and by "<br>" without the quotes as shown below.  <br>(do not have any blank or extra lines after that)  <br>  <br>**the Dropbox folder path:**  <br>should contain the part of the folder path used in step 3 above which **follows ....\\Dropbox\\  <br>**the Dropbox folder path used here should **not** end in a slash.  <br>  <br>Please see the screenshot below for greater clarity.  <br>  <br>**\*\*\* Important \*\*\*** If you include a slash in the Dropbox folder path as in the screen shot below, please make sure it is a forward slash ("/") not a backslash ("\\").  If you use a forward slash your IFTTT applet will work, if you use a backslash it will not work and you will get an error message in your IFTTT activity history that says the Applet failed and there was a problem with the Dropbox service (but no other clue as to what the problem may be). |
+| 14. | Complete the IFTTT-Dropbox 'Complete action fields' window as below  <br>  <br>**Notes:  <br>  <br>Linking you Dropbox account:  <br>**If you have not linked your Dropbox account to IFTTT before, you will be prompted to do so in this step.  <br>  <br>**Dropbox Account:  <br>**select your dropbox account from the dropdown field  <br>**the File name field:**  <br>should have the same value as was used in step 3 above.  The default is:  <br>Command.txt  <br>  <br>**the Content field:**  <br>should contain:  <br>the Device name you used in step 3 above.  It should be followed by "<br>" without the quotes as shown below,  <br>followed by the IFTTT ingredient {{SceneName}} and by "<br>" without the quotes as shown below,  <br>followed by the IFTTT ingredient {{ActivatedAt}} and by "<br>" without the quotes as shown below.  <br>(do not have any blank or extra lines after that)  <br>  <br>**the Dropbox folder path:** <br>should contain the part of the folder path used in step 3 above which **follows ....\\Dropbox\\  <br>**the Dropbox folder path used here should **not** end in a slash.  <br>  <br>Please see the screenshot below for greater clarity.  <br>  <br>**\*\*\* Important \*\*\*** If you include a slash in the Dropbox folder path as in the screen shot below, please make sure it is a forward slash ("/") not a backslash ("\\").  If you use a forward slash your IFTTT applet will work, if you use a backslash it will not work and you will get an error message in your IFTTT activity history that says the Applet failed and there was a problem with the Dropbox service (but no other clue as to what the problem may be). |
 
    
 ![instructions - 2](../images/Dropboxsetup.jpg)  
@@ -70,7 +70,7 @@ Note: the scene name is part of what you will say when you want to run this spec
 |     |     |
 
       
-Note: depending on the virus software you are running, when Push2Run first attempts to access your Dropbox folder you may be prompted to give it permission to do so.  When working with Dropbox Push2Run only works with the Dropbox folder path and filename you specify (in step 3 above).  
+**Note:** depending on the virus software you are running, when Push2Run first attempts to access your Dropbox folder you may be prompted to give it permission to do so.  When working with Dropbox Push2Run only works with the Dropbox folder path and filename you specify (in step 3 above).  
        
 * * *
   
