@@ -48,7 +48,7 @@ For detailed help information, please [click here](https://github.com/roblatour/
 
 ## Additional Push2Run Cards
 
-To download additional Push2Run Cards, please [click here](https://github.com/roblatour/Push2Run/blob/main/help/setup.md)
+To download additional Push2Run Cards, please [click here](https://github.com/roblatour/Push2Run/blob/main/additionalCards/ReadMe.md)
 
 ## Support Push2Run
 

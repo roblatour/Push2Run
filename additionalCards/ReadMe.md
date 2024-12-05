@@ -9,7 +9,7 @@ Two examples of this are:
 - Cast ( which you can get from [here](https://github.com/roblatour/cast) )
 - Setvol (which you can get from [here](https://github.com/roblatour/setvol) )
 
-Always manually example a card that you are importing to be exactly sure what it is doing.
+Always manually examine a card that you are importing to be exactly sure what it is doing.
 
 From Github you can click on any of the .p2r files in this directory to see what they contain.
 
