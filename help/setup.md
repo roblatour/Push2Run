@@ -10,9 +10,9 @@ There are various options for triggering Push2Run, these include using:
 
 - **an Apple iPhone/iPad and either** [**Dropbox**](https://www.dropbox.com/) **or** [**Pushbullet**](https://www.pushbullet.com)**.**  This set-ups also provides maximum versatility as it too supports the use variable expressions.   However, you need to include a slight pause after the trigger phrase, for example you could say "Siri, tell my computer to" (pause for a few seconds and then say) "play 99 Red Balloons";
 
-- **a Google Device, or other service supported by [IFTTT](https://ifttt.com),**  **and one or more of the following: Dropbox, Pushbullet and/or** [**Pushover**](https://pushover.net/).  With these set-ups, you can say something like "Ok Google, (trigger) shutdown my computer".   However, the things you say will need to be specific, and configured as unique IFTTT applets ahead of time;
+- **a Google Device, or other service supported by [IFTTT](https://ifttt.com),**<br>**and one or more of the following: Dropbox, Pushbullet and/or** [**Pushover**](https://pushover.net/).  With these set-ups, you can say something like "Ok Google, (trigger) shutdown my computer".   However, the things you say will need to be specific, and configured as unique IFTTT applets ahead of time;
 
-- **MQTT.**  With this set up you can have Push2Run control your computer based on a MQTT messages;  
+- **MQTT.** With this set up you can have Push2Run control your computer based on a MQTT messages;  
   
 - **the Windows command line**; and
 
@@ -61,7 +61,7 @@ For further set up instructions please click on a link below for triggering Push
 [a Google Assistant device with IFTTT and Dropbox](setup_Google_IFTTT_Dropbox.md) | B, C
 [a Google Assistant device with IFTTT and Pushbullet](setup_Google_IFTTT_Pushbullet.md) | B, C
 [a Google Assistant device with IFTTT and Pushover](setup_Google_IFTTT_Pushover.md) | B, C
-[MQTTT](setup_mqtt.html) | 
+[MQTT](setup_mqtt.md) | 
 [the Windows command line](#part3) | 
 [Push2Run itself.](#part4) | 
 </div>
@@ -104,7 +104,7 @@ After that, I can say "OK Google, open the calculator" and it will work.
 
 * * *
 
-  
+<a name="part3" id="part3"></a>
 **Triggering with the Windows command line**
   
 Push2Run does not need any configuration to allow it to trigger actions from the command line.  
@@ -120,7 +120,7 @@ and it will work.
   
 
 * * *
-  
+<a name="part4" id="part4"></a>
 **Triggering by using Push2Run itself**
   
 From within the Push2Run main window, you can run any card  by left clicking on it and pressing F12 or by selecting 'Actions' - 'Run' from the main menu.   
