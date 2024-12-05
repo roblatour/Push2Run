@@ -1,9 +1,6 @@
 
-Push2Run 
-==============================================
-
-How to send your own text, to be spoken aloud, to your Google device
-====================================================================
+# Push2Run 
+## How to send your own text, to be spoken aloud, to your Google device
    
 Welcome to the Push2Run 'How to send your own text, to be spoken aloud, to your Google device' page.   
   
@@ -24,7 +21,7 @@ To do this you will need download, install and configure some additional softwar
   
 The following details all of that:    
 
-**Step 1** **\- Download and install Cast for Windows**
+**Step 1 \- Download and install Cast for Windows**
 
   
 To download the Cast installer for Windows please : [click here](https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/CastSetup.exe)  
@@ -46,19 +43,19 @@ Press the Windows Key and the 'R' key at the same time.
   
 In the pop-up box that appears, type in:
 
-                      CMD
+        CMD
 
 and press enter.  
   
 At the C:> prompt that appears, enter the following:
 
-                      c:
+        c:
 
-                      cd \\
+        cd \\
 
-                      cd "Program Files\\Cast"
+        cd "Program Files\\Cast"
 
-                      cast -inventory
+        cast -inventory
 
 and press enter.  
   
@@ -74,7 +71,7 @@ In this example, lets assume you want to send your text to two devices named 'Of
   
 Continuing from Step 2 above, enter the following:
 
-                      cast -device "Office Home" "Basement Mini" -text This is a test
+         cast -device "Office Home" "Basement Mini" -text This is a test
 
  you should hear your Google device say "this is a test".  
   
@@ -82,12 +79,12 @@ Notes:
   
 If you don't hear anything from one of your devices, it may be because it is muted or has its volume set really low.  Check the inventory results for that.  If you need to fix that you can issue the following command as needed:
 
-                      cast -device "Office Home" -unmute -volume 30
+         cast -device "Office Home" -unmute -volume 30
 
   
 For more information about what Cast can do, just type
 
-                      cast -help
+         cast -help
 
   
 **Step 4 - Integrate with Push2Run**
@@ -106,6 +103,7 @@ ii. in the above example, cast will broadcast the text to all your Google Device
 iii. the [Push2Run Setup Instructions](setup.md) show you how to create an IFTTT applet that is triggered by the expression, "OK Google tell my computer to $".    However, in this example you find it better to create another IFTTT applet that is triggered by the expression, "OK Google ask my computer if it is on" and has a fixed PushBullet body text of "if it is on".   
 
 That's it, hope this write up will be of use to you.  
+
 
 * * *
  ## Support Push2Run

@@ -1,4 +1,4 @@
- ## Push2Run - Setup instructions      
+# Push2Run - Setup instructions      
   
 Welcome to the Push2Run set up page.  
   

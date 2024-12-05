@@ -17,7 +17,7 @@ For issuing verbal commands, maximum versatility is available when using an Amaz
 - set its volume to x percent (where x is any number between 0 and 100)
 - play a song (where the song is any song stored on your computer and identified by it's name)
 
-Beyond that. the program offers a great deal of functionality when driven using the other platforms listed above as well.  With all setups you can tell your computer to do specific pre-determined actions like:
+Beyond that, the program offers a great deal of functionality when driven using the other platforms listed above.  With all setups you can tell your computer to do specific pre-determined actions like:
 
  - do a quick backup
  - mute its volume
@@ -26,23 +26,25 @@ Beyond that. the program offers a great deal of functionality when driven using 
  - shutdown
 
 Also, in all cases, Push2Run can even do a bit of typing for you, sending keystrokes to your desktop or the applications that it starts on your behalf.
- 	
+
 You're welcome to use Push2Run for free on as many computers as you like!   
- 	 	 
-Push2Run is funded by kind donations from people such as yourself.
 
- ## Setup 
+## Video
 
-For information on how to setup Push2Run please [click here](https://github.com/roblatour/Push2Run/blob/main/help/setup.md)
+To watch a Youtube walk though video of the program, please [click here](https://www.youtube.com/watch?v=uTlNJmal-Wg)
+ 	
+## Setup instructions 
 
- ## Help
+For information on how to setup Push2Run, please [click here](https://github.com/roblatour/Push2Run/blob/main/help/setup.md)
 
-For detaild help information please [click here](https://github.com/roblatour/Push2Run/blob/main/help/help_v4.9.0.0.md)
+## Help documentation
+
+For detailed help information, please [click here](https://github.com/roblatour/Push2Run/blob/main/help/help_v4.9.0.0.md)
 
 <a name="download" id="download"></a>
  ## Download
 
- To download the Push2Run Windows installer file please [click here](https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/Push2RunSetup.exe)
+ To download the Push2Run Windows installer, please [click here](https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/Push2RunSetup.exe)
 
 * * *
  ## Support Push2Run
