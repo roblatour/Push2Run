@@ -58,9 +58,9 @@ For further set up instructions please click on a link below for triggering Push
 [an Apple iPhone/iPad with Pushbullet](setup_Apple_Pushbullet.html) | A
 [an Apple iPhone/iPad with Pushover](setup_Apple_Pushover.html) | A
 [an Amazon Alexa device, the PCCommander skill and Pushbullet](https://pccommander.net/howto/push2run/) | 
-[a Google Assistant device with IFTTT and Dropbox](setup_Google_IFTTT_Dropbox.html) | B, C
-[a Google Assistant device with IFTTT and Pushbullet](setup_Google_IFTTT_Pushbullet.html) | B, C
-[a Google Assistant device with IFTTT and Pushover](setup_Google_IFTTT_Pushover.html) | B, C
+[a Google Assistant device with IFTTT and Dropbox](setup_Google_IFTTT_Dropbox.md) | B, C
+[a Google Assistant device with IFTTT and Pushbullet](setup_Google_IFTTT_Pushbullet.md) | B, C
+[a Google Assistant device with IFTTT and Pushover](setup_Google_IFTTT_Pushover.md) | B, C
 [MQTTT](setup_mqtt.html) | 
 [the Windows command line](#part3) | 
 [Push2Run itself.](#part4) | 
@@ -73,7 +73,7 @@ For further set up instructions please click on a link below for triggering Push
 **A.**<br>
 For all Apple iPhone/iPad set ups:  
   
-Please also see '[Using Everything](everything.html)' for optional intergration with the Everything freeware file search utility.  
+Please also see '[Using Everything](everything.html)' for optional integration with the Everything freeware file search utility.  
   
 **B.** <br>
 For all set ups involving IFTTT:  
