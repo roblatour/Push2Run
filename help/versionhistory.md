@@ -11,7 +11,7 @@ This page details the changes made with various versions of Push2Run.
 
  **Version** | **Release date** | **Update**
 ------ | ----- | ----- |
-4.9 | 2024-12-xx | Released as open source on Github <br>Improvements to allow for faster processing when main window is not visible<br>Updated several underlying components
+4.9 | 2024-12-06 | Improvements to allow for faster processing when main window is not visible<br>Updated several underlying components<br>Released as open source on Github 
 4.8.3 | 2024-06-14 | Added support for Pushover authorization when 2FA is required
 4.8.2 | 2024-03-10 | Corrected a bug introduced in v4.8.1 when using up or down key arrow on the main window when the viewing of all cards is off.  
 4.8.1 | 2024-03-09 | An option has been added to the main window to filter out cards that are off.<br>Other minor updates and corrections.
