@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:33:20.2429509-05:00">
+  <Description>Empty Recycle Bin</Description>
+  <ListenFor>empty recycle bin
+empty the recycle bin
+take out the trash</ListenFor>
+  <Open>C:\Program Files\nircmd-x64\nircmd.exe</Open>
+  <StartDirectory />
+  <Parameters>emptybin</Parameters>
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>1</StartingWindowState>
+  <KeysToSend />
+</Card>

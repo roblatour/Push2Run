@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:39:36.4645156-05:00">
+  <Description>Shutdown in x seconds</Description>
+  <ListenFor>shut *down (in )*(?&lt;numberofseconds&gt;\d+) seconds</ListenFor>
+  <Open>shutdown</Open>
+  <StartDirectory />
+  <Parameters>/s /t &lt;numberofseconds&gt; /c "requested by home automation"</Parameters>
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>3</StartingWindowState>
+  <KeysToSend />
+</Card>

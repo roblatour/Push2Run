@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:57:54.0970548-05:00">
+  <Description>Play a song</Description>
+  <ListenFor>play $</ListenFor>
+  <Open>https://duckduckgo.com/?q=!ducky+$+site%3Ayoutube.com</Open>
+  <StartDirectory />
+  <Parameters />
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>3</StartingWindowState>
+  <KeysToSend />
+</Card>

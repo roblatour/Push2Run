@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:33:10.717816-05:00">
+  <Description>create a sticky note</Description>
+  <ListenFor>create a sticky note $</ListenFor>
+  <Open>Desktop</Open>
+  <StartDirectory />
+  <Parameters />
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>3</StartingWindowState>
+  <KeysToSend>{win}w{wait999}{Enter}{Wait750}{ctrl}n{Wait500}{TypingDelay050}$</KeysToSend>
+</Card>

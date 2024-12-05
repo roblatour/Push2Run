@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:34:20.2758982-05:00">
+  <Description>Netflix</Description>
+  <ListenFor>open netflix
+start netflix</ListenFor>
+  <Open>netflix:</Open>
+  <StartDirectory />
+  <Parameters />
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>3</StartingWindowState>
+  <KeysToSend />
+</Card>

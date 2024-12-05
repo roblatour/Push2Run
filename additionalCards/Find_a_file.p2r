@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:33:44.4092521-05:00">
+  <Description>Find a file</Description>
+  <ListenFor>find $</ListenFor>
+  <Open>c:\program files\everything\everything.exe</Open>
+  <StartDirectory />
+  <Parameters>-search "$"</Parameters>
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>3</StartingWindowState>
+  <KeysToSend />
+</Card>

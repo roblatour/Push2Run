@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:34:13.0235137-05:00">
+  <Description>mute</Description>
+  <ListenFor>mute speakers</ListenFor>
+  <Open>c:\program files\setvol\setvol</Open>
+  <StartDirectory />
+  <Parameters>mute</Parameters>
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>1</StartingWindowState>
+  <KeysToSend />
+</Card>

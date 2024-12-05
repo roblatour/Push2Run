@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2018-04-29T11:09:17.8435912-04:00">
+  <Description>confirm computer is running</Description>
+  <ListenFor>confirm if it is on
+confirm if it is running
+confirm it is on
+confirm it is running
+confirm that it is on
+confirm that it is running
+if it is on
+if it is running
+it is on
+to confirm that it is on</ListenFor>
+  <Open>c:\program files\cast\cast.exe</Open>
+  <StartDirectory />
+  <Parameters>-text yes, your computer is on</Parameters>
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+</Card>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2024-12-05T11:38:55.5867391-05:00">
+  <Description>capture screenshot of active window to clipboard</Description>
+  <ListenFor>capture active window</ListenFor>
+  <Open>Active Window</Open>
+  <StartDirectory />
+  <Parameters />
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+  <StartingWindowState>3</StartingWindowState>
+  <KeysToSend>{ALT}{PRTSC}</KeysToSend>
+</Card>

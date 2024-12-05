@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DateTimeValue="2018-02-19T09:47:05.0328292-05:00">
+  <Description>Exchange rate</Description>
+  <ListenFor>show me the canada to u . s . exchange rate
+show me the canadian to u . s . exchange rate
+show me the exchange rate
+tell me what a canadian dollar is worth</ListenFor>
+  <Open>https://www.google.com/search?q=canada+to+us+exchange+rate</Open>
+  <StartDirectory />
+  <Parameters />
+  <StartWithAdminPrivileges>false</StartWithAdminPrivileges>
+</Card>
