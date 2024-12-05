@@ -6,7 +6,7 @@ In short, Push2Run needs to be triggered to do things and this webpage explains 
   
 There are various options for triggering Push2Run, these include using:  
 
-- **an Amazon Alexa device, the [PC Commander](https://pccommander.net/) skill and Pushbullet.**  This set-up provides maximum versatility as it supports the use variable expressions - meaning you can say a phrase that doesn't need to be fully pre-determined.  For example, you could say "Alexa, tell my computer to play 99 Red Balloons" (or any other song you like);
+- **an Amazon Alexa device, the [PC Commander](https://PCCommander.net/) skill and Pushbullet.**  This set-up provides maximum versatility as it supports the use variable expressions - meaning you can say a phrase that doesn't need to be fully pre-determined.  For example, you could say "Alexa, tell my computer to play 99 Red Balloons" (or any other song you like);
 
 - **an Apple iPhone/iPad and either** [**Dropbox**](https://www.dropbox.com/) **or** [**Pushbullet**](https://www.pushbullet.com)**.**  This set-ups also provides maximum versatility as it too supports the use variable expressions.   However, you need to include a slight pause after the trigger phrase, for example you could say "Siri, tell my computer to" (pause for a few seconds and then say) "play 99 Red Balloons";
 
@@ -22,13 +22,13 @@ There are various options for triggering Push2Run, these include using:
 Detailed instructions for the various options above are either linked to or written up further below.  
   
 
-Now, a few words about the use of PCCommander, IFTTT, Dropbox, Pushbullet and/or Pushover in conjunction Push2Run ...  
+Now, a few words about the use of PC Commander, IFTTT, Dropbox, Pushbullet and/or Pushover in conjunction Push2Run ...  
   
 All services are quite reliable and have many features going beyond those needed in support of Push2Run.  
   
 IFTTT offers both free and paid subscription plans; here is where you can find more information about that:  [https://ifttt.com/plans](https://ifttt.com/plans) .  Also, at one point IFTTT was able to work with Google in such a way that variable text was supported.  Sadly, however this was discontinued by Google in September 2022.  The result of this is where it once was that only one IFTTT applet was required for most, if not all the needs of Push2Run, now one specific applet is need for each specific action you would like Push2Run to take.   
   
-PC Commander is an Alexa skill specifically designed to work hand in hand with Pushbullet to trigger Push2Run.  Using Alexa, PC Commander, Pushbullet and Push2Run you can execute a wide range of tasks on your Windows computer using simple voice commands. Whether you’re looking to open applications, control media playback or manage system settings, using PC Commander provides an excellent, user-friendly and efficient way to enhance your home automation setup.  PC commanders offers 150 free uses a month, but also a paid subscription if you need more.  
+PC Commander is an Alexa skill specifically designed to work hand in hand with Pushbullet to trigger Push2Run.  Using Alexa, PC Commander, Pushbullet and Push2Run you can execute a wide range of tasks on your Windows computer using simple voice commands. Whether you’re looking to open applications, control media playback or manage system settings, using PC Commander provides an excellent, user-friendly and efficient way to enhance your home automation setup.  PC commanders offers 150 free uses a month, but also a paid subscription if you need more (\*).  
   
 Here too is a recap of the Dropbox, Pushbullet and Pushover services, with some key differences as they relate to their use with Push2Run (as of the last time I looked):  
 
@@ -45,7 +45,7 @@ Here too is a recap of the Dropbox, Pushbullet and Pushover services, with some 
 </div>
   
   
-**(\*) Please note:** Push2Run is funded solely by the [donations](donate.html) of kind people such as yourself. IFTTT, Dropbox, Pushbullet, and Pushover do not provide commissions in support of Push2Run.  
+**(\*) Please note:**<br>Push2Run is funded solely by the [donations](https://www.buymeacoffee.com/roblatour) of kind people such as yourself. IFTTT, Dropbox, Pushbullet, Pushover and PC Commander do not provide any form of commissions or kick-backs in support of Push2Run.  
 
 
 For further set up instructions please click on a link below for triggering Push2Run with:  
@@ -57,7 +57,7 @@ For further set up instructions please click on a link below for triggering Push
 [an Apple iPhone/iPad with Dropbox](setup_Apple_Dropbox.md) | A
 [an Apple iPhone/iPad with Pushbullet](setup_Apple_Pushbullet.md) | A
 [an Apple iPhone/iPad with Pushover](setup_Apple_Pushover.md) | A
-[an Amazon Alexa device, the PCCommander skill and Pushbullet](https://pccommander.net/howto/push2run/) | 
+[an Amazon Alexa device, the PC Commander skill and Pushbullet](https://PCCommander.net/howto/push2run/) | 
 [a Google Assistant device with IFTTT and Dropbox](setup_Google_IFTTT_Dropbox.md) | B, C
 [a Google Assistant device with IFTTT and Pushbullet](setup_Google_IFTTT_Pushbullet.md) | B, C
 [a Google Assistant device with IFTTT and Pushover](setup_Google_IFTTT_Pushover.md) | B, C
