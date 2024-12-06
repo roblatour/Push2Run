@@ -1,0 +1,231 @@
+﻿<Window  x:Class="WindowBoss"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+    xmlns:p="clr-namespace:System;assembly=mscorlib"
+    xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:local="clr-namespace:Push2Run"
+    
+    x:Name="WindowBoss"
+    Title="Push2Run"
+    Height="430" Width="700" MinWidth="600" MinHeight="230" ResizeMode="CanResizeWithGrip" WindowStyle="SingleBorderWindow" Icon="Resources/Push2Run.ico" Visibility="Visible" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/BrushResources.xaml" />
+                <ResourceDictionary Source="Resources/ControlResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Page>
+
+        <Page.Resources>
+
+            <BitmapImage x:Key="Switchoff"  UriSource="/Resources/switchoff.png" />
+            <BitmapImage x:Key="Switchon"   UriSource="/Resources/switchon.png" />
+            <BitmapImage x:Key="UACShield"  UriSource="/Resources/UACShield.png" />
+
+            <Style x:Key="hcs" TargetType="{x:Type GridViewColumnHeader}">
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+
+
+        </Page.Resources>
+
+        <Grid Height="Auto" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0,0,0,0" x:Name="Grid1" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="Row1" Height="32" />
+                    <RowDefinition x:Name="Row2" Height="160*" />
+                </Grid.RowDefinitions>
+
+                <Menu x:Name="Menu1" Background="Transparent" Margin="0,0,0,8" HorizontalAlignment="Left" Width="213"  >
+
+                    <MenuItem Header="_File"                                      x:Name="MenuFile"                                   Tag="MenuFile">
+
+                        <MenuItem   Header="_Options"                             x:Name="MenuOptions"           Visibility="Visible" Tag="Options"             IsCheckable="False" Cursor="Hand"                        Margin="13,0,0,0"  />
+
+                        <Separator  x:Name="Seperator0a"                                                         Visibility="Visible"/>              
+                        <MenuItem   Header="_Import"                              x:Name="MenuImport"            Visibility="Visible" Tag="Import"    IsCheckable="False" Cursor="Hand"                                  Margin="13,0,0,0"  />
+                        <MenuItem   Header="_Export"                              x:Name="MenuExport"            Visibility="Visible" Tag="Export"    IsCheckable="False" Cursor="Hand"                                  Margin="13,0,0,0"  />
+                        
+                        <Separator  x:Name="Seperator0b"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="E_xit"                                x:Name="MenuExit"              Visibility="Visible" Tag="Exit"                IsCheckable="False" Cursor="Hand"                        Margin="13,0,0,0"  />
+
+                    </MenuItem>
+                    
+                    <MenuItem Header="_Actions"                                   x:Name="MenuActions"                                Tag="MenuActions">
+                        <MenuItem   Header="_Add   "                              x:Name="MenuAdd"               Visibility="Visible" Tag="Add"    IsCheckable="False" Cursor="Hand" InputGestureText="F2"              Margin="13,0,0,0"  />
+                        <MenuItem   Header="_Copy"                                x:Name="MenuCopy"              Visibility="Visible" Tag="Copy"   IsCheckable="False" Cursor="Hand" InputGestureText="F3"              Margin="13,0,0,0"  />
+                        <MenuItem   Header="_Delete"                              x:Name="MenuDelete"            Visibility="Visible" Tag="Delete" IsCheckable="False" Cursor="Hand" InputGestureText="Delete"          Margin="13,0,0,0"  />
+                        <MenuItem   Header="_Edit"                                x:Name="MenuEdit"              Visibility="Visible" Tag="Edit"   IsCheckable="False" Cursor="Hand" InputGestureText="F4"              Margin="13,0,0,0"  />
+
+                        <Separator  x:Name="Seperator1a"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="_Sort by description"                 x:Name="MenuSort"              Visibility="Visible" Tag="Sort"                IsCheckable="True" IsChecked="False" Cursor="Hand" />
+
+                        <Separator  x:Name="Seperator2a"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="Move to _top"                         x:Name="MenuMoveToTop"         Visibility="Visible" Tag="Move to top"         IsCheckable="False" Cursor="Hand" InputGestureText="F5"      Margin="13,0,0,0"  />
+                        <MenuItem   Header="Move u_p"                             x:Name="MenuMoveUp"            Visibility="Visible" Tag="Move up"             IsCheckable="False" Cursor="Hand" InputGestureText="F6"      Margin="13,0,0,0"  />
+                        <MenuItem   Header="_Insert a blank line"                 x:Name="MenuInsertABlankLine"  Visibility="Visible" Tag="Insert a blank line" IsCheckable="False" Cursor="Hand" InputGestureText="Insert"  Margin="13,0,0,0"  />
+                        <MenuItem   Header="Move do_wn"                           x:Name="MenuMoveDown"          Visibility="Visible" Tag="Move down"           IsCheckable="False" Cursor="Hand" InputGestureText="F7"      Margin="13,0,0,0"  />
+                        <MenuItem   Header="Move to _bottom"                      x:Name="MenuMoveToBottom"      Visibility="Visible" Tag="Move to bottom"      IsCheckable="False" Cursor="Hand" InputGestureText="F8"      Margin="13,0,0,0"  />
+
+                        <Separator  x:Name="Seperator3a"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="Switch on_/off"                       x:Name="MenuSwitch"            Visibility="Visible" Tag="Switch"              IsCheckable="False" Cursor="Hand" InputGestureText="F9"      Margin="13,0,0,0"  />
+
+                        <Separator  x:Name="Seperator4a"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="_Undo"                                x:Name="MenuUndo"              Visibility="Visible" Tag="Undo"                IsCheckable="False" Cursor="Hand"  InputGestureText="Ctrl-Z" Margin="13,0,0,0"  />
+
+                        <Separator  x:Name="Seperator5a"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="_Run currently selected item"         x:Name="MenuRun"               Visibility="Visible" Tag="Run"                 IsCheckable="False" Cursor="Hand" InputGestureText="F12" Margin="13,0,0,0"  />
+
+                        <Separator  x:Name="Seperator6a"                                                         Visibility="Visible"/>
+                        <MenuItem   Header="_Run with administrator privileges"   x:Name="MenuElevate"           Visibility="Visible" Tag="ChangeAdminRights"   IsCheckable="False" Cursor="Hand"  >
+
+                            <MenuItem.Icon>
+                                <Image HorizontalAlignment="Right" VerticalAlignment="Center" Margin="-5,0,0,0" Source="Resources/UACShield.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                      
+                    </MenuItem>
+
+                    <MenuItem Header="_View" x:Name="MenuView"     Tag="MenuView" Cursor="Hand">
+                        <MenuItem Header="_Description"                 x:Name="MenuViewDescription"   Tag="View Description"    IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Listen for"                  x:Name="MenuViewListenFor"     Tag="View Listen for"     IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Open"                        x:Name="MenuViewOpen"          Tag="View Open"           IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Start directory"             x:Name="MenuViewStartIn"       Tag="View StartIn"        IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Parameters"                  x:Name="MenuViewParameters"    Tag="View Parameters"     IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Admin privileges required"   x:Name="MenuViewAdmin"         Tag="View Admin"          IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Window state"                x:Name="MenuViewStartingWindowState"   Tag="View Window state"  IsCheckable="True" IsChecked="True" Cursor="Hand" />
+                        <MenuItem Header="_Keys to send"                x:Name="MenuViewKeysToSend"    Tag="View Keys to send"   IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <Separator x:Name="Seperator1"/>
+                        <MenuItem Header="_Cards that are off"          x:Name="MenuViewDisabledCards" Tag="View Disabled Cards" IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <MenuItem Header="_Filters"                     x:Name="MenuViewFilters"       Tag="View Filters"        IsCheckable="True" IsChecked="True" Cursor="Hand"    />
+                        <Separator x:Name="Seperator2"/>
+                        <MenuItem Header="_Session log"                 x:Name="MenuViewSessionLog"    Tag="Session log"         IsCheckable="True" IsChecked="False" Cursor="Hand"   />
+
+                    </MenuItem>
+
+                    <MenuItem Header="_Help" x:Name="MenuHelp"     Tag="MenuHelp" Cursor="Hand" >
+                        <MenuItem Header="_About/Help"                  x:Name="MenuViewAboutHelp"     Tag="About/Help"          IsCheckable="True" IsChecked="False" Cursor="Hand" InputGestureText="F1"   />
+                    </MenuItem>
+
+
+                </Menu>
+
+                <ListView Margin="0,0,2,64" Grid.Row="1" x:Name="ListView1"  MinWidth="250" MinHeight="100" SelectionMode="Single" IsHitTestVisible="True"   DragEnter="ListView1_DragEnter" DragLeave="ListView1_DragLeave" Drop="ListView1_Drop" AllowDrop="True" BorderThickness="0" >
+
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem   Header="_Add   "                x:Name="MenuContextAdd"               Visibility="Visible" Tag="Add"    IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="_Copy"                  x:Name="MenuContextCopy"              Visibility="Visible" Tag="Copy"   IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="_Delete"                x:Name="MenuContextDelete"            Visibility="Visible" Tag="Delete" IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="_Edit"                  x:Name="MenuContextEdit"              Visibility="Visible" Tag="Edit"   IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+
+                            <Separator x:Name="Seperator1b"                                                   Visibility="Visible"/>
+                            <MenuItem   Header="Move to _top"           x:Name="MenuContextMoveToTop"         Visibility="Visible" Tag="Move to top"         IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="Move u_p"               x:Name="MenuContextMoveUp"            Visibility="Visible" Tag="Move up"             IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="Move do_wn"             x:Name="MenuContextMoveDown"          Visibility="Visible" Tag="Move down"           IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="Move to _bottom"        x:Name="MenuContextMoveToBottom"      Visibility="Visible" Tag="Move to bottom"      IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                            <MenuItem   Header="_Insert a blank line"   x:Name="MenuContextInsertABlankLine"  Visibility="Visible" Tag="Insert a blank line" IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+
+                            <Separator  x:Name="Seperator2b"                                                  Visibility="Visible"/>
+                            <MenuItem   Header="_Switch On/Off"         x:Name="MenuContextSwitch"            Visibility="Visible" Tag="Switch"              IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+
+                            <Separator x:Name="Seperator3b"                                                   Visibility="Visible"/>
+                            <MenuItem   Header="_Undo"                  x:Name="MenuContextUndo"              Visibility="Visible" Tag="Undo"                IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+
+                            <Separator x:Name="Seperator4b"                                                   Visibility="Visible"/>
+                            <MenuItem   Header="_Run"                   x:Name="MenuContextRun"               Visibility="Visible" Tag="Run"                IsCheckable="False" Cursor="Hand" Margin="17,0,0,0" />
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+
+                    <ListView.View>
+
+                        <GridView AllowsColumnReorder="False" ColumnHeaderContainerStyle="{StaticResource hcs}" >
+
+                            <GridViewColumn Header="ID"            Width="0"     DisplayMemberBinding="{Binding ID}"        />
+                            <GridViewColumn Header="Sort Order"    Width="0"     DisplayMemberBinding="{Binding SortOrder}" />
+
+                            <GridViewColumn Header="Enabled"       Width="75"    HeaderContainerStyle="{StaticResource hcs}">
+
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="60"  Stretch="Fill" >
+                                            <Image.Style>
+                                                <Style TargetType="{x:Type Image}" >
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding WorkingStatus}" Value="1">
+                                                            <Setter Property="Source"  Value="{StaticResource Switchon}"  />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding WorkingStatus}" Value="2">
+                                                            <Setter Property="Source"  Value="{StaticResource Switchoff}"  />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ID}" Value="1">
+                                                            <Setter Property="Height"  Value="25"  />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+
+                            <GridViewColumn Header=" Description"       Width="Auto"    DisplayMemberBinding="{Binding Description}"                         HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Listen for"        Width="Auto"    DisplayMemberBinding="{Binding ListenFor}"                           HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Open"              Width="Auto"    DisplayMemberBinding="{Binding Open}"                                HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Start directory"   Width="Auto"    DisplayMemberBinding="{Binding StartIn}"                             HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Parameters"        Width="Auto"    DisplayMemberBinding="{Binding Parameters}"                          HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Admin"             Width="Auto"    DisplayMemberBinding="{Binding DisplayableAdminText}"                HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Window state"      Width="Auto"    DisplayMemberBinding="{Binding DisplayableStartingWindowStateText}"  HeaderContainerStyle="{StaticResource hcs}" />
+                            <GridViewColumn Header=" Keys to send"      Width="Auto"    DisplayMemberBinding="{Binding KeysToSend}"                          HeaderContainerStyle="{StaticResource hcs}" />
+
+                        </GridView>
+
+                    </ListView.View>
+
+                </ListView>
+
+                <Canvas Name="FilterCanvas" Margin="0,0,0,24" Grid.Row="1" Height="32" VerticalAlignment="Bottom" >
+
+                    <Button Name="ClearFilters"  Content="Clear filters" HorizontalAlignment="Left" Height="25" VerticalAlignment="Bottom" Width="70" Grid.Row="1" Canvas.Top="0" Canvas.Left="2"/>
+
+                    <TextBox Name="tbFilterDescription"          HorizontalAlignment="Left" Margin="77,0,0,30"   Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterListenFor"            HorizontalAlignment="Left" Margin="100,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterOpen"                 HorizontalAlignment="Left" Margin="150,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterStartIn"              HorizontalAlignment="Left" Margin="200,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterParameters"           HorizontalAlignment="Left" Margin="250,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterAdmin"                HorizontalAlignment="Left" Margin="300,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterStartingWindowState"  HorizontalAlignment="Left" Margin="350,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <TextBox Name="tbFilterKeysToSend"           HorizontalAlignment="Left" Margin="400,0,0,30"  Text="" BorderThickness="5" Width="20" Height="25"  Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+
+                </Canvas>
+
+                <Rectangle Name="FilterBoundry" Margin="0,0,0,62" Grid.Row="1" Stroke="#FFE0DFDF" Height="1" VerticalAlignment="Bottom"/>
+             
+            </Grid>
+
+            <StatusBar Height="27" VerticalAlignment="Bottom" Grid.Row="1" Margin="0,0,0,0">
+                <StackPanel Margin="0,-4,0,0" Orientation="Horizontal">
+                    <Label  x:Name="PushBulletCommunicationsStatus" Content="" Height="30" HorizontalAlignment="Left"  VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                    <Separator x:Name="StatusLine1" Margin="0,4,0,0" Height="30" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <Label  x:Name="PushoverCommunicationsStatus" Content="" Height="30" HorizontalAlignment="Left"  VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                    <Separator x:Name="StatusLine2" Margin="0,4,0,0" Height="30" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <Label  x:Name="MQTTCommunicationsStatus" Content="" Height="30" HorizontalAlignment="Left"  VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                    <Separator x:Name="StatusLine3" Margin="0,4,0,0" Height="30" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <Label x:Name="ProcessingStatus" Content=" " Height="30" HorizontalAlignment="Left"  VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </StatusBar>
+
+        </Grid>
+    </Page>
+
+</Window>

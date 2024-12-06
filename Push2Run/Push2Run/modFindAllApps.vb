@@ -1,0 +1,3 @@
+﻿Module modFindAllApps
+
+End Module

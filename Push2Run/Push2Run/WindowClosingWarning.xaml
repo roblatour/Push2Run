@@ -1,0 +1,19 @@
+﻿<Window x:Class="WindowClosingWarning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Push2Run"
+        mc:Ignorable="d"
+        Title="Push2Run - Info" Height="186.683" Width="399.345">
+    <Grid Margin="0,0,0,7">
+
+        <TextBlock Height="96" Margin="15,10,17,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Run Text="Please note: clicking on the red 'X' on the Push2Run main window or closing the Push2Run window from the Windows taskbar will not cause the program to exit,"/>
+            <Run Text=" rather it will simply be minimized to the systray (usually found at the bottom right of the primary screen - near the system clock).   "/>
+            <Run Text="To stop Push2Run from running, please select 'Actions' - 'Exit' from the main window.  "/>
+        </TextBlock>
+        <Button x:Name="btnOK" Content="_OK" HorizontalAlignment="Left" Height="27" Margin="277,111,0,0" VerticalAlignment="Top" Width="86"/>
+        <CheckBox x:Name="cbDoNotShowAgain" Content="Do not show this message again" HorizontalAlignment="Left" Margin="15,117,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

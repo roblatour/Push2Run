@@ -1,0 +1,67 @@
+﻿<Window x:Class="WindowAddChange"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+    xmlns:p="clr-namespace:System;assembly=mscorlib"
+    xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:local="clr-namespace:Push2Run"
+            
+    x:Name="WindowAddChange"
+    Title="Push2Run - Add/Change" Height="572" Width="695" MinHeight="540" MinWidth="695" ResizeMode="CanResizeWithGrip" Icon="Resources/Push2Run.ico" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/BrushResources.xaml" />
+                <ResourceDictionary Source="Resources/ControlResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Page>
+        <Grid Margin="0,0,0,-8">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="66" />
+            <RowDefinition/>
+            <RowDefinition Height="192" />
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="63"/>
+        </Grid.RowDefinitions>
+
+        <Label Margin="12,20,0,0"     x:Name="Label_01"  HorizontalAlignment="Left" VerticalAlignment="Top"      Width="80" Height="27" Content="Description"  />
+        <Label Margin="12,2,0,0"      x:Name="Label_02"  HorizontalAlignment="Left" VerticalAlignment="Top"      Width="80" Height="27" Content="Listen for" Grid.Row="1"  />
+        <Label Margin="12,0,0,147"    x:Name="Label_03"  HorizontalAlignment="Left" VerticalAlignment="Bottom"   Width="80" Height="27" Grid.Row="2" Content="Open" />
+        <Label Margin="12,0,0,113"    x:Name="Label_04"  HorizontalAlignment="Left" VerticalAlignment="Bottom"   Width="80" Height="27" Grid.Row="2" Content="Start" />
+        <Label Margin="12,0,0,97"     x:Name="Label_05"  HorizontalAlignment="Left" VerticalAlignment="Bottom"   Width="80" Height="27" Grid.Row="2" Content="directory" />
+        <Label Margin="12,0,0,56"     x:Name="Label_06"  HorizontalAlignment="Left" VerticalAlignment="Bottom"   Width="80" Height="27" Grid.Row="2" Content="Parameters" />
+        <Label Margin="12,0,0,10"     x:Name="Label_07"  HorizontalAlignment="Left" VerticalAlignment="Bottom"   Width="80" Height="27" Grid.Row="2" Content="Keys to send" />
+        <Label Margin="10,0,0,17"     x:Name="Label_08"  VerticalAlignment="Bottom" Height="27" Grid.Row="3" Content="Window state" HorizontalAlignment="Left" Width="152" />
+
+        <TextBox Margin="109,10,13,10"   x:Name="tbDescription"   TabIndex="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="46" VerticalAlignment="Center" VerticalContentAlignment="Center" SpellCheck.IsEnabled="True"  AllowDrop="True" PreviewDragEnter="tb_PreviewDragEnter" PreviewDragOver="tb_PreviewDragEnter" PreviewDragLeave="tb_PreviewDragLeave" PreviewDrop="tb_PreviewDrop" FontSize="14" />
+        <TextBox Margin="109,5,13,0"     x:Name="tbListenFor"     TabIndex="2" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1" SpellCheck.IsEnabled="True"  AllowDrop="True" PreviewDragEnter="tb_PreviewDragEnter" PreviewDragOver="tb_PreviewDragEnter" PreviewDragLeave="tb_PreviewDragLeave" PreviewDrop="tb_PreviewDrop" FontSize="14" />
+        <TextBox Margin="109,0,13,142"   x:Name="tbOpen"          TabIndex="3"  Height="41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Grid.Row="2" AllowDrop="True" PreviewDragEnter="tb_PreviewDragEnter" PreviewDragOver="tb_PreviewDragEnter" PreviewDragLeave="tb_PreviewDragLeave" PreviewDrop="tb_PreviewDrop" FontSize="14" />
+        <TextBox Margin="109,0,13,97"    x:Name="tbStartin"       TabIndex="4"  Height="41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Grid.Row="2"  AllowDrop="True" PreviewDragEnter="tb_PreviewDragEnter" PreviewDragOver="tb_PreviewDragEnter" PreviewDragLeave="tb_PreviewDragLeave" PreviewDrop="tb_PreviewDrop" FontSize="14" />
+        <TextBox Margin="109,0,13,51"    x:Name="tbParameters"    TabIndex="5" Grid.Row="2"  Height="40" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True"  AllowDrop="True" PreviewDragEnter="tb_PreviewDragEnter" PreviewDragOver="tb_PreviewDragEnter" PreviewDragLeave="tb_PreviewDragLeave" PreviewDrop="tb_PreviewDrop" FontSize="14" />
+        <TextBox Margin="109,0,13,2"     x:Name="tbKeysToSend"    TabIndex="6" Grid.Row="2"  Height="41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True"  AllowDrop="True" PreviewDragEnter="tb_PreviewDragEnter" PreviewDragOver="tb_PreviewDragEnter" PreviewDragLeave="tb_PreviewDragLeave" PreviewDrop="tb_PreviewDrop" FontSize="14" />
+
+        <WrapPanel  Margin="3,5,0,7" Grid.Row="3">
+            <Label Content="Admin privileges" Margin="0,1,0,0" Width="104" />
+            <CheckBox  x:Name="cbAdmin"  VerticalAlignment="Center" TabIndex="7" Margin="2,4,0,0" />
+        </WrapPanel>
+
+        <ComboBox x:Name="cbWindowState" Margin="109,0,0,19" Grid.Row="3"  Background="White" HorizontalAlignment="Left" Width="98" TabIndex="8" Height="23" VerticalAlignment="Bottom">
+            <ComboBoxItem x:Name="cbi0" Content="Normal" />
+            <ComboBoxItem x:Name="cbi1" Content="Maximized" />
+            <ComboBoxItem x:Name="cbi2" Content="Minimized" />
+            <ComboBoxItem x:Name="cbi3" Content="Hidden" />
+        </ComboBox>
+
+        <Button Margin="19,0,0,15" x:Name="btnCancel"       Width="86"           Grid.Row="3" IsCancel="True" HorizontalAlignment="Left" TabIndex="9" Height="50" VerticalAlignment="Bottom" Grid.RowSpan="2">_Cancel</Button>
+        <Button Grid.Row="4"       x:Name="btnHelp"         Margin="165,0,164,17" Height="26" VerticalAlignment="Bottom" TabIndex="10">_Help</Button>
+        <Button Grid.Row="3"       x:Name="btnOK"           Width="86"            HorizontalAlignment="Right" Margin="0,0,25,13"  IsDefault="False" TabIndex="11" Height="52" VerticalAlignment="Bottom" Grid.RowSpan="2">_OK</Button>
+
+    </Grid>
+
+    </Page>    
+
+</Window>

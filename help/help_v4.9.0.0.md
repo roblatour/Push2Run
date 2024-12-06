@@ -59,7 +59,9 @@ When you toggle the Master Control Switch 'off' all monitoring is paused. When y
   
 Monitoring of individual command can be turned on and off by clicking their associated switches.  
   
-Individual commands can be added, changed, and removed via the Actions item on the Main windows' menu bar, this is described in more detail below.  
+Individual commands can be added, changed, and removed via the Actions item on the Main windows' menu bar, this is described in more detail below. 
+
+The Main window does not need to be open for Push2Run to process incoming triggers, in fact if the Main window is closed / minimized then processing will happen quicker as the status bar at the bottom of the Main window does not need to be updated to show progress.
   
 ### What is shown on the Main window
   

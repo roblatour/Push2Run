@@ -1,0 +1,54 @@
+﻿<Window x:Class="WindowUpgradePrompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:push2run"
+        mc:Ignorable="d"
+        Title="Push2Run - Update check" Height="500" Width="500" WindowStartupLocation="CenterOwner" MinWidth="450" MinHeight="280" Topmost="True" WindowStyle="ToolWindow" ResizeMode="CanResizeWithGrip">
+    <Grid Margin="10,0,0,8">
+          
+        <RichTextBox Name="RichTextBox1" VerticalScrollBarVisibility="Disabled" BorderThickness="0" HorizontalAlignment="Left" Width="505" IsDocumentEnabled="True" AcceptsTab="True" IsTabStop="False" Height="107" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+
+            <FlowDocument>
+
+                <Paragraph>
+                    
+                    <Run Text="                       Push2Run [Version in use] (running on this computer)"/>
+                    <LineBreak/>
+                    <Run Text="                                        [Current version] (most current release)"/>
+                    <LineBreak/>
+                    <Run Text="                    "/>
+                    <Run Text=" "/>
+                    <InlineUIContainer>
+                        <TextBlock><Hyperlink x:Name="AutomaticUpdate" Foreground="Blue" NavigateUri="SetInCode" RequestNavigate="AutomaticUpdate_RequestCodeAction"><Run Text="Click here to update Push2Run to its most current release"/></Hyperlink></TextBlock>
+                    </InlineUIContainer>
+                    <LineBreak/>
+                    <Run Text="                    "/>
+                    <Run Text=" "/>
+                    <InlineUIContainer>
+                        <TextBlock><Hyperlink x:Name="WebPageDonateFromUpgrade" Foreground="Blue" NavigateUri="SetInCode" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Click here to help out with a donation"/></Hyperlink></TextBlock>
+                    </InlineUIContainer>
+                    <LineBreak/>
+            
+                </Paragraph>
+
+            </FlowDocument>
+
+        </RichTextBox>
+        
+        <Image HorizontalAlignment="Left" Height="70" Margin="6,0,0,0" VerticalAlignment="Top" Width="71" Source="Resources/Push2Run.ico" Stretch="None"/>
+        
+        <RichTextBox Name="rtbChangeLog" Margin="21,75,23,36" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnlyCaretVisible="True" IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        
+        <CheckBox Name="cbSkipThisUpdate" Content="_Skip this update" HorizontalAlignment="Left" Height="23" Margin="21,0,0,0" VerticalAlignment="Bottom" Width="438" Grid.ColumnSpan="2"/>
+
+    </Grid>
+
+</Window>

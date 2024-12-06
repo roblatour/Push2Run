@@ -1,0 +1,50 @@
+﻿<Window x:Class="WindowOptions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Push2Run  - Options" Height="350" Width="795" Icon="Resources/Push2Run.ico" MinWidth="765" MinHeight="335" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/BrushResources.xaml" />
+                <ResourceDictionary Source="Resources/ControlResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*" />
+            <RowDefinition Height="148*" />
+        </Grid.RowDefinitions>
+        <TreeView HorizontalAlignment="Left" Margin="28,2,0,23" Name="TreeView1" Width="209" Grid.Row="1" TabIndex="1">
+            <TreeViewItem Name="AlwaysOnTop" Header="Always on top"         Tag="Always on top"  Margin="0,3,0,0" />
+            <TreeViewItem Header="Check for update"                         Tag="Check for update" />
+            <TreeViewItem Header="Confirmations"                            Tag="Confirmations" />
+            <TreeViewItem Header="Imports"                                  Tag="Imports" />
+            <TreeViewItem Header="Notifications"                            Tag="Notifications" />
+            <TreeViewItem Header="Separating words"                         Tag="Separating words" />
+            <TreeViewItem Header="Session Log"                              Tag="Session Log" />
+            <TreeViewItem Header="Settings and Database files"              Tag="Settings and database files" />
+            <TreeViewItem Header="Start-up"                                 Tag="Start-up" />
+            <TreeViewItem Header="Triggers"                                 Tag="Triggers" />
+            <TreeViewItem Header="  Dropbox"                                Tag="Dropbox" />
+            <TreeViewItem Header="  MQTT"                                   Tag="MQTT" />
+            <TreeViewItem Header="  Pushbullet"                             Tag="Pushbullet" />
+            <TreeViewItem Header="  Pushover"                               Tag="Pushover" />
+            <TreeViewItem Header="User Access Control (UAC)"                Tag="UAC" />
+
+
+        </TreeView>
+        <Label HorizontalAlignment="Left" Margin="28,0,0,0" Name="Label1" Width="114" FontWeight="Bold" Height="28" VerticalAlignment="Center">Options</Label>
+        <Label FontWeight="Bold" Height="28" Margin="282,10,331,0" Name="Label2" VerticalAlignment="Top">Settings</Label>
+        <Rectangle Grid.Row="1" Margin="286,4,21,44" Name="Rectangle1" Stroke="Black" />
+        <ScrollViewer Grid.Row="1" Margin="299,10,34,44" Name="ScrollViewer1" VerticalScrollBarVisibility="Hidden" CanContentScroll="False" HorizontalScrollBarVisibility="Hidden">
+            <StackPanel Name="StackPanel1" OverridesDefaultStyle="False"  Height="193" Width="452"/>
+        </ScrollViewer>
+
+        <Button Height="26" HorizontalAlignment="Left"   IsDefault="False"  Margin="286,0,0,12"   Name="BtnCancel" VerticalAlignment="Bottom" Width="73" Grid.Row="1" TabIndex="3" IsCancel="True">_Cancel</Button>
+        <Button Height="26" HorizontalAlignment="Left" IsDefault="False"  Margin="491,0,0,12" Name="BtnHelp"   VerticalAlignment="Bottom" Width="73" Grid.Row="1" TabIndex="4">_Help</Button>
+        <Button Height="26" HorizontalAlignment="Right"  IsDefault="True"   Margin="0,0,20,12"    Name="btnOK"     VerticalAlignment="Bottom" Width="73" Grid.Row="1" TabIndex="5">_OK</Button>
+    </Grid>
+</Window>
