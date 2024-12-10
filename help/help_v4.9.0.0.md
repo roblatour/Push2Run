@@ -476,7 +476,7 @@ Finally, there are some additional limitations.  These are that keystrokes canno
 **Admin  
 privileges** If your program requires administrative privileges to run, check this check box.  
   
-Please also see the note above on User Access Controls (UAC).**Window state** You can pick the initial opening window state for your program, website, or file.  Options include: Minimized, Normal, Maximized, and Hidden.  
+Please also see the note above on User Access Controls (UAC). **Window state** You can pick the initial opening window state for your program, website, or file.  Options include: Minimized, Normal, Maximized, and Hidden.  
   
 Of note:  
 You cannot send keystrokes to Hidden or Minimized windows  
@@ -486,10 +486,15 @@ If you launch a program with a hidden window, you may not be able to close it wi
   
 1\. To help fill this screen out you can drag and drop a program, file, or website short cut into one of the empty text fields on the Add/Change window.  If you do this, Push2Run will automatically fill in the empty fields in the window with what it thinks is best.  
   
-2\. [Windows Environmental Variables](help_env_vars.html) may be used in the Open, Start Directory, and Parameters fields.  
-<a name="sessionlog" id="sessionlog"></a>
- ## The Session log window
-![Push2Run Session log](../images/sessionlogv4_8.jpg)   
+2\. [Windows Environmental Variables](help_env_vars.html) may be used in the Open, Start Directory, and Parameters fields.
+
+
+<a name="sessionlog" id="sessionlog"></a> 
+
+## The Session log window
+
+![Push2Run Session log](../images/sessionlogv4900.jpg) 
+
 The Session log window keeps a running report of Push2Run's activities since the program was last started.  As new activity happens new entries are automatically added to the bottom of the log.  The Session log holds up to 10,000 lines.  After the maximum limit of lines has been reached, the oldest entries are removed to make room for the newest ones.  
   
 A button at the bottom of the window allows Auto Scrolling to be turned on or off.  With Auto Scrolling turned on the window will automatically scroll itself to keep pace with new activities, with Auto Scrolling turned off you control the scrolling using the scroll bar on the right.  
