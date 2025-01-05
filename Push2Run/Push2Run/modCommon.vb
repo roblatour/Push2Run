@@ -307,7 +307,7 @@ Module modCommon
     Friend ghCurrentOwner As New Window
 
     Friend Const gMasterSwitchID As Integer = 1
-    Friend Const gMasterSwitchSortOrder As Integer = 0 ' woudl have liked 0; but 1 is used for backwards compatibiliy with older versions of Push2Run
+    Friend Const gMasterSwitchSortOrder As Integer = 0 ' would have liked 0; but 1 is used for backwards compatibility with older versions of Push2Run
     Friend Const gGapBetweenSortIDsForDatabaseEntries As Integer = 2 ^ 13 ' this will allow for up to 10 inserts between records before a table rebuild is required
 
     Friend gHandleOfActiveWindow As IntPtr = 0
