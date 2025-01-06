@@ -68,7 +68,6 @@ Class WindowBoss
     ' ref http://websocket4net.codeplex.com/
 
     Const PushbulletServerName As String = "wss://stream.pushbullet.com/websocket/"
-    'Private APIKey As String = "o.GWQSjIlm2gjx8DNjCWOCqtqrhd1RABeI"
 
     Const AddressForGettingDevices As String = "https://api.pushbullet.com/v2/devices"
     Const AddressForGettingPushes As String = "https://api.pushbullet.com/v2/pushes"
