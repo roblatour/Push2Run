@@ -1,6 +1,6 @@
-# Push2Run Help v4.9
+# Push2Run Help v4.9.1
 
-Welcome to the Push2Run version 4.9 Help page.<br>
+Welcome to the Push2Run version 4.9.1 Help page.<br>
 ## This page covers the following:<br>
 [An overview of Push2Run](#overview)<br>
 [The Push2Run icon on your screen and in your systray](#icon)<br>
