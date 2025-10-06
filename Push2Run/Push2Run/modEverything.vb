@@ -62,7 +62,7 @@
     '    Dim i As UInt32
     '    Dim filename As New System.Text.StringBuilder(260)
     '    Dim size As UInt64
-    '    Dim ftdm As UInt64
+    '    Dim ft dm As UInt64
     '    Dim DateModified As System.DateTime
 
     '    NumResults = Everything_GetNumResults()
@@ -74,7 +74,7 @@
 
     '            Everything_GetResultFullPathNameW(i, filename, filename.Capacity)
     '            Everything_GetResultSize(i, size)
-    '            Everything_GetResultDateModified(i, ftdm)
+    '            Everything_GetResultDateModified(i, ft dm)
 
     '            ' Everything uses &HFFFFFFFFFFFFFFFFUL for unknown dates
     '            ' System.DateTime.FromFileTime does not like this value

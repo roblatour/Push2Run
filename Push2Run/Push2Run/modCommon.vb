@@ -1,4 +1,4 @@
-﻿'Copyright Rob Latour 2024
+﻿'Copyright Rob Latour 2025
 
 Imports System.Collections.ObjectModel
 Imports System.Data
@@ -45,13 +45,13 @@ Module modCommon
 
     Friend Const gThisProgramName As String = "Push2Run"
 
-    Friend Const gRackspace As String = "https://6ec1f0a2f74d4d0c2019-591364a760543a57f40bab2c37672676.ssl.cf5.rackcdn.com/"
-    Friend gWebPageVerionCheck As String = gRackspace & "Push2RunCurrentVersion.txt"
-    Friend gWebPageChangeLog As String = gRackspace & "Push2RunChangelog.rtf"
-    Friend gAutomaticUpdateWebFileName As String = gRackspace & "Push2RunSetup.exe"
+    Friend Const gGithubVersionControlPage As String = "https://raw.githubusercontent.com/roblatour/Push2Run/refs/heads/main/versionControl/"
+    Friend gWebPageVersionCheck As String = gGithubVersionControlPage & "Push2RunCurrentVersion.txt"
+    Friend gWebPageChangeLog As String = gGithubVersionControlPage & "Push2RunChangelog.rtf"
+    Friend gAutomaticUpdateWebFileName As String = gGithubVersionControlPage & "Push2RunSetup.exe"
 
     Friend Const gLocalFiles As String = "file://E:\Documents\VBNet\Push2Run\Rackspace\"
-    Friend Const gWebPageVerionCheckWhenTesting As String = gLocalFiles & "Push2RunCurrentVersion.txt"
+    Friend Const gWebPageVersionCheckWhenTesting As String = gLocalFiles & "Push2RunCurrentVersion.txt"
     Friend Const gWebPageChangeLogWhenTesting As String = gLocalFiles & "Push2RunChangelog.rtf"
     Friend Const gAutomaticUpdateWebFileNameWhenTesting As String = gLocalFiles & "Push2RunSetup.exe"
 
@@ -69,7 +69,6 @@ Module modCommon
     Friend Const gProduceDetailDumpWhenNoMatchIsFound As Boolean = False
 
     Friend gAutomaticUpdateLocalDownloadedFileName As String = Path.GetTempPath & "Push2RunSetup.exe"
-    Friend gAutomaticUpdateControlFilePathAndFilename As String = Path.GetTempPath & "Push2Run_Auto_Upatate.bat"
 
     Friend Const gAvailable As String = "available"
     Friend Const gNotAvailable As String = "not available"
@@ -125,7 +124,7 @@ Module modCommon
         Unknown = 0
         RunningVersionIsNewerThanCurrentVersion = 1
         RunningVersionIsTheSameAsTheCurrentVersion = 2
-        RunningVerionsIsOlderThanTheCurrentVersion = 3
+        RunningVersionIsOlderThanTheCurrentVersion = 3
     End Enum
 
     Friend gRunningVersionRelativeToCurrentVersion As RunningVersionRelativeToCurrentWebSiteVersion
@@ -237,8 +236,8 @@ Module modCommon
     Friend gPushoverAuthorizationReturnCode As String = String.Empty ' valid values: 'available', 'not available', '2FA required', string.empty
     Friend PushoverDeviceNameAndId As String = String.Empty ' valid values: 'available', 'not available', string.empty
     Friend PushoverMessageIdToDelete As String = String.Empty ' valid values: a number as string, string.empty
-    Friend FindHigestPushoverMessageId_Processing As String = String.Empty ' valid values: 'done', string.empty
-    Friend DeletePushoverMesssageID_Processing As String = String.Empty ' valid values: 'done', string.empty
+    Friend FindHighestPushoverMessageId_Processing As String = String.Empty ' valid values: 'done', string.empty
+    Friend DeletePushoverMessageID_Processing As String = String.Empty ' valid values: 'done', string.empty
     Friend Enum StatusValues
         SwitchOn = 1
         SwitchOff = 2
@@ -448,7 +447,7 @@ Module modCommon
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub LoadAllEntriesFromDatabase()
 
         ' loads all entries into a table used by the import function to ensure duplicate entries are not imported
@@ -554,10 +553,10 @@ Module modCommon
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub LoadFromDatabase(Optional ByVal ID As Integer = -1)
 
-        ' the following loads the command table from the sql database
+        ' the following loads the command table from the SQL database
         ' of note the description is not needed in the command table because there are no processing decisions are made based on it
 
         'Dim ReloadEntireTable As Boolean = MenuSort.IsChecked OrElse (ID = -1)  'v2.5.3 using gMenuSort to avoid cross thread issue
@@ -616,13 +615,13 @@ Module modCommon
 
             WorkingID = SQLiteDataReader2.GetInt32(DatabaseColumns.ID)
             DesiredStatus = SQLiteDataReader2.GetInt32(DatabaseColumns.DesiredStatus)
-            ListenFor = SQLiteDataReader2.GetString(DatabaseColumns.ListenFor)  ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
-            Open = SQLiteDataReader2.GetString(DatabaseColumns.Open) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
-            Parameters = SQLiteDataReader2.GetString(DatabaseColumns.Parameters) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
-            StartIn = SQLiteDataReader2.GetString(DatabaseColumns.StartIn) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
+            ListenFor = SQLiteDataReader2.GetString(DatabaseColumns.ListenFor)  ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
+            Open = SQLiteDataReader2.GetString(DatabaseColumns.Open) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
+            Parameters = SQLiteDataReader2.GetString(DatabaseColumns.Parameters) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
+            StartIn = SQLiteDataReader2.GetString(DatabaseColumns.StartIn) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
             Admin = SQLiteDataReader2.GetValue(DatabaseColumns.Admin)
             StartingWindowState = SQLiteDataReader2.GetInt32(DatabaseColumns.StartingWindowState)
-            KeysToSend = SQLiteDataReader2.GetString(DatabaseColumns.KeysToSend) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
+            KeysToSend = SQLiteDataReader2.GetString(DatabaseColumns.KeysToSend) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
 
             If ReloadEntireTable Then
 
@@ -1079,15 +1078,15 @@ Module modCommon
     End Sub
     Friend Sub DeletePushoverMessages()
 
-        FindHigestPushoverMessageId_Processing = String.Empty
-        DeletePushoverMesssageID_Processing = String.Empty
+        FindHighestPushoverMessageId_Processing = String.Empty
+        DeletePushoverMessageID_Processing = String.Empty
 
-        Dim NewThread As Thread = New Thread(AddressOf FindHigestPushoverMessageId_Async)
+        Dim NewThread As Thread = New Thread(AddressOf FindHighestPushoverMessageId_Async)
         NewThread.Start()
 
         Dim Timeout As DateTime = Now.AddSeconds(10) ' added timeout in v3.5
 
-        While FindHigestPushoverMessageId_Processing = String.Empty
+        While FindHighestPushoverMessageId_Processing = String.Empty
 
             Thread.Sleep(100)
             If Now > Timeout Then
@@ -1106,7 +1105,7 @@ Module modCommon
             Dim NewThread2 As Thread = New Thread(AddressOf DeletePushoverMessagesID_Async)
             NewThread2.Start()
 
-            While DeletePushoverMesssageID_Processing = String.Empty
+            While DeletePushoverMessageID_Processing = String.Empty
                 Thread.Sleep(100)
             End While
 
@@ -1125,9 +1124,9 @@ Module modCommon
     End Sub
 
     Friend Event CloseThePushoverWebSocketNow()
-    Private Async Sub FindHigestPushoverMessageId_Async()
+    Private Async Sub FindHighestPushoverMessageId_Async()
 
-        FindHigestPushoverMessageId_Processing = String.Empty
+        FindHighestPushoverMessageId_Processing = String.Empty
 
         Try
 
@@ -1160,7 +1159,7 @@ Module modCommon
 
         End Try
 
-        FindHigestPushoverMessageId_Processing = "done"
+        FindHighestPushoverMessageId_Processing = "done"
 
     End Sub
 
@@ -1214,7 +1213,7 @@ Module modCommon
     End Function
     Friend Async Sub DeletePushoverMessagesID_Async()
 
-        DeletePushoverMesssageID_Processing = String.Empty
+        DeletePushoverMessageID_Processing = String.Empty
 
         Try
 
@@ -1254,7 +1253,7 @@ Module modCommon
 
         End Try
 
-        DeletePushoverMesssageID_Processing = "done"
+        DeletePushoverMessageID_Processing = "done"
 
     End Sub
 
@@ -1479,7 +1478,7 @@ Module modCommon
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub CheckInternetToSeeIfANewVersionIsAvailable(ByVal oMe As Object, ByVal Silent As Boolean)
 
         If My.Settings.CheckForUpdate Then 'v4.4
@@ -1525,7 +1524,7 @@ Module modCommon
 
                 If Silent Then
                     If My.Settings.SkipUpdateFor = lMostCurrentVersion Then
-                        Log("Automatic update check - the most curent version is " & lMostCurrentVersion & " however settings indicated this update should be skipped")
+                        Log("Automatic update check - the most current version is " & lMostCurrentVersion & " however settings indicated this update should be skipped")
                         Log("")
                         Exit Sub
                     End If
@@ -1540,7 +1539,7 @@ Module modCommon
 
                     If Silent Then
 
-                        Log("Automatic update check - you are running the most curent version of Push2Run")
+                        Log("Automatic update check - you are running the most current version of Push2Run")
                         Log("")
 
                     Else
@@ -1549,7 +1548,7 @@ Module modCommon
 
                     End If
 
-                Case Is = RunningVersionRelativeToCurrentWebSiteVersion.RunningVerionsIsOlderThanTheCurrentVersion
+                Case Is = RunningVersionRelativeToCurrentWebSiteVersion.RunningVersionIsOlderThanTheCurrentVersion
 
                     If Silent Then
 
@@ -1634,7 +1633,7 @@ Module modCommon
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function GetRunningVersionRelativeToCurrentWebSiteVersion() As RunningVersionRelativeToCurrentWebSiteVersion
         ' also updates gCurrentVersionAccordingToWebsite
 
@@ -1645,10 +1644,10 @@ Module modCommon
             Dim CurrentRunningVersion As String = My.Application.Info.Version.ToString
 
             Dim myWebClient As System.Net.WebClient = New System.Net.WebClient
-            Dim CurrentWebSiteVersionDataFileContents As String = myWebClient.DownloadString(gWebPageVerionCheck)
+            Dim CurrentWebSiteVersionDataFileContents As String = myWebClient.DownloadString(gWebPageVersionCheck)
             myWebClient.Dispose()
 
-            'fix incase retrieved file has vblf and not vbcrlf between first and second row in file
+            'fix in case retrieved file has vblf and not vbcrlf between first and second row in file
             Dim Entries() As String = Split(CurrentWebSiteVersionDataFileContents, vbCrLf)
             If Entries.Count = 2 Then
             Else
@@ -1667,7 +1666,7 @@ Module modCommon
                 ReturnValue = RunningVersionRelativeToCurrentWebSiteVersion.RunningVersionIsNewerThanCurrentVersion
 
             Else
-                ReturnValue = RunningVersionRelativeToCurrentWebSiteVersion.RunningVerionsIsOlderThanTheCurrentVersion
+                ReturnValue = RunningVersionRelativeToCurrentWebSiteVersion.RunningVersionIsOlderThanTheCurrentVersion
 
             End If
 
@@ -1717,7 +1716,7 @@ Module modCommon
     End Sub
 
 
-    Friend Function IsDownlaodFileForANewerVersion() As Boolean
+    Friend Function IsDownloadFileForANewerVersion() As Boolean
 
         Dim ReturnValue As Boolean = False
 
@@ -1761,7 +1760,7 @@ Module modCommon
 
     End Function
 
-    Friend Function IsDownlaodFileForTheCurrentlyReleasedVersion() As Boolean
+    Friend Function IsDownloadFileForTheCurrentlyReleasedVersion() As Boolean
 
         Dim ReturnValue As Boolean = False
 
@@ -1838,7 +1837,7 @@ Module modCommon
 
 #Region "Drag And Drop support"
 
-    Friend Function DropIntogCurrentlySelectedRow(ByRef e As DragEventArgs) As Boolean
+    Friend Function DropIntoCurrentlySelectedRow(ByRef e As DragEventArgs) As Boolean
 
         Dim ReturnValue = True
 
@@ -2103,12 +2102,12 @@ Module modCommon
         Data = 1
     End Enum
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub ResetEncryptionAndDecriptionToReadAndWrite(ByVal ResetControl As ResetEncryptionDecriptionLevel)
 
         '********************************************************************************************************
         'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-        'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+        'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
         'Control3 is used to hold a user password - encrypted by control1 
         '********************************************************************************************************
 
@@ -2153,12 +2152,12 @@ Module modCommon
 #End Region
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function GetPasswordInPlainText(ByRef Password As String) As Boolean
 
         '********************************************************************************************************
         'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-        'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+        'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
         'Control3 is used to hold a user password - encrypted by control1 
         '********************************************************************************************************
 
@@ -2233,12 +2232,12 @@ Module modCommon
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function DoPasswordsMatch(ByRef iEncryptedPassword As String) As Boolean
 
         '********************************************************************************************************
         'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-        'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+        'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
         'Control3 is used to hold a user password - encrypted by control1 
         '********************************************************************************************************
 
@@ -2274,66 +2273,202 @@ Module modCommon
 
     End Function
 
+    Dim PasswordCheckLock As New Object
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    'Friend Function IsAPasswordRequiredForBoss() As Boolean
+
+    '    '********************************************************************************************************
+    '    'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
+    '    'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
+    '    'Control3 is used to hold a user password - encrypted by control1 
+    '    '********************************************************************************************************
+
+    '    'Exit condition - Decrypt and Encrypt are set up to encode and GUI + Password level
+
+    '    Static InitialCheck As Boolean = False ' added in v4.9.1 to try and avoid a rare deadlock issue
+
+    '    Dim CheckCount As Integer = 0 ' added in v4.9.1 to try and avoid a rare deadlock issue
+
+    '    Dim ReturnCode As Boolean = False ' changed bias in v4.9.1 to false
+
+    '    Dim LineNumber As Integer
+
+    '    While CheckCount < 2
+
+    '        Try
+
+    '            CheckCount += 1
+
+    '            Dim sSQL As String = "SELECT Control1 , Control2 , Control3 FROM ControlTable ;"
+
+    '            Dim SQLiteConnect As New SQLiteConnection(gSQLiteConnectionString)
+    '            Dim SQLiteCommand As SQLiteCommand = New SQLiteCommand(sSQL, SQLiteConnect)
+
+    '            LineNumber = 1
+    '            SQLiteConnect.Open()
+
+    '            Dim SQLiteDataReader As SQLiteDataReader = SQLiteCommand.ExecuteReader(CommandBehavior.CloseConnection)
+
+    '            LineNumber = 2
+    '            SQLiteDataReader.Read()
+
+    '            LineNumber = 3
+    '            EncryptionClass.ResetDecryptionPassPhrase()
+
+    '            LineNumber = 4
+    '            Dim Master_Password As String = EncryptionClass.Decrypt(SQLiteDataReader.GetString(0))
+
+    '            LineNumber = 5
+    '            EncryptionClass.UpdateDecryptionPassPhrase(Master_Password)
+
+    '            LineNumber = 6
+    '            Dim YesNoFlag As String = EncryptionClass.Decrypt(SQLiteDataReader.GetString(1))
+
+    '            LineNumber = 7
+    '            ReturnCode = (YesNoFlag.Length > 3) AndAlso (YesNoFlag.StartsWith("Yes"))
+
+    '            LineNumber = 8
+    '            Dim Password As String = EncryptionClass.Decrypt(SQLiteDataReader.GetString(2))
+
+    '            LineNumber = 9
+    '            EncryptionClass.ResetDecryptionPassPhrase()
+
+    '            LineNumber = 10
+    '            EncryptionClass.UpdateDecryptionPassPhrase(Master_Password & Password)
+
+    '            LineNumber = 11
+    '            Master_Password = String.Empty
+    '            YesNoFlag = String.Empty
+
+    '            LineNumber = 12
+    '            SQLiteDataReader.Close()
+    '            LineNumber = 13
+    '            SQLiteConnect.Close()
+
+    '            LineNumber = 14
+    '            SQLiteConnect.Dispose()
+
+    '            LineNumber = 15
+    '            SQLiteCommand.Dispose()
+
+    '            LineNumber = 16
+    '            SQLiteDataReader = Nothing
+
+    '        Catch ex As Exception
+
+    '            ReturnCode = False ' changed bias in v4.9.1 to false
+
+    '            If CheckCount = 1 Then
+    '                Log("Password required check fault at line number " & LineNumber.ToString)
+    '                Log(ex.Message.ToString)
+    '                Log("")
+    '                System.Threading.Thread.Sleep(1000)
+    '            End If
+
+    '        End Try
+
+    '        InitialCheck = True
+
+    '    End While
+
+    '    InitialCheck = True
+
+    '    Return ReturnCode
+
+    'End Function
+
     Friend Function IsAPasswordRequiredForBoss() As Boolean
+        ' Control1 = Master_Password (encrypted with base phrase)
+        ' Control2 = Yes/No flag (encrypted with master)
+        ' Control3 = User password (encrypted with master)
+        ' Safe default: return False unless a solid “Yes” flag can be confidently decrypted.
 
-        '********************************************************************************************************
-        'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-        'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
-        'Control3 is used to hold a user password - encrypted by control1 
-        '********************************************************************************************************
+        Const LogPrefix As String = "PwdChk:"
+        Const MaxAttempts As Integer = 2
 
-        'Exit condition - Decrypt and Encrypt are set up to encode and GUI + Password level
+        For attempt As Integer = 1 To MaxAttempts
+            Try
+                Using conn As New SQLiteConnection(gSQLiteConnectionString)
+                    conn.Open()
+                    Using cmd As New SQLiteCommand("SELECT Control1, Control2, Control3 FROM ControlTable LIMIT 1;", conn)
+                        Using rdr As SQLiteDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
 
-        Dim ReturnCode As Boolean = True
+                            If Not rdr.Read() Then
+                                If attempt = MaxAttempts Then Log(LogPrefix & " control row missing (empty table), default False")
+                                Return False
+                            End If
 
-        Try
+                            ' Basic null / empty validation
+                            If rdr.IsDBNull(0) OrElse rdr.IsDBNull(1) OrElse rdr.IsDBNull(2) Then
+                                If attempt = MaxAttempts Then Log(LogPrefix & " one or more NULL fields, default False")
+                                Return False
+                            End If
 
-            Dim sSQL As String = "SELECT Control1 , Control2 , Control3 FROM ControlTable ;"
+                            Dim encMaster = rdr.GetString(0)
+                            Dim encFlag = rdr.GetString(1)
+                            Dim encPwd = rdr.GetString(2)
 
-            Dim SQLiteConnect As New SQLiteConnection(gSQLiteConnectionString)
-            Dim SQLiteCommand As SQLiteCommand = New SQLiteCommand(sSQL, SQLiteConnect)
+                            If String.IsNullOrWhiteSpace(encMaster) Then
+                                If attempt = MaxAttempts Then Log(LogPrefix & " empty master value, default False")
+                                Return False
+                            End If
 
-            SQLiteConnect.Open()
+                            ' Decrypt master
+                            EncryptionClass.ResetDecryptionPassPhrase()
+                            Dim master As String
+                            Try
+                                master = EncryptionClass.Decrypt(encMaster)
+                            Catch exDec As Exception
+                                If attempt = MaxAttempts Then Log(LogPrefix & " master decrypt fail: " & exDec.Message)
+                                Return False
+                            End Try
+                            If String.IsNullOrEmpty(master) Then
+                                If attempt = MaxAttempts Then Log(LogPrefix & " master decrypt empty, default False")
+                                Return False
+                            End If
 
-            Dim SQLiteDataReader As SQLiteDataReader = SQLiteCommand.ExecuteReader(CommandBehavior.CloseConnection)
+                            ' Decrypt flag
+                            EncryptionClass.UpdateDecryptionPassPhrase(master)
+                            Dim flagPlain As String = String.Empty
+                            Try
+                                flagPlain = EncryptionClass.Decrypt(encFlag)
+                            Catch exFlag As Exception
+                                If attempt = MaxAttempts Then Log(LogPrefix & " flag decrypt fail: " & exFlag.Message)
+                                Return False
+                            End Try
 
-            SQLiteDataReader.Read()
+                            ' Decrypt password (even if not needed, to keep encryption state aligned with rest of code)
+                            Dim userPwdPlain As String = String.Empty
+                            Try
+                                userPwdPlain = EncryptionClass.Decrypt(encPwd)
+                            Catch exPwd As Exception
+                                If attempt = MaxAttempts Then Log(LogPrefix & " password decrypt fail: " & exPwd.Message)
+                                Return False
+                            End Try
 
-            EncryptionClass.ResetDecryptionPassPhrase()
-            Dim Master_Password As String = EncryptionClass.Decrypt(SQLiteDataReader.GetString(0))
+                            ' Final passphrase state per existing pattern
+                            EncryptionClass.ResetDecryptionPassPhrase()
+                            EncryptionClass.UpdateDecryptionPassPhrase(master & userPwdPlain)
 
-            EncryptionClass.UpdateDecryptionPassPhrase(Master_Password)
-            Dim YesNoFlag As String = EncryptionClass.Decrypt(SQLiteDataReader.GetString(1))
+                            Dim result As Boolean = (flagPlain.Length > 3 AndAlso flagPlain.StartsWith("Yes", StringComparison.Ordinal))
+                            Return result
+                        End Using
+                    End Using
+                End Using
 
-            ReturnCode = (YesNoFlag.Length > 3) AndAlso (YesNoFlag.StartsWith("Yes"))
+            Catch ex As Exception
+                If attempt = MaxAttempts Then
+                    Log(LogPrefix & " exception attempt " & attempt & ": " & ex.Message)
+                    Return False
+                End If
+                ' brief backoff only on first failure
+                Thread.Sleep(100)
+            End Try
+        Next
 
-            Dim Password As String = EncryptionClass.Decrypt(SQLiteDataReader.GetString(2))
-
-            EncryptionClass.ResetDecryptionPassPhrase()
-            EncryptionClass.UpdateDecryptionPassPhrase(Master_Password & Password)
-
-            Master_Password = String.Empty
-            YesNoFlag = String.Empty
-
-            SQLiteDataReader.Close()
-            SQLiteConnect.Close()
-
-            SQLiteConnect.Dispose()
-            SQLiteCommand.Dispose()
-            SQLiteDataReader = Nothing
-
-        Catch ex As Exception
-            ReturnCode = True
-        End Try
-
-        Return ReturnCode
-
+        Return False
     End Function
 
-
-    ' this routine fails when virtualized
     Friend Sub StartupShortCut(ByVal Command As String)
 
         ' Commands are:  
@@ -2349,7 +2484,7 @@ Module modCommon
             Dim ApplicationPathAndFileName As String = System.Environment.CurrentDirectory & "\" & gThisProgramName
             Dim ApplicationPathAndFileNameReloader As String = System.Environment.CurrentDirectory & "\" & gReloaderProgramName
 
-            'If ApplicationPathAndFileName.Contains("Rob Latour") AndAlso ApplicationPathAndFileName.Contains("Debug") Then Exit Sub ' ignor request as this is a debug session
+            'If ApplicationPathAndFileName.Contains("Rob Latour") AndAlso ApplicationPathAndFileName.Contains("Debug") Then Exit Sub ' ignore request as this is a debug session
 
             Dim StartupPathName As String = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Startup)
 
@@ -2467,7 +2602,6 @@ Module modCommon
 
 
     <System.Diagnostics.DebuggerStepThrough()>
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
     Friend Function GenerateRandomPassword(ByVal PasswordLength As Byte) As String
 
         Static Dim CharactersToChooseFrom As String = String.Empty
@@ -2476,7 +2610,7 @@ Module modCommon
 
         If CharactersToChooseFrom = String.Empty Then
             Dim sbWorking As New StringBuilder
-            For x As Int32 = 255 To 32 Step -1
+            For x As Int32 = 33 To 255 ' v4.9.1 start at 33 to avoid space character
                 If (x = 34) OrElse (x = 39) OrElse (x = 145) OrElse (x = 146) OrElse (x = 152) Then
                     'don't use certain quote like characters
                 Else
@@ -2491,7 +2625,7 @@ Module modCommon
         Dim CharactersToChooseFromLength As Int32 = CharactersToChooseFrom.Length
 
         For x As Byte = 1 To PasswordLength
-            str.Append(CharactersToChooseFrom.Trim.Chars(Rnd() * (CharactersToChooseFromLength - 1)))
+            str.Append(CharactersToChooseFrom.Chars(Rnd() * (CharactersToChooseFromLength - 1)))
         Next
 
         Return str.ToString
@@ -2992,7 +3126,7 @@ Module modCommon
     Friend Sub UpdateGlobalSeparatingWordsArray()
 
         ' this is done here and only at startup and when the Separating Words table is updated 
-        ' result are stored in gSeparatingWords and used when imcoming messages are being processed
+        ' result are stored in gSeparatingWords and used when incoming messages are being processed
 
         ' Each set of Separating words needs to be trimmed, and all sets need to be in an array which has been sorted in reverse order
         ' this so the replacement will have, for example, "and to" replaced before "and", and in this way 
@@ -3002,7 +3136,7 @@ Module modCommon
         gUseSeparatingWords = True
 
         Dim ws As String = My.Settings.SeparatingWords
-        ws = Regex.Replace(ws, "\s+", "") ' remove all whitespaces
+        ws = Regex.Replace(ws, "\s+", "") ' remove all white spaces
         ws = ws.Replace(",", "").Trim     ' remove all commas
         If ws.Length = 0 Then
             'if there are no Separating words defined, then override option to use them 
@@ -3064,7 +3198,7 @@ Module modCommon
         ' (the windows calculator is an example of this)
 
         ' the following code will look for a new window to be opened in 5 seconds or less of push2run launching a program
-        ' if one does't get opened in that time frame it will be ignored
+        ' if one doesn't get opened in that time frame it will be ignored
 
         SyncLock LockingObject
 
@@ -3177,7 +3311,7 @@ AllDone:
             My.Computer.FileSystem.WriteAllText(gSessionLogFile, Message & vbCrLf, True)
         End If
 
-        ' no noticable gain with parallel procesing
+        ' no noticeable gain with parallel processing
         '
         'Dim sw As New Stopwatch
         'sw.Start()
@@ -3273,7 +3407,7 @@ AllDone:
 
         Dim arrayofchars = input.ToCharArray()
 
-        'replace all whitespaces with a simple space
+        'replace all white spaces with a simple space
         For x As Integer = 0 To arrayofchars.Length - 1
             If Char.IsWhiteSpace(arrayofchars(x)) Then
                 arrayofchars(x) = " "c
@@ -3300,7 +3434,7 @@ AllDone:
 
         Return (From value In sender Select value Distinct Order By value).ToArray
 
-        ' The following can be used if you want to ignor the case
+        ' The following can be used if you want to ignore the case
         'Dim alist As List(Of String) = sender.ToList
         'alist = alist.Distinct(StringComparer.CurrentCultureIgnoreCase).ToList
         'Return alist.ToArray
@@ -3310,7 +3444,7 @@ AllDone:
 
 #Region "Database Functions"
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub CreateMasterRecord()
 
         Try
@@ -3341,7 +3475,7 @@ AllDone:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub MakeSureMasterRecordIsCorrect()
 
         Try
@@ -3504,7 +3638,7 @@ AllDone:
             'Step 3: read the MasterSwitch for use in Step 5
             Dim MasterSwitchRecord As MyTable1Class = ReadARecord(gMasterSwitchID)
 
-            'Step 4: Remove the current Table1 from the database and reset the autoincrement counter to 0
+            'Step 4: Remove the current Table1 from the database and reset the auto increment counter to 0
             RunSQL("DELETE FROM Table1 ;")
             RunSQL("UPDATE sqlite_sequence SET seq=0 WHERE name = ""Table1"" ;")
 
@@ -3612,7 +3746,7 @@ AllDone:
     End Enum
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function ReadARecord(ByVal ID As Integer) As MyTable1Class
 
         Dim ReturnRecord As New MyTable1Class
@@ -3708,7 +3842,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function GetMasterDesiredStatusFromDatabase() As StatusValues
 
 
@@ -3762,7 +3896,7 @@ AllDone:
 
     Friend Function CheckDatabaseVersionAndUpgradeItAsNecissary() As Boolean
 
-        'Returns false if there is a problem with the datebase
+        'Returns false if there is a problem with the database
 
         Const Database_from_version_1_0_0_to_version_2_0_5 As String = "ID|SortOrder|DesiredStatus|WorkingStatus|Description|ListenFor|Open|Parameters|StartIn|Admin|"
         Const Database_from_version_2_1_0_to_version_x_x_x As String = "ID|SortOrder|DesiredStatus|WorkingStatus|Description|ListenFor|Open|Parameters|StartIn|Admin|StartingWindowState|KeysToSend|"
@@ -3835,7 +3969,7 @@ AllDone:
 
 
                 ' Update StartingWindowState  values in the column that was just added
-                ' StartingWindowState  = 3 is Normal - and is the default for existing enrties except where
+                ' StartingWindowState  = 3 is Normal - and is the default for existing entries except where
                 ' ID = 1 (the master record) or WorkingStats = 3 (a blank line) 
 
                 ReturnValue = RunSQLiteSQL("UPDATE Table1 SET StartingWindowState = 3 WHERE NOT ( (ID = 1) OR (WorkingStatus = 3) );")
@@ -3861,7 +3995,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function RunSQLiteSQL(ByVal myCommandText As String) As Boolean
 
         Dim ReturnCode As Boolean = False
@@ -3897,7 +4031,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub InsertARecord(ByVal iSortOrder As Integer, ByVal iDesiredStatus As Integer, ByVal iWorkingStatus As Integer, ByVal iDescription As String, ByVal iListenFor As String, ByVal iOpen As String, ByVal iParameters As String, ByVal iStartIn As String, ByVal iAdmin As Boolean, ByVal iStartingWindowState As Integer, ByVal iKeysToSend As String)
 
         Try
@@ -4054,7 +4188,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub ChangeARecord(ByVal iID As Integer, ByVal iSortOrder As Integer, ByVal iDesiredStatus As Integer, ByVal iWorkingStatus As Integer, ByVal iDescription As String, ByVal iListenFor As String, ByVal iOpen As String, ByVal iParameters As String, ByVal iStartIn As String, ByVal iAdmin As Boolean, ByVal iStartingWindowState As Integer, ByVal iKeysToSend As String)
 
         Dim sSQL As String = "UPDATE Table1       " &
@@ -4104,14 +4238,14 @@ AllDone:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub DeleteARecord(ByVal iID As Integer)
 
         RunSQL("DELETE FROM Table1 WHERE ID = " & iID.ToString & " ; ")
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function GetMaxIDFromDatabase() As Integer
 
         Dim ReturnCode As Integer = -1
@@ -4149,7 +4283,7 @@ AllDone:
     End Function
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function GetMaxIDSortOrderFromDatabase() As Integer
 
         Dim ReturnCode As Integer = -1
@@ -4187,7 +4321,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub ChangeTheSortOrderOfARecord(ByVal iID As Integer, ByVal iSortOrder As Integer)
 
 
@@ -4217,9 +4351,9 @@ AllDone:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub ChangeTheDesiredStatusSwitch(ByVal iID As Integer, ByVal iDesiredStatus As Integer)
-        'converstion to sqllite complte
+        'conversion to sqllite complete
 
         Dim sSQL As String = "UPDATE Table1   " &
                              "Set DesiredStatus = @DesiredStatus " &
@@ -4242,9 +4376,9 @@ AllDone:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub ChangeTheWorkingStatusSwitch(ByVal iID As Integer, ByVal iWorkingStatus As Integer)
-        'converstion to sqllite complte
+        'conversion to sqllite complete
 
         Dim sSQL As String = "UPDATE Table1   " &
                              "Set WorkingStatus = @WorkingStatus " &
@@ -4269,11 +4403,11 @@ AllDone:
 
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function GetEncryptedPassword() As String
         '********************************************************************************************************
         'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-        'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+        'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
         'Control3 is used to hold a user password - encrypted by control1 
         '********************************************************************************************************
 
@@ -4311,7 +4445,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function SetPassword(ByVal NewPassword_PlainText As String) As Boolean
 
         'Good exit condition - Decrypt and Encrypt are set up to encode and GUI + Password level
@@ -4322,14 +4456,14 @@ AllDone:
 
             '********************************************************************************************************
             'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-            'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+            'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
             'Control3 is used to hold a user password - encrypted by control1 
             '********************************************************************************************************
 
             '********************************************************************************************************
             'Step 1: retrieve Master_Password and old Password
             'Master_Password is needed to decrypt old Password
-            'Old Password is need to decrypt data for encryption transfomation to be encrypted under the new password
+            'Old Password is need to decrypt data for encryption transformation to be encrypted under the new password
 
             Dim sSQL As String = "SELECT Control1 , Control3 FROM ControlTable ;"
 
@@ -4441,7 +4575,7 @@ AllDone:
             SQLiteCommand3.Dispose()
             SQLiteDataReader3 = Nothing
 
-            'Step 3b Reload Parameters in database with new encyrption
+            'Step 3b Reload Parameters in database with new encryption
 
             Dim sSQL4 As String = "UPDATE Table1 SET Description = @Description , ListenFor = @ListenFor , Open = @Open , Parameters = @Parameters , Startin = @StartIn , KeysToSend = @KeysToSend WHERE ID = @ID ;"
 
@@ -4493,7 +4627,7 @@ AllDone:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Function SetPasswordIsRequireFlag(ByVal IsRequired As Boolean) As Boolean
 
         'Good exit condition - Decrypt and Encrypt are set up to encode and GUI + Password level
@@ -4504,7 +4638,7 @@ AllDone:
 
             '********************************************************************************************************
             'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-            'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+            'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
             'Control3 is used to hold a user password - encrypted by control1 
             '********************************************************************************************************
 
@@ -4581,7 +4715,6 @@ AllDone:
     End Function
 
     <System.Diagnostics.DebuggerStepThrough()>
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
     Friend Function RunSQL(ByVal sSQL As String, Optional ByVal DisplayErrors As Boolean = True) As Boolean
 
 
@@ -4627,7 +4760,6 @@ AllDone:
 #Region "Top Most stuff"
 
     <System.Diagnostics.DebuggerStepThrough()>
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
     Friend Sub MakeTopMost(ByVal hwnd As IntPtr, ByVal TopMost As Boolean)
 
         Const HWND_TOPMOST As Integer = -1
@@ -4777,7 +4909,7 @@ AllDone:
 
     Friend Sub ToastNotification(ByVal Line1 As String, ByVal Line2 As String, ByVal Line3 As String, ByVal ToastTime As DateTime)
 
-        'call primative based on the options set in the Notification Options window
+        'call primitive based on the options set in the Notification Options window
 
         ToastNotificationPrimative(Line1, Line2, Line3, My.Settings.ShowNotificationResult, My.Settings.ShowNotificationSource, ToastTime)
 

@@ -2,7 +2,7 @@
 
 Partial Public Class WindowChangePassword
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowNewPassword_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
 
         Me.ShowInTaskbar = False
@@ -18,21 +18,21 @@ Partial Public Class WindowChangePassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowChangePassword_Closing(sender As Object, e As ComponentModel.CancelEventArgs) Handles Me.Closing
 
         ResetEncryptionAndDecriptionToReadAndWrite(ResetEncryptionDecriptionLevel.Data)
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub Any_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles WindowNewPasswordBox1.KeyUp, WindowNewPasswordBox2.KeyUp, OldPasswordBox.KeyUp, Me.KeyUp
 
         CheckCapsAndNumLocks()
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnOK.Click
 
         Dim OldPlainTextPassword As String = OldPasswordBox.Password.ToString.Trim
@@ -99,7 +99,7 @@ Partial Public Class WindowChangePassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub ClearPasswordBoxes()
 
         OldPasswordBox.Clear()
@@ -110,7 +110,7 @@ Partial Public Class WindowChangePassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub CheckCapsAndNumLocks()
 
         'caps lock = 20
@@ -130,7 +130,7 @@ Partial Public Class WindowChangePassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub

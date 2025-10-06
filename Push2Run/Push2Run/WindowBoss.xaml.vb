@@ -1,4 +1,4 @@
-﻿'Copyright Rob Latour 2024
+﻿'Copyright Rob Latour 2025
 
 'GUI Related
 Imports System.Data
@@ -201,7 +201,7 @@ Class WindowBoss
     "Of note, when a program runs in the Windows Sandbox it runs with administrator privileges." & vbCrLf & vbCrLf &
     "Although Push2Run can run with administrator privileges, normally it does not.  However, as Push2Run appears to be running in the Windows Sandbox it is running with administrative privileges." & vbCrLf & vbCrLf &
     "Having that said, one of Push2Run's features, the ability to allow you to manually switch Push2Run's privilege level between normal and administrative is not available when running in the Windows Sandbox." & vbCrLf & vbCrLf &
-    "Also, when Push2Run is first installed it normally provides two example Push2Run cards: one to open Microsoft's Calculator and another to open Microsoft's Notepad program and do some typing into it.  However, as Microsft's Calculator is unusable in the Windows Sandbox the sample card for it is omitted when installing in the Windows Sandbox." & vbCrLf & vbCrLf &
+    "Also, when Push2Run is first installed it normally provides two example Push2Run cards: one to open Microsoft's Calculator and another to open Microsoft's Notepad program and do some typing into it.  However, as Microsoft's Calculator is unusable in the Windows Sandbox the sample card for it is omitted when installing in the Windows Sandbox." & vbCrLf & vbCrLf &
     "Please click 'OK' below to continue.",
     gThisProgramName & " - in the Windows Sandbox", MessageBoxButton.OK, MessageBoxImage.Asterisk, System.Windows.MessageBoxOptions.None)
 
@@ -418,7 +418,7 @@ Class WindowBoss
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub WindowBoss_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
 
         'v4.6
@@ -429,7 +429,7 @@ Class WindowBoss
         End If
 
         If gSpecialProcessingForTesting Then
-            gWebPageVerionCheck = gWebPageVerionCheckWhenTesting
+            gWebPageVersionCheck = gWebPageVersionCheckWhenTesting
             gWebPageChangeLog = gWebPageChangeLogWhenTesting
             gAutomaticUpdateWebFileName = gAutomaticUpdateWebFileNameWhenTesting
         End If
@@ -506,7 +506,7 @@ Class WindowBoss
 
                 If File.Exists(gAutomaticUpdateLocalDownloadedFileName) Then
 
-                    If IsDownlaodFileForANewerVersion() Then
+                    If IsDownloadFileForANewerVersion() Then
                     Else
                         File.Delete(gAutomaticUpdateLocalDownloadedFileName)
                     End If
@@ -693,7 +693,7 @@ Class WindowBoss
                     "This can involve using Dropbox, Pushbullet, Pushover, MQTT, and/or the command line to trigger the things you want done." & vbCrLf & vbCrLf &
                     "Other services, such as those available through Google Assistants products, IFTTT, and Home Assistant can also be used to further automate control." & vbCrLf & vbCrLf &
                     "Telling Push2Run how you would like it to work is done through the program's Options window." & vbCrLf & vbCrLf &
-                    "The Options window also includes a 'Help' button.  Clicking it opens Push2Run's help webpage, providing more details on individual settings as well as a link to a first time setup walkthrough." & vbCrLf & vbCrLf &
+                    "The Options window also includes a 'Help' button.  Clicking it opens Push2Run's help webpage, providing more details on individual settings as well as a link to a first time setup walk through." & vbCrLf & vbCrLf &
                     "I truly hope Push2Run will be of good use to you, and you are welcome to use it for free on as many computers as you would like!" & vbCrLf & vbCrLf &
                     "Rob Latour" & vbCrLf & vbCrLf &
                     "Click 'OK' below to open Push2Run's Options window.",
@@ -753,7 +753,7 @@ Class WindowBoss
             Else
 
                 If (Not gIsWindows10OrAbove) AndAlso (Not gIsUACOn) Then '
-                    Me.Title = "Push2Run (UAC recommeded notify is off)"
+                    Me.Title = "Push2Run (UAC recommended notify is off)"
                     Me.MenuElevate.Header = "_Give Push2Run administrator privileges"
                     Me.Seperator6a.Visibility = Visibility.Collapsed
                     Me.MenuElevate.Visibility = Visibility.Collapsed
@@ -778,7 +778,7 @@ Class WindowBoss
             If gRunningInASandbox Then
                 If Me.Title.Contains(" (Sandbox)") Then
                 Else
-                    Me.Title = Me.Title & " (Sandbox)"
+                    Me.Title &= " (Sandbox)"
                 End If
             End If
 
@@ -1024,7 +1024,7 @@ Class WindowBoss
 
         While (Not MQTTSetupComplete) AndAlso (Now < WaitUntil)
             Thread.Sleep(50)
-            DoEvents()
+            DoEvents()  'added in v2.0  correct lag if pushbullet access token was not entered
         End While
 
     End Sub
@@ -1364,7 +1364,7 @@ Class WindowBoss
     Public WithEvents Systray_Separator3 As Forms.ToolStripSeparator = New Forms.ToolStripSeparator
     Public WithEvents Systray_MenuExit As Forms.ToolStripMenuItem = New Forms.ToolStripMenuItem
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub SetupSystrayIcon()
 
         SysTrayIcon.ContextMenuStrip = Systray_ContextMenu
@@ -1531,7 +1531,7 @@ Class WindowBoss
 
         Dim MyAddressList As New List(Of String)
 
-        'replaced the commented code below with the revise code underneith it using GetHostByName was throwing a compiler warning about being obsolete 'v3.7.1
+        'replaced the commented code below with the revise code underneath it using GetHostByName was throwing a compiler warning about being obsolete 'v3.7.1
         'For Each address As System.Net.IPAddress In System.Net.Dns.GetHostByName(System.Net.Dns.GetHostName()).AddressList
         '    MyAddressList.Add(address.ToString)
         'Next
@@ -1844,12 +1844,12 @@ Class WindowBoss
                 'Delete Pushover message so that it is not processed again
 
                 PushoverMessageIdToDelete = GetFirstMatchingValueFromJSONResponseString("id_str", ServerResponse)
-                DeletePushoverMesssageID_Processing = String.Empty
+                DeletePushoverMessageID_Processing = String.Empty
 
                 Dim NewThread2 As Thread = New Thread(AddressOf DeletePushoverMessagesID_Async)
                 NewThread2.Start()
 
-                While DeletePushoverMesssageID_Processing = String.Empty
+                While DeletePushoverMessageID_Processing = String.Empty
                     Thread.Sleep(100)
                 End While
 
@@ -1867,7 +1867,7 @@ Class WindowBoss
 
         Catch ex As Exception
 
-            Log("Pushover processing encounted an unexpected error!")
+            Log("Pushover processing encounter an unexpected error!")
             Log(ex.Message.ToString)
             Log("")
 
@@ -1896,14 +1896,14 @@ Class WindowBoss
     End Structure
 
     '                                                                  Threshold is more than
-    Const PushoverAutoBanThresholdTansactionLimit As Integer = 90     ' 90 requets in 
+    Const PushoverAutoBanThresholdTansactionLimit As Integer = 90     ' 90 requests in 
     Const PushoverAutoBanTimeFrameThreshold As Integer = 3600         ' one hour  (if changed from 1 hour, log displays below will need to change too)
 
     ' there are two transactions in each request
     Private Function PushoverAutoBan() As Boolean
 
         'returns True when the total number of times this routine has been called within the PushoverAutoBanTimeFrameThreshold exceeds the PushoverAutoBanThresholdLimit
-        'once thie routine returns true, it will continue to return true until the program is restarted
+        'once the routine returns true, it will continue to return true until the program is restarted
 
         Dim ReturnValue As Boolean = False
 
@@ -1928,13 +1928,13 @@ Class WindowBoss
 
                 ' Given it will be possible to find a entry in the AutoBanTable where the current time either
                 '    a) matches a timestamp in the table, or 
-                '    b) can be added into the table replaceing a timestamp older than the timeframe being monitored
+                '    b) can be added into the table replacing a timestamp older than the timeframe being monitored
                 '
                 ' then 
                 '
                 '   a) 1 to the matching entries count
                 '
-                '   b) set timestamp of the entry to be replace with the current timestamp amd set its count to 1
+                '   b) set timestamp of the entry to be replace with the current timestamp and set its count to 1
 
                 Dim MatchFound As Boolean = False
 
@@ -1956,7 +1956,7 @@ Class WindowBoss
                     Next
                 End If
 
-                ' calculate a total of the counts associated with all entries in the AutoBanTable within the timeframe being monitored
+                ' calculate a total of the counts associated with all entries in the AutoBanTable within the time frame being monitored
 
                 Dim totalHitsInTheTimeFrame = 0
 
@@ -2005,7 +2005,7 @@ Class WindowBoss
     Private gForceTheShowingOfTheMainWindowOnRestart As Boolean = False
     Private gAdminFlag As Boolean = False
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub GetThePassword()
 
         Try
@@ -2041,7 +2041,7 @@ Class WindowBoss
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub LoadListViewFromDatabase()
 
         Dim Source As New List(Of MyTable1ClassForTheListView)
@@ -2069,7 +2069,7 @@ Class WindowBoss
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Function LoadDatabaseIntoAList(Optional ByVal WithoutFiltering As Boolean = False) As List(Of MyTable1ClassForTheListView)
 
         Dim ReturnValue As New List(Of MyTable1ClassForTheListView)
@@ -2264,14 +2264,14 @@ SkipRecord:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub Systray_MenuPasswordRequired_click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuPasswordRequired.Click
 
         GetThePassword()
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub WindowBoss_StateChanged(sender As Object, e As EventArgs) Handles Me.StateChanged
 
         If Me.Systray_MenuShowBoss.Checked Then Exit Sub  ' this keeps the taskbar icon in place when the main window should be shown
@@ -2289,7 +2289,7 @@ SkipRecord:
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuShowSessionLog_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuShowSessionLog.Click
 
         Systray_MenuShowSessionLog.Checked = Not Systray_MenuShowSessionLog.Checked
@@ -2298,7 +2298,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuShowOptions_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuShowOptions.Click
 
         Systray_MenuShowOptions.Checked = Not Systray_MenuShowOptions.Checked
@@ -2312,14 +2312,14 @@ SkipRecord:
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuShowAboutHlep_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuShowAboutHelp.Click
 
         OpenOrCloseAboutHelp()
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub SysTrayIcon_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles SysTrayIcon.DoubleClick
 
         If gPasswordWasCorrectlyEnteredInPasswordWindow Then
@@ -2572,7 +2572,7 @@ SkipRecord:
     End Sub
 
     Delegate Sub OpenMainWindowCallback()
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub OpenMainWindow()
 
         gForceTheShowingOfTheMainWindowOnRestart = False
@@ -2602,7 +2602,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuPause_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuPause.CheckedChanged
 
         If gBossLoadUnderway Then Exit Sub
@@ -2621,7 +2621,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ConfirmMasterSwitchAndSystrayIcon()
 
         If gPasswordWasCorrectlyEnteredInPasswordWindow AndAlso (Not Systray_MenuPause.Checked) Then
@@ -2647,7 +2647,7 @@ SkipRecord:
         Red = 3
     End Enum
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ConfirmSystrayIcons()
 
         Static CurrentIconColour As IconColour = IconColour.NotYetSet
@@ -2655,9 +2655,9 @@ SkipRecord:
         ' systray icon will be red if Push2Run is pause, otherwise
         ' it will be green if all enabled triggers are good
         ' it will be yellow if some selected triggers are good and others are not
-        ' it will be red all all enabled triggers are not good
+        ' it will be red if all enabled triggers are not good
 
-        ' can not deterime if the Dropbox service is active, if it enabled assume it is
+        ' can not determine if the Dropbox service is active, if it enabled assume it is
 
         ' Only update the system icon when needed
 
@@ -2714,7 +2714,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuExit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuExit.Click, MenuExit.Click
 
         Dim OKToExit As Boolean = True
@@ -2731,7 +2731,7 @@ SkipRecord:
         End If
 
     End Sub
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub Systray_MenuShowBoss_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Systray_MenuShowBoss.Click
 
         'this handles clicking on the red 'x' on the main window
@@ -2746,7 +2746,7 @@ SkipRecord:
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub WindowBoss_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
 
         If OKToClose Then
@@ -2866,7 +2866,7 @@ SkipRecord:
         WorkerTimer.Dispose()
 
         Try
-            'todo: find why this is needed to compelete shutdown
+            'todo: find why this is needed to complete shutdown
             System.Windows.Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown
             System.Windows.Application.Current.Shutdown()
         Catch ex As Exception
@@ -2875,7 +2875,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub TurnMasterSwitchOn(ByVal TurnMasterOn As Boolean)
 
         If gBossLoadUnderway Then
@@ -2949,7 +2949,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ListView1_SelectionChanged(ByVal sender As Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles ListView1.SelectionChanged
 
         If gBossLoadUnderway Then Exit Sub
@@ -2981,7 +2981,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuContext_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MenuContextAdd.Click,
                 MenuContextCopy.Click, MenuContextEdit.Click, MenuContextDelete.Click, MenuContextInsertABlankLine.Click, MenuContextMoveUp.Click, MenuContextMoveDown.Click, MenuContextUndo.Click, MenuContextRun.Click,
                 MenuAdd.Click, MenuCopy.Click, MenuEdit.Click, MenuDelete.Click, MenuInsertABlankLine.Click, MenuMoveUp.Click, MenuMoveDown.Click, MenuSort.Click, MenuUndo.Click,
@@ -2997,7 +2997,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub WindowBoss_PreviewKeyDown(sender As Object, e As Input.KeyEventArgs) Handles Me.PreviewKeyDown, ListView1.PreviewKeyDown
 
         SetLookOfMenus()
@@ -3167,7 +3167,7 @@ SkipRecord:
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub PerformAction(ByVal ActionCode As String)
 
         SeCursor(CursorState.Wait)
@@ -3292,7 +3292,7 @@ SkipRecord:
                         'v4.6
                         If gRunningInASandbox Then
 
-                            Dim Result As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "Cannot change priviledges as program is running in a sandbox", "Push2Run", MessageBoxButton.OK, MessageBoxImage.Exclamation, MessageBoxResult.OK, System.Windows.MessageBoxOptions.None)
+                            Dim Result As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "Cannot change privileges as program is running in a sandbox", "Push2Run", MessageBoxButton.OK, MessageBoxImage.Exclamation, MessageBoxResult.OK, System.Windows.MessageBoxOptions.None)
 
                         Else
 
@@ -3796,7 +3796,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Function SwapTwoRecordsOnTheDatabase(ByVal RecordOneID As Integer, ByVal RecordTwoID As Integer) As Boolean
 
         Dim ReturnValue As Boolean = False
@@ -3841,7 +3841,7 @@ SkipRecord:
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ListView1_MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Input.MouseButtonEventArgs) Handles ListView1.MouseDoubleClick
 
         ' Double click on an entry to change it
@@ -3868,7 +3868,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ChangeTheSelectedRowNow()
 
         With gCurrentlySelectedRow
@@ -3879,7 +3879,7 @@ SkipRecord:
     End Sub
 
     Private EditWasCancelled As Boolean
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ChangeTheSelectedRow()
 
         Dim OriginalWorkingStatusIsOn As Boolean = (gCurrentlySelectedRow.WorkingStatus = StatusValues.SwitchOn)
@@ -3922,7 +3922,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ListView1_MouseLeftButtonUporDown(ByVal sender As Object, ByVal e As System.Windows.Input.MouseButtonEventArgs) Handles ListView1.MouseLeftButtonUp, ListView1.MouseRightButtonUp
 
         'This code toggles the on/off switches
@@ -3940,7 +3940,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub ToggleSwitch()
 
         Dim SelectedRow As MyTable1ClassForTheListView = ListView1.SelectedItem
@@ -3995,7 +3995,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub MenuActions_SubmenuOpened(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles MenuActions.SubmenuOpened, MenuView.SubmenuOpened, MenuHelp.SubmenuOpened
 
         SetLookOfMenus()
@@ -4241,14 +4241,14 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub SetCoreMenuItemsOnly()
 
         MenuContextUndo.Visibility = MenuUndo.Visibility
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Function GetAddChangeInfo(ByVal AddChange As String) As Boolean
 
         Dim HoldAlwaysOnTop As Boolean = My.Settings.AlwaysOnTop
@@ -4281,7 +4281,7 @@ SkipRecord:
 
     Private CurrentSortOrder As Integer = 0
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Public Sub RefreshListView(ByVal SortOrderOfRowToBeSelected As Integer)
 
         CurrentSortOrder = SortOrderOfRowToBeSelected
@@ -5251,7 +5251,7 @@ SkipRecord:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub LoadUndoTableFromDatabase()
 
         Try
@@ -5896,7 +5896,7 @@ SkipRecord:
 
 
     Private Sub Websocket_DataReceived_Pushbullet(ByVal sender As Object, ByVal e As WebSocket4Net.DataReceivedEventArgs)
-        'Log("Data Recieved")
+        'Log("Data Received")
         'Log("")
     End Sub
 
@@ -6095,7 +6095,7 @@ SkipRecord:
 
             Dim ServerResponse As String = String.Empty
 
-            'v1.2 added .Replace(",", ".") to deal with countries that use a comma instead of a period in thier date format
+            'v1.2 added .Replace(",", ".") to deal with countries that use a comma instead of a period in their date format
 
             SendRequest(EncryptionClass.Decrypt(My.Settings.PushBulletAPI), "GET", AddressForGettingPushes & "?modified_after=" & LastTimeAPushbulletPushWasRecieved_Unix.ToString.Replace(",", "."), String.Empty, ServerResponse)
 
@@ -6498,7 +6498,7 @@ SkipRecord:
 
     Private Function ActionIncomingMessageNow(ByVal IncomingMessage As String) As ActionStatus
 
-        'v3.6 added to allow multiple commands to run, each seperated by Separating words
+        'v3.6 added to allow multiple commands to run, each separated by Separating words
 
         Dim ReturnValue As ActionStatus = ActionStatus.NotYetSet
 
@@ -6512,129 +6512,131 @@ SkipRecord:
             ' if Separating words are not to be used run everything as was done prior to version 3.6
 
             If gUseSeparatingWords Then
-            Else
-                ReturnValue = ActionIncomingIndivitualMessageNow(IncomingMessage, RedoRequired, True)
-                Exit Try
-            End If
 
-            ' if there are no Separating words in the incoming message run everything as was done prior to version 3.6
+                Dim SeparatingWordsInIncommingMessage As Boolean = False
 
-            Dim SeparatingWordsInIncommingMessage As Boolean = False
-
-            ' note: by the time they get here Separating words are all in lower case
-            For Each SeparatingWord In gSeparatingWords
-                If IncomingMessage.Contains(SeparatingWord) Then
-                    SeparatingWordsInIncommingMessage = True
-                    Exit For
-                End If
-            Next
-
-            If SeparatingWordsInIncommingMessage Then
-            Else
-                ReturnValue = ActionIncomingIndivitualMessageNow(IncomingMessage, RedoRequired, True)
-                Exit Try
-            End If
-
-            ' ok, Separating words are needed and present, so lets deal with them
-
-            For Each SeparatingWord In gSeparatingWords
-                IncomingMessage = IncomingMessage.Replace(" " & SeparatingWord & " ", Chr(255))
-            Next
-
-            Dim SplitMessages() As String = IncomingMessage.Split(Chr(255))
-
-            For Each IndividualMessage In SplitMessages
-
-                IndividualMessage = IndividualMessage.Trim
-
-                If IndividualMessage.Length > 0 Then
-
-                    Dim IndividualReturnValue As ActionStatus = ActionIncomingIndivitualMessageNow(IndividualMessage, RedoRequired, False)
-
-                    If RedoRequired Then
-                        IndividualReturnValue = ActionIncomingIndivitualMessageNow(RemainingMessage, RedoRequired, True)
-                        RemainingMessage = String.Empty
+                ' note: by the time they get here Separating words are all in lower case
+                For Each SeparatingWord In gSeparatingWords
+                    If IncomingMessage.Contains(SeparatingWord) Then
+                        SeparatingWordsInIncommingMessage = True
+                        Exit For
                     End If
+                Next
 
-                    With IndividualReturnValue
+                If SeparatingWordsInIncommingMessage Then
+                Else
+                    ReturnValue = ActionIncomingIndivitualMessageNow(IncomingMessage, RedoRequired, True)
+                    Exit Try
+                End If
 
-                        Select Case IndividualReturnValue
+                ' ok, Separating words are needed and present, so lets deal with them
 
-                            Case .MasterSwitchWasOff
+                For Each SeparatingWord In gSeparatingWords
+                    IncomingMessage = IncomingMessage.Replace(" " & SeparatingWord & " ", Chr(255))
+                Next
 
-                                ReturnValue = ActionStatus.MasterSwitchWasOff
+                Dim SplitMessages() As String = IncomingMessage.Split(Chr(255))
 
-                            Case .Succeeded
+                For Each IndividualMessage In SplitMessages
 
-                                If (ReturnValue = ActionStatus.NotYetSet) OrElse (ReturnValue = ActionStatus.Succeeded) Then
-                                    ReturnValue = ActionStatus.Succeeded
-                                Else
-                                    ReturnValue = ActionStatus.PartiallySucceeded
-                                End If
+                    IndividualMessage = IndividualMessage.Trim
 
-                                'the following two lines give time for the windows state to be properly set on the program that is loading
-                                Thread.Sleep(1500)
+                    If IndividualMessage.Length > 0 Then
 
-                            Case Else ' .Failed, .NotProcecessAsAUACPromptWouldBeRequired, .NotProcecessNoProgramToRun, .NotProcessedAsNoMatchingPhrasesFound, .NotProcessedWhileAtLeastOneMatchingPhraseWasFoundNoneWereEnabled
+                        Dim IndividualReturnValue As ActionStatus = ActionIncomingIndivitualMessageNow(IndividualMessage, RedoRequired, False)
 
-                                If (ReturnValue = ActionStatus.NotYetSet) Then
-                                    ReturnValue = IndividualReturnValue
+                        If RedoRequired Then
+                            IndividualReturnValue = ActionIncomingIndivitualMessageNow(RemainingMessage, RedoRequired, True)
+                            RemainingMessage = String.Empty
+                        End If
 
-                                ElseIf (ReturnValue = ActionStatus.Succeeded) OrElse (ReturnValue = ActionStatus.PartiallySucceeded) Then
-                                    ReturnValue = ActionStatus.PartiallySucceeded
+                        With IndividualReturnValue
 
-                                ElseIf (ReturnValue = IndividualReturnValue) Then
-                                    ' just keep the return value as it is
+                            Select Case IndividualReturnValue
 
-                                Else
+                                Case .MasterSwitchWasOff
 
-                                    ReturnValue = ActionStatus.Unknown
+                                    ReturnValue = ActionStatus.MasterSwitchWasOff
 
-                                End If
+                                Case .Succeeded
 
-                        End Select
-
-                    End With
-
-                    '
-                    ' update remaining message to remove the portion of what has already been processed
-
-                    If RemainingMessage.Length > 0 Then
-
-                        Try
-
-                            RemainingMessage = RemainingMessage.Remove(0, IndividualMessage.Length)
-
-                            Dim KeepReducingRemaningMessage As Boolean = True
-
-                            While KeepReducingRemaningMessage
-
-                                RemainingMessage = RemainingMessage.Trim
-
-                                KeepReducingRemaningMessage = False
-
-                                For Each SeparatingWord In gSeparatingWords
-                                    If RemainingMessage.StartsWith(SeparatingWord) Then
-                                        RemainingMessage = RemainingMessage.Remove(0, SeparatingWord.Length).Trim
-                                        KeepReducingRemaningMessage = True
-                                        Exit For
+                                    If (ReturnValue = ActionStatus.NotYetSet) OrElse (ReturnValue = ActionStatus.Succeeded) Then
+                                        ReturnValue = ActionStatus.Succeeded
+                                    Else
+                                        ReturnValue = ActionStatus.PartiallySucceeded
                                     End If
-                                Next
 
-                            End While
+                                    'the following two lines give time for the windows state to be properly set on the program that is loading
+                                    Thread.Sleep(1500)
 
-                        Catch ex As Exception
-                        End Try
+                                Case Else ' .Failed, .NotProcecessAsAUACPromptWouldBeRequired, .NotProcecessNoProgramToRun, .NotProcessedAsNoMatchingPhrasesFound, .NotProcessedWhileAtLeastOneMatchingPhraseWasFoundNoneWereEnabled
+
+                                    If (ReturnValue = ActionStatus.NotYetSet) Then
+                                        ReturnValue = IndividualReturnValue
+
+                                    ElseIf (ReturnValue = ActionStatus.Succeeded) OrElse (ReturnValue = ActionStatus.PartiallySucceeded) Then
+                                        ReturnValue = ActionStatus.PartiallySucceeded
+
+                                    ElseIf (ReturnValue = IndividualReturnValue) Then
+                                        ' just keep the return value as it is
+
+                                    Else
+
+                                        ReturnValue = ActionStatus.Unknown
+
+                                    End If
+
+                            End Select
+
+                        End With
+
+                        '
+                        ' update remaining message to remove the portion of what has already been processed
+
+                        If RemainingMessage.Length > 0 Then
+
+                            Try
+
+                                RemainingMessage = RemainingMessage.Remove(0, IndividualMessage.Length)
+
+                                Dim KeepReducingRemaningMessage As Boolean = True
+
+                                While KeepReducingRemaningMessage
+
+                                    RemainingMessage = RemainingMessage.Trim
+
+                                    KeepReducingRemaningMessage = False
+
+                                    For Each SeparatingWord In gSeparatingWords
+                                        If RemainingMessage.StartsWith(SeparatingWord) Then
+                                            RemainingMessage = RemainingMessage.Remove(0, SeparatingWord.Length).Trim
+                                            KeepReducingRemaningMessage = True
+                                            Exit For
+                                        End If
+                                    Next
+
+                                End While
+
+                            Catch ex As Exception
+                            End Try
+
+                        End If
+
+                        If RemainingMessage.Length = 0 Then
+                            Exit Try
+                        End If
 
                     End If
 
-                    If RemainingMessage.Length = 0 Then
-                        Exit Try
-                    End If
+                Next
 
-                End If
+            Else
 
-            Next
+                ' if there are no Separating words in the incoming message run everything as was done prior to version 3.6
+
+                ReturnValue = ActionIncomingIndivitualMessageNow(IncomingMessage, RedoRequired, True)
+
+            End If
 
         Catch ex As Exception
 
@@ -6703,34 +6705,36 @@ SkipRecord:
 
                     'v4.2
 
-                    Dim RegexMatch As Boolean = True
+                    Dim RegexMatch As Boolean
+
+                    'vx.x  recoded to exclude a regex match if the incoming message just starts with a specific 'Listen for' phrase; allow for mqtt topics
 
                     Try
 
-                        RegexMatch = (Regex.Matches(IncomingMessage.Trim, SpecificPhraseToListenFor.Trim, RegexOptions.IgnoreCase).Count > 0)
+                        If (My.Settings.UseMQTT AndAlso (Not My.Settings.MQTTListenForPayloadOnly) AndAlso IncomingMessage.Contains("/")) Then
 
-                        'v3.4  exclude a regex match if the incoming message just starts with a specific phrase to listen to
-                        If RegexMatch Then
+                            ' assume there is an mqtt topic and strip it (the topic) out of the incoming message for testing purposes
 
-                            If IncomingMessage.ToUpper.StartsWith(SpecificPhraseToListenFor.ToUpper) Then
+                            Dim TopicRemovedIncomingMessage As String = IncomingMessage.Remove(0, IncomingMessage.LastIndexOf("/") + 1).Trim
+                            If TopicRemovedIncomingMessage.ToUpper = SpecificPhraseToListenFor.ToUpper Then
+                                Exit Try
+                            End If
 
-                                If IncomingMessage.ToUpper.Replace(SpecificPhraseToListenFor.ToUpper, "").Length > 0 Then
+                        Else
 
-                                    RegexMatch = False
-
-                                End If
-
+                            If IncomingMessage.ToUpper = SpecificPhraseToListenFor.ToUpper Then
+                                Exit Try
                             End If
 
                         End If
+
+                        RegexMatch = (Regex.Matches(IncomingMessage.Trim, SpecificPhraseToListenFor.Trim, RegexOptions.IgnoreCase).Count > 0)
 
                     Catch ex As Exception
 
                         RegexMatch = False
 
                     End Try
-
-                    ' test for exact match
 
                     If (IncomingMessage.Trim.ToUpper = SpecificPhraseToListenFor.Trim.ToUpper) OrElse
                        (IncomingMessage.Trim.ToUpper Like SpecificPhraseToListenFor.Trim.ToUpper) OrElse ' v3.4.2 added to allow the like command
@@ -7117,7 +7121,7 @@ EarlyOut:
 
     End Sub
 
-    Delegate Sub UpdateStatusBarCallback(ByVal message As String, ByVal WhatHappened As Integer)  ' WhatHappened should be of type ActionStatus, however this would cause a compiler error so interger is used instead
+    Delegate Sub UpdateStatusBarCallback(ByVal message As String, ByVal WhatHappened As Integer)  ' WhatHappened should be of type ActionStatus, however this would cause a compiler error so integer is used instead
     Private Sub UpdateStatusBar(ByVal message As String, ByVal WhatHappened As ActionStatus)
 
         If message.Length > 0 Then
@@ -7550,7 +7554,7 @@ EarlyOut:
 
             ' get the Sort Order of row under mouse
 
-            ' to get the Sort of the row under the mouse we frist need to find the row
+            ' to get the Sort of the row under the mouse we first need to find the row
             ' if the client drops the icon on a textbox the sort order can be determined right away
             ' however if the client does not drop the icon on a text box the sort order needs to be determined by finding the closest row
             ' Testing starts in x offset 100 where there should be a text box of some kind
@@ -7729,7 +7733,7 @@ EarlyOut:
                         .Admin = False
                         .KeysToSend = String.Empty
 
-                        OpenUpAddEditWindow = DropIntogCurrentlySelectedRow(e)
+                        OpenUpAddEditWindow = DropIntoCurrentlySelectedRow(e)
 
                     End If
 
@@ -7790,7 +7794,7 @@ EarlyOut:
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Friend Sub RebuildTable1(ByVal SortByDescription As Boolean)
 
         Try
@@ -7833,7 +7837,7 @@ EarlyOut:
 
 #Region "Update settings as necessary"
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub UpdateSettingsAsNecissary()
 
         Try
@@ -7927,7 +7931,7 @@ EarlyOut:
 
             If dir.GetDirectories.Count = 0 Then
 
-                'if the parent of the StrongNamedSettingsFolder has no childen then approach this as a first time install
+                'if the parent of the StrongNamedSettingsFolder has no children then approach this as a first time install
                 'upgrade can proceed without the Kludge
 
                 My.Settings.Upgrade()
@@ -8168,7 +8172,7 @@ EarlyOut:
                 Dim pt As Point = e.GetPosition(Me)
                 Dim ListViewComponent As Object = System.Windows.Media.VisualTreeHelper.HitTest(Me, pt)
                 If ListViewComponent.visualhit.ToString = "System.Windows.Controls.Border" Then
-                    ' mouse down event was on header row - ignor it
+                    ' mouse down event was on header row - ignore it
                 Else
                     MouseButtonIsUp = False
                     MouseDownMousePosition = System.Windows.Forms.Cursor.Position
@@ -8314,7 +8318,7 @@ EarlyOut:
 
             If valid Then
             Else
-                Dim dummy As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "Valid values for the Window state are 'Miminzed', 'Normal', 'Maximized' and 'Hidden'", gThisProgramName, MessageBoxButton.OK, MessageBoxImage.Asterisk, System.Windows.MessageBoxOptions.None)
+                Dim dummy As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "Valid values for the Window state are 'Minimized', 'Normal', 'Maximized' and 'Hidden'", gThisProgramName, MessageBoxButton.OK, MessageBoxImage.Asterisk, System.Windows.MessageBoxOptions.None)
                 tbFilterStartingWindowState.Text = tbFilterStartingWindowState.Text.Remove(tbFilterStartingWindowState.Text.Length - 1)
                 tbFilterStartingWindowState.Select(tbFilterStartingWindowState.Text.Length, 0)
                 Exit Sub
@@ -9005,11 +9009,16 @@ Step5:
                 ToastNotificationForNetorkEvents("MQTT", "Connection established", Now)
             End If
 
+            If My.Settings.MQTTListenForPayloadOnly Then
+            Else
+                Payload = Topic & "/" & Payload
+            End If
+
             ActionIncomingMessage(MessageSource.MQTT, Payload) 'v4.8
 
         Catch ex As Exception
 
-            Log("MQTT message recieved issue:" & vbCrLf & ex.Message.ToString)
+            Log("MQTT message received issue:" & vbCrLf & ex.Message.ToString)
             Log("")
 
         End Try
@@ -9124,7 +9133,7 @@ Public Class MyTable1Class
 
 End Class
 
-' The following Class is the same as the above class with two addtional properties - DisplayableAdminText and DisplayableStartingWindowStateText
+' The following Class is the same as the above class with two additional properties - DisplayableAdminText and DisplayableStartingWindowStateText
 
 <System.Reflection.ObfuscationAttribute(Feature:="renaming")> <XmlRootAttribute("MyTable1ClassForTheListView", [Namespace]:="", IsNullable:=False)>
 Public Class MyTable1ClassForTheListView

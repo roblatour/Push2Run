@@ -19,7 +19,7 @@ Module modCreateDatabaseAsNecissary
 
     Private OriginalTable1Entries(MaxNumberOfEntries) As gTable1RecordStructure
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Friend Sub CreateDatabaseAsNecissary()
 
         If File.Exists(gSQLiteFullDatabaseName) Then
@@ -36,7 +36,7 @@ Module modCreateDatabaseAsNecissary
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub CreateANewDatabase()
 
         If CreateSQLiteDatabase() Then
@@ -48,7 +48,7 @@ Module modCreateDatabaseAsNecissary
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Function CreateSQLiteDatabase() As Boolean
 
         Dim CreateWasOK As Boolean = False
@@ -77,7 +77,7 @@ Module modCreateDatabaseAsNecissary
                             'v4.6
                             If gRunningInASandbox Then
                             Else
-                                'only install the calculuator example if not running in the sandbox, as the calculator is not usable in the sandbox
+                                'only install the calculator example if not running in the sandbox, as the calculator is not usable in the sandbox
                                 InsertARecord(gGapBetweenSortIDsForDatabaseEntries * 2, StatusValues.SwitchOn, StatusValues.SwitchOn, "Calculator", "open the calculator" & vbCrLf & "start the calculator", "calc", "", "C:\Windows\System32\", False, 3, "") 'v2.0.4 added startup directory for calculator
                                 DoEvents() 'v4.6
                                 System.Threading.Thread.Sleep(200)
@@ -104,7 +104,7 @@ Module modCreateDatabaseAsNecissary
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Function CreateSQLDataBaseFile() As Boolean
 
         Dim CreateWasOK As Boolean = False
@@ -143,7 +143,7 @@ Module modCreateDatabaseAsNecissary
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub CreateFullDirectory(ByVal DirectoryName As String)
 
         On Error Resume Next
@@ -168,14 +168,14 @@ Module modCreateDatabaseAsNecissary
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Function CreateControlTable() As Boolean
 
         Dim ReturnCode As Boolean
 
         '********************************************************************************************************
         'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-        'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+        'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
         'Control3 is used to hold a user password - encrypted by control1 
         '********************************************************************************************************
 
@@ -185,7 +185,7 @@ Module modCreateDatabaseAsNecissary
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Friend Function CreateTable1() As Boolean
 
         Dim ReturnCode As Boolean
@@ -210,12 +210,12 @@ Module modCreateDatabaseAsNecissary
 
     End Function
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Function LoadSQLPassword() As Boolean
 
         Dim LoadWasOK As Boolean = False
 
-        'A Master_Password is gernated at the current time of the creation of the sql database and used as part of the password formula
+        'A Master_Password is generated at the current time of the creation of the sql database and used as part of the password formula
 
         'This Master_Password is encrypted and stored in the database in a control record
 
@@ -245,7 +245,7 @@ Module modCreateDatabaseAsNecissary
 
             '********************************************************************************************************
             'Control1 is used to hold a unique Master_Password for this database (encrypted by default)
-            'Control2 is used to hold an indicator yes / no - which as been encrpted by control1 - that says if there is a user password for the boss
+            'Control2 is used to hold an indicator yes / no - which as been encrypted by control1 - that says if there is a user password for the boss
             'Control3 is used to hold a user password - encrypted by control1 
             '********************************************************************************************************
 
@@ -255,7 +255,7 @@ Module modCreateDatabaseAsNecissary
 
             'Regard the password passed from the old database:
             'It was stored in the Keys to Send field of the Master Control record (double encrypted)
-            'It started with either word "Yes" or "No " to indicate if a orignal password existed or not
+            'It started with either word "Yes" or "No " to indicate if a original password existed or not
             'If "No " some random numbers were be added following the "No "
 
 
@@ -278,7 +278,7 @@ Module modCreateDatabaseAsNecissary
             SQLcommand.Parameters.AddWithValue("@Control1", EncryptionClass.Encrypt(Master_Password)) 'encrypted with default pass phrase
 
             EncryptionClass.ResetEncryptionPassPhrase()
-            EncryptionClass.UpdateEncryptionPassPhrase(Master_Password)  'Control2 and Control3 to be encypted with the help of the Master_Password
+            EncryptionClass.UpdateEncryptionPassPhrase(Master_Password)  'Control2 and Control3 to be encrypted with the help of the Master_Password
 
             SQLcommand.Parameters.AddWithValue("@Control2", EncryptionClass.Encrypt(YesOrNoPlusOriginalPasswordInPlainText.Remove(3) & GenerateRandomPassword(7)))
             SQLcommand.Parameters.AddWithValue("@Control3", EncryptionClass.Encrypt(YesOrNoPlusOriginalPasswordInPlainText.Remove(0, 3)))

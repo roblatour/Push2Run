@@ -2,7 +2,7 @@
 
 Partial Public Class WindowNewPassword
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowNewPassword_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
 
         Me.ShowInTaskbar = False
@@ -21,7 +21,7 @@ Partial Public Class WindowNewPassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowChangePassword_Closing(sender As Object, e As ComponentModel.CancelEventArgs) Handles Me.Closing
 
         ResetEncryptionAndDecriptionToReadAndWrite(ResetEncryptionDecriptionLevel.Data)
@@ -34,7 +34,7 @@ Partial Public Class WindowNewPassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnOK.Click
 
         Dim PasswordA As String = PasswordBox1.Password.ToString.Trim
@@ -110,7 +110,7 @@ Partial Public Class WindowNewPassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnCancel.Click
         gPasswordWasCorrectlyEnteredInPasswordWindow = False
         gPasswordWasCorrectlyEnteredInPasswordWindow_UserClickedCancel = True

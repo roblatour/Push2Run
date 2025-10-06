@@ -60,6 +60,7 @@ Partial Public Class WindowOptions
     Private WithEvents tbMQTTUser As TextBox = New TextBox
     Private WithEvents pbMQTTPassword As PasswordBox = New PasswordBox
     Private WithEvents tbMQTTFilter As TextBox = New TextBox
+    Private WithEvents cbMQTTListenForPayloadOnly As CheckBox = New CheckBox
 
     Private WithEvents cbShowNotifications As CheckBox = New CheckBox
     Private WithEvents cbShowNotificationResult As CheckBox = New CheckBox
@@ -106,7 +107,7 @@ Partial Public Class WindowOptions
     Const IdealWidth As Double = 435
     Const IdealHeight As Double = 22
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub WindowOptions_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
 
         Me.ShowInTaskbar = False
@@ -303,12 +304,17 @@ Partial Public Class WindowOptions
         lblMQTTUser.Content = "_User:"
         lblMQTTPassword.Content = "Pass_word:"
         lblMQTTFilter.Content = "_Topic filter(s):"
+        cbMQTTListenForPayloadOnly.Content = "Listen for Payload only"
+        cbMQTTListenForPayloadOnly.ToolTip = "check to listen for on Payload only, uncheck to listen for Topic/Payload"
+        ToolTipService.SetInitialShowDelay(cbMQTTListenForPayloadOnly, 200)
+        ToolTipService.SetShowDuration(cbMQTTListenForPayloadOnly, 10000)
 
         tbMQTTBroker.Text = My.Settings.MQTTBroker
         tbMQTTPort.Text = My.Settings.MQTTPort
         tbMQTTUser.Text = My.Settings.MQTTUser
         pbMQTTPassword.Password = EncryptionClass.Decrypt(My.Settings.MQTTPassword)
         tbMQTTFilter.Text = My.Settings.MQTTFilter
+        cbMQTTListenForPayloadOnly.IsChecked = My.Settings.MQTTListenForPayloadOnly
 
         lblMQTTBroker.Width = 80
         lblMQTTPort.Width = 80
@@ -326,10 +332,10 @@ Partial Public Class WindowOptions
         tbMQTTPort.Height = IdealHeight
         tbMQTTUser.Height = IdealHeight
         pbMQTTPassword.Height = IdealHeight
-        tbMQTTFilter.Height = IdealHeight
+        tbMQTTFilter.Height = IdealHeight '* 2
+        'tbMQTTFilter.TextWrapping = TextWrapping.Wrap
 
-        tbMQTTFilter.Height = IdealHeight * 2
-        tbMQTTFilter.TextWrapping = TextWrapping.Wrap
+        cbMQTTListenForPayloadOnly.Height = IdealHeight
 
         tbMQTTBroker.VerticalContentAlignment = VerticalAlignment.Center
         tbMQTTPort.VerticalContentAlignment = VerticalAlignment.Center
@@ -461,7 +467,7 @@ Partial Public Class WindowOptions
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnOK.Click
 
         tbPushBulletTitleFilter.Text = CleanUpWhiteAndDuplicatedSpaces(tbPushBulletTitleFilter.Text)
@@ -474,7 +480,7 @@ Partial Public Class WindowOptions
 
                 Beep()
 
-                If TopMostMessageBox(gCurrentOwner, "The Dropbox fileame cannot be blank." & vbCrLf & vbCrLf &
+                If TopMostMessageBox(gCurrentOwner, "The Dropbox filename cannot be blank." & vbCrLf & vbCrLf &
                                "Click 'OK' to use the default value which is" & vbCrLf & gDefaultDropboxFilename & vbCrLf & "or 'Cancel' to try again.",
                                "Push2Run - Warning", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation, MessageBoxResult.OK) = MessageBoxResult.OK Then
 
@@ -494,7 +500,7 @@ Partial Public Class WindowOptions
 
                 Beep()
 
-                If TopMostMessageBox(gCurrentOwner, "The Dropbox fileame is invalid." & vbCrLf & vbCrLf &
+                If TopMostMessageBox(gCurrentOwner, "The Dropbox filename is invalid." & vbCrLf & vbCrLf &
                                "Click 'OK' to use the default value which is" & vbCrLf & gDefaultDropboxFilename & vbCrLf & "or 'Cancel' to try again.",
                                "Push2Run - Warning", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation, MessageBoxResult.OK) = MessageBoxResult.OK Then
 
@@ -515,7 +521,7 @@ Partial Public Class WindowOptions
 
                 Dim defdir As String = Environ$("USERPROFILE") & gDefaultDropboxPath
 
-                If TopMostMessageBox(gCurrentOwner, "The Dropbox path cannont be blank." & vbCrLf & vbCrLf &
+                If TopMostMessageBox(gCurrentOwner, "The Dropbox path cannot be blank." & vbCrLf & vbCrLf &
                               "Click 'OK' to use the default value, which is " & vbCrLf & defdir & vbCrLf & "or 'Cancel' to try again.",
                               "Push2Run - Warning", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation, MessageBoxResult.OK) = MessageBoxResult.OK Then
                     tbDropboxPath.Text = defdir
@@ -788,6 +794,7 @@ Partial Public Class WindowOptions
         My.Settings.MQTTPort = tbMQTTPort.Text
         My.Settings.MQTTUser = tbMQTTUser.Text
         My.Settings.MQTTPassword = EncryptionClass.Encrypt(pbMQTTPassword.Password.ToString.Trim)
+        My.Settings.MQTTListenForPayloadOnly = cbMQTTListenForPayloadOnly.IsChecked
 
         tbMQTTFilter.Text = tbMQTTFilter.Text.Replace(Chr(10), " ").Replace(Chr(130), " ").Trim
 
@@ -821,7 +828,7 @@ Partial Public Class WindowOptions
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub BtnCancel_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles BtnCancel.Click
 
         gEnteredPassword = String.Empty
@@ -861,7 +868,7 @@ Partial Public Class WindowOptions
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub SetLookOfCheckForUpdate(ByVal SelectionChoice As Integer)
 
         rbDaily.IsEnabled = cbCheckForUpdate.IsChecked
@@ -870,26 +877,26 @@ Partial Public Class WindowOptions
         rbMonthly.IsEnabled = cbCheckForUpdate.IsChecked
 
         Select Case SelectionChoice
-            Case Is = UpdateCheckFrequency.Daily
+            Case UpdateCheckFrequency.Daily
                 rbDaily.IsChecked = True
-            Case Is = UpdateCheckFrequency.Weekly
+            Case UpdateCheckFrequency.Weekly
                 rbWeekly.IsChecked = True
-            Case Is = UpdateCheckFrequency.EveryTwoWeeks
+            Case UpdateCheckFrequency.EveryTwoWeeks
                 rbEveryTwoWeeks.IsChecked = True
-            Case Is = UpdateCheckFrequency.Monthly
+            Case UpdateCheckFrequency.Monthly
                 rbMonthly.IsChecked = True
         End Select
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub TreeView1_SelectedItemChanged(ByVal sender As Object, ByVal e As System.Windows.RoutedPropertyChangedEventArgs(Of Object)) Handles TreeView1.SelectedItemChanged
 
         BuildStackPanel(sender.selecteditem.tag)
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub BuildStackPanel(ByVal SpecificPanel As String)
 
         ' The WorkingPanel1x variables, used for MQTT opton, need to be defined like this to avoid the error
@@ -901,6 +908,7 @@ Partial Public Class WindowOptions
         Static WorkingPanel3 As StackPanel = New StackPanel()
         Static WorkingPanel4 As StackPanel = New StackPanel()
         Static WorkingPanel5 As StackPanel = New StackPanel()
+        Static WorkingPanel6 As StackPanel = New StackPanel()
 
         StackPanel1.Children.Clear()
 
@@ -982,6 +990,9 @@ Partial Public Class WindowOptions
                 WorkingPanel5.Children.Add(tbMQTTFilter)
                 StackPanel1.Children.Add(WorkingPanel5)
 
+                StackPanel1.Children.Add(lblSpacer4)
+
+                StackPanel1.Children.Add(cbMQTTListenForPayloadOnly)
 
             Case Is = "Notifications"
                 StackPanel1.Children.Add(cbShowNotifications)
@@ -1131,28 +1142,28 @@ Partial Public Class WindowOptions
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub cbByVal(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles cbCheckForUpdate.Checked, cbCheckForUpdate.Unchecked
 
         SetLookOfCheckForUpdate(0)
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub rbCheckForUpdateFrequency_changed(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles rbDaily.Checked, rbWeekly.Checked, rbEveryTwoWeeks.Checked, rbMonthly.Checked
 
         SetLookOfCheckForUpdate(sender.tag)
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub btnCheckForUpdateNow_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnCheckForUpdateNow.Click
 
         CheckInternetToSeeIfANewVersionIsAvailable(Me, False)
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub btnAuthenticate_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnAuthenticate.Click
 
         If RegexUtilities.IsValidEmail(tbPushoverUserID.Text.Trim) Then
@@ -1228,7 +1239,7 @@ Partial Public Class WindowOptions
     End Sub
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub AddAPassword_CheckChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles cbRequireAPassword.Checked
 
         If LoadUnderway Then Exit Sub
@@ -1270,7 +1281,7 @@ Partial Public Class WindowOptions
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub RemoveAPassword_CheckChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles cbRequireAPassword.Unchecked
 
         If LoadUnderway Then Exit Sub
@@ -1312,7 +1323,7 @@ Partial Public Class WindowOptions
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+
     Private Sub btnChangePassword_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnChangeAPassword.Click
 
         Dim WindowChangePassword As WindowChangePassword = New WindowChangePassword

@@ -3,7 +3,7 @@ Imports System.Reflection
 
 Partial Public Class WindowEnterExistingPassword
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowPromptForPassword_SourceInitialized(sender As Object, e As EventArgs) Handles Me.SourceInitialized
 
         Me.ShowInTaskbar = False
@@ -12,7 +12,7 @@ Partial Public Class WindowEnterExistingPassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowNewPassword_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
 
         Try
@@ -54,12 +54,12 @@ Partial Public Class WindowEnterExistingPassword
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowPromptForPassword_Closed(sender As Object, e As EventArgs) Handles Me.Closed
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnOK.Click
 
         On Error Resume Next

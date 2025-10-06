@@ -79,7 +79,7 @@ Module modRunProgramAlternativeMethod
 
             Dim pi As PROCESS_INFORMATION = Nothing
 
-            ' si.wShowWindow = False  'testing here does not work - its reloader that runs the program 
+            ' si.wShowWindow = False  'testing here does not work - its the reloader that runs the program 
 
             si.cb = Marshal.SizeOf(si)
 

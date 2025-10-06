@@ -1,4 +1,4 @@
-# Push2Run (v4.9 - December 6, 2024)
+# Push2Run (v4.9.1 - October 6, 2025)
 Push2Run is a free open source home automation program that lets you control your Windows computer using an:
 
  - Apple iPhone/iPad running Siri,
@@ -39,12 +39,12 @@ For information on how to setup Push2Run, please [click here](https://github.com
 
 ## Help documentation
 
-For detailed help information, please [click here](https://github.com/roblatour/Push2Run/blob/main/help/help_v4.9.0.0.md)
+For detailed help information, please [click here](https://github.com/roblatour/Push2Run/blob/main/help/help_v4.9.1.0.md)
 
 <a name="download" id="download"></a>
  ## Download
 
- To download the current version (v4.9) of the Push2Run Windows installer, please [click here](https://github.com/roblatour/Push2Run/releases/download/v4.9.0.0/Push2RunSetup.exe)
+ To download the current version (v4.9.1) of the Push2Run Windows installer, please [click here](https://github.com/roblatour/Push2Run/releases/download/v4.9.1.0/Push2RunSetup.exe)
 
 ## Additional Push2Run Cards
 
@@ -55,5 +55,5 @@ To download additional Push2Run Cards, please [click here](https://github.com/ro
  To help support Push2Run, or to just say thanks, you're welcome to 'buy me a coffee'<br><br>
 [<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
 * * *
-Copyright © 2018 - 2024 Rob Latour
+Copyright © 2018 - 2025 Rob Latour
 * * *

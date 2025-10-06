@@ -3,7 +3,7 @@ Imports System.Security.Cryptography
 
 Module modSecurity
 
-    <Obfuscation(Feature:="Apply to member * when method: virtualization", Exclude:=False)>
+
     Public Class EncryptionClass
 
         Private Shared m_originalPassPhrase As String = "úÉ£Ky½Üå²ÄB†EQr•£ð9}]}³¶=®/[S}>[pí" 'same as m_strPassPhrase below
@@ -37,8 +37,8 @@ Module modSecurity
                 Dim saltValueBytes As Byte()
                 saltValueBytes = System.Text.Encoding.ASCII.GetBytes(m_strSaltValue)
 
-                ' Convert our plaintext into a byte array.
-                ' Let us assume that plaintext contains UTF8-encoded characters.
+                ' Convert our plain text into a byte array.
+                ' Let us assume that plain text contains UTF8-encoded characters.
                 Dim plainTextBytes As Byte()
                 plainTextBytes = System.Text.Encoding.UTF8.GetBytes(PlainText)
 
@@ -119,7 +119,6 @@ Module modSecurity
 
         'Decrypt Function: 
 
-        <Obfuscation(Feature:="Apply to member * when method: virtualization", Exclude:=False)>
         <System.Diagnostics.DebuggerStepThrough()> Friend Shared Function Decrypt(ByVal CipherText As String) As String
 
             If CipherText = String.Empty Then Return String.Empty
@@ -192,7 +191,7 @@ Module modSecurity
 
                 ' Since at this point we don't know what the size of decrypted data
                 ' will be, allocate the buffer long enough to hold ciphertext;
-                ' plaintext is never longer than ciphertext.
+                ' plain text is never longer than ciphertext.
                 Dim plainTextBytes As Byte()
                 ReDim plainTextBytes(cipherTextBytes.Length)
 
@@ -207,7 +206,7 @@ Module modSecurity
                 cryptoStream.Close()
 
                 ' Convert decrypted data into a string. 
-                ' Let us assume that the original plaintext string was UTF8-encoded.
+                ' Let us assume that the original plain text string was UTF8-encoded.
                 Dim plainText As String
                 plainText = System.Text.Encoding.UTF8.GetString(plainTextBytes,
                 0,
@@ -224,22 +223,22 @@ Module modSecurity
 
         End Function
 
-        <Obfuscation(Feature:="Apply to member * when method: virtualization", Exclude:=False)>
+
         <System.Diagnostics.DebuggerStepThrough()> Friend Shared Sub ResetEncryptionPassPhrase()
             m_PassPhraseAddonForEncryption = String.Empty
         End Sub
 
-        <Obfuscation(Feature:="Apply to member * when method: virtualization", Exclude:=False)>
+
         <System.Diagnostics.DebuggerStepThrough()> Friend Shared Sub ResetDecryptionPassPhrase()
             m_PassPhraseAddonForDecryption = String.Empty
         End Sub
 
-        <Obfuscation(Feature:="Apply to member * when method: virtualization", Exclude:=False)>
+
         <System.Diagnostics.DebuggerStepThrough()> Friend Shared Sub UpdateEncryptionPassPhrase(ByVal PassPhraseAddOn)
             m_PassPhraseAddonForEncryption &= PassPhraseAddOn
         End Sub
 
-        <Obfuscation(Feature:="Apply to member * when method: virtualization", Exclude:=False)>
+
         <System.Diagnostics.DebuggerStepThrough()> Friend Shared Sub UpdateDecryptionPassPhrase(ByVal PassPhraseAddOn)
             m_PassPhraseAddonForDecryption &= PassPhraseAddOn
         End Sub

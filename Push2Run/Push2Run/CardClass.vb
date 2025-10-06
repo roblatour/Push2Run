@@ -1,8 +1,6 @@
 ﻿Imports System.Xml.Serialization ' Does XML serializing for a class.
 
 ' Set this 'Card' class as the root node of any XML file its serialized to.
-' added <System.Reflection.ObfuscationAttribute(Feature:="renaming")> to turn off obsfucation for class - as it cause problems
-<System.Reflection.ObfuscationAttribute(Feature:="renaming")> <XmlRootAttribute("Card", [Namespace]:="", IsNullable:=False)>
 Public Class CardClass
 
     Implements IDisposable

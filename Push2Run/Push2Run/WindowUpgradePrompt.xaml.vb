@@ -100,7 +100,7 @@ Public Class WindowUpgradePrompt
 
             If File.Exists(gAutomaticUpdateLocalDownloadedFileName) Then
 
-                If IsDownlaodFileForTheCurrentlyReleasedVersion() Then
+                If IsDownloadFileForTheCurrentlyReleasedVersion() Then
                 Else
                     File.Delete(gAutomaticUpdateLocalDownloadedFileName)
                 End If
@@ -177,7 +177,7 @@ Public Class WindowUpgradePrompt
 
             If File.Exists(gAutomaticUpdateLocalDownloadedFileName) Then
 
-                If IsDownlaodFileForTheCurrentlyReleasedVersion() Then
+                If IsDownloadFileForTheCurrentlyReleasedVersion() Then
 
                     If ConfirmDownloadFileIsCorrectlySigned(gAutomaticUpdateLocalDownloadedFileName) Then
 

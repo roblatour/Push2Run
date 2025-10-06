@@ -37,7 +37,7 @@ Module KeyboardSend
 
         ElseIf vKey = VirtualKeyCode.TypingDelay Then
 
-            'haveing recieved this special code; the next three values passed in to this routine
+            'having received this special code; the next three values passed in to this routine
             'will be used to build the typing delay time in milliseconds
 
             TypingDelayRequired = True
@@ -49,7 +49,7 @@ Module KeyboardSend
 
         ElseIf vKey = VirtualKeyCode.Wait Then
 
-            'haveing recieved this special code; the next three values passed in to this routine
+            'having received this special code; the next three values passed in to this routine
             'will be used to build the one time delay time in milliseconds
 
             OneTimeWaitRequired = True
@@ -135,7 +135,7 @@ Module KeyboardSend
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Function UpdateWithDateAndTime(ByVal WorkingStringIn As String) As String
 
         Dim ReturnValue As String = WorkingStringIn
@@ -160,7 +160,7 @@ Module KeyboardSend
                 ws2 = ws1.Remove(0, 9)
                 ws2 = ws2.Remove(ws2.Length - 1, 1).Trim
 
-                'replace "{DATETIME formattedstring }" with the formated date/time
+                'replace "{DATETIME formattedstring }" with the formatted date/time
                 ws3 = Format(RightNow, ws2)
 
                 ReturnValue = ReturnValue.Replace(ws1, ws3)
@@ -197,7 +197,7 @@ Module KeyboardSend
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub SendTheTransmissionString(ByVal TransmitString As String)
 
         ' Log(" start send the transmission string")
@@ -311,7 +311,7 @@ Module KeyboardSend
 
                     Dim WindowsBitmap = New System.Drawing.Bitmap(Bitmap)
 
-                    ' the clipboard.setimage must run with an apartmentstate of sta for this to work on a seperate thread
+                    ' the clipboard.setimage must run with an apartmentstate of sta for this to work on a separate thread
                     Dim t = New Thread(CType((Function()
                                                   Clipboard.SetImage(WindowsBitmap)
                                               End Function), ThreadStart))
@@ -338,7 +338,7 @@ Module KeyboardSend
 
                         Dim WindowsBitmap = New System.Drawing.Bitmap(CaptureScreen())
 
-                        ' the clipboard.setimage must run with an apartmentstate of sta for this to work on a seperate thread
+                        ' the clipboard.setimage must run with an apartmentstate of sta for this to work on a separate thread
                         Dim t = New Thread(CType((Function()
                                                       Clipboard.SetImage(WindowsBitmap)
                                                   End Function), ThreadStart))
@@ -508,7 +508,7 @@ DoneWithThisKey:
 
     Friend Function CapitalizeControlKeys(ByVal InputString As String) As String
 
-        'captializes all control Keys, {esc} -> {ESC}
+        'capitalizes all control Keys, {esc} -> {ESC}
 
         Dim WorkingString As String = String.Empty
 
@@ -544,7 +544,7 @@ DoneWithThisKey:
     Friend Function GetAllKeys(ByVal InputString As String) As VirtualKeyCode()
 
         ' the largest the returned virtual key code array can be is 4 times the length of the input string 
-        ' (1 entry for each key, 1 for an assocated shift, 1 for an associated ctrl, and 1 for an associated alt)
+        ' (1 entry for each key, 1 for an associated shift, 1 for an associated ctrl, and 1 for an associated alt)
 
         Dim ReturnValue(InputString.Length * 4 + 1) As VirtualKeyCode
 
@@ -568,7 +568,7 @@ DoneWithThisKey:
                 Dim EndMark As Integer = WorkingString.IndexOf("}")
 
                 If EndMark = -1 Then
-                    ' formating error - ignore the { sign as it has no matching } sign
+                    ' formatting error - ignore the { sign as it has no matching } sign
                     WorkingString = WorkingString.Remove(0, 1)
                     x -= 1
 
@@ -597,7 +597,7 @@ DoneWithThisKey:
 
             ElseIf WorkingString.StartsWith("}") Then
 
-                ' formating error - ignore the } as it was not proceeded by a matching { sign
+                ' formatting error - ignore the } as it was not proceeded by a matching { sign
                 WorkingString = WorkingString.Remove(0, 1)
                 x -= 1
 
@@ -756,7 +756,7 @@ DoneWithThisKey:
 
                 ElseIf InputString.StartsWith("{VKC") Then
 
-                    'format should be "{VKC###}", if ok then return integer of ### otherwis return invalid
+                    'format should be "{VKC###}", if ok then return integer of ### otherwise return invalid
 
                     Dim ws As String = InputString
                     ws = ws.Remove(0, "{VKC".Length)
@@ -798,7 +798,7 @@ DoneWithThisKey:
 
                 ElseIf InputString.ToUpper.StartsWith("{TYPINGDELAY") Then
 
-                    'format should be "{TYPINGDELAY###}", if ok then return integer of ### otherwis return invalid
+                    'format should be "{TYPINGDELAY###}", if ok then return integer of ### otherwise return invalid
 
                     Dim ws As String = InputString
                     ws = ws.Remove(0, "{TYPINGDELAY".Length)
@@ -839,7 +839,7 @@ DoneWithThisKey:
 
                 ElseIf InputString.ToUpper.StartsWith("{WAIT") Then
 
-                    'format should be "{WAIT###}", if ok then return integer of ### otherwis return invalid
+                    'format should be "{WAIT###}", if ok then return integer of ### otherwise return invalid
 
                     Dim ws As String = InputString
                     ws = ws.Remove(0, "{WAIT".Length)

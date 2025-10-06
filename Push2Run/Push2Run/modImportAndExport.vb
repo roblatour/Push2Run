@@ -101,13 +101,13 @@ Module modImportAndExport
                 WorkingID = SQLiteDataReader2.GetInt32(DatabaseColumns.ID)
                 Description = SQLiteDataReader2.GetString(DatabaseColumns.Description)
                 DesiredStatus = SQLiteDataReader2.GetInt32(DatabaseColumns.DesiredStatus)
-                ListenFor = SQLiteDataReader2.GetString(DatabaseColumns.ListenFor)  ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
-                Open = SQLiteDataReader2.GetString(DatabaseColumns.Open) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
-                Parameters = SQLiteDataReader2.GetString(DatabaseColumns.Parameters) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
-                StartIn = SQLiteDataReader2.GetString(DatabaseColumns.StartIn) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
+                ListenFor = SQLiteDataReader2.GetString(DatabaseColumns.ListenFor)  ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
+                Open = SQLiteDataReader2.GetString(DatabaseColumns.Open) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
+                Parameters = SQLiteDataReader2.GetString(DatabaseColumns.Parameters) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
+                StartIn = SQLiteDataReader2.GetString(DatabaseColumns.StartIn) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
                 Admin = SQLiteDataReader2.GetValue(DatabaseColumns.Admin)
                 StartingWindowState = SQLiteDataReader2.GetInt32(DatabaseColumns.StartingWindowState)
-                KeysToSend = SQLiteDataReader2.GetString(DatabaseColumns.KeysToSend) ' Defer decrypting info until the code below (2 seperate places) when we know it will be needed
+                KeysToSend = SQLiteDataReader2.GetString(DatabaseColumns.KeysToSend) ' Defer decrypting info until the code below (2 separate places) when we know it will be needed
 
                 If FirstEntry OrElse (DesiredStatus = 3) Then
                     FirstEntry = False
@@ -122,7 +122,7 @@ Module modImportAndExport
                 Else
 
                     Dim JsonRecord As JObject = New JObject(
-                                              New JProperty("Descrption", EncryptionClass.Decrypt(Description)),
+                                              New JProperty("Description", EncryptionClass.Decrypt(Description)),
                                               New JProperty("ListenFor", EncryptionClass.Decrypt(ListenFor)),
                                               New JProperty("Open", EncryptionClass.Decrypt(Open)),
                                               New JProperty("Parameters", EncryptionClass.Decrypt(Parameters)),
@@ -267,7 +267,7 @@ Module modImportAndExport
 
                         Select Case item.Name
 
-                            Case "Descrption"
+                            Case "Description", "Descrption" ' there was a typo in the word Description in releases up to and including v4.9; both spellings are supported here for backwards compatibility
                                 .Description = item.Value
 
                             Case "ListenFor"
@@ -297,7 +297,7 @@ Module modImportAndExport
 
                 Next
 
-                Log("Importing entry with descrpition: """ & workingRecord.Description & """")
+                Log("Importing entry with description: """ & workingRecord.Description & """")
 
                 If AddImportedRecordIfNotAlreadyInDatabase(workingRecord) Then
                     ImportedCards += 1
@@ -347,7 +347,7 @@ Module modImportAndExport
             Try
 
                 If ImportedEntryAlreadyExists(importedRecord) Then
-                    Log("    simular card already in the database")
+                    Log("    similar card already in the database")
                     Exit Try
                 End If
 
@@ -392,7 +392,7 @@ Module modImportAndExport
 
                     Dim ExecutableFileExtenstions() As String = {"", ".exe", ".bat", ".vbs", ".ps1"}
 
-                    'search for executable program as entered or with one of the above extentions
+                    'search for executable program as entered or with one of the above extensions
                     'in the case the file name as entered would include the full path
                     For Each Filetype As String In ExecutableFileExtenstions
                         If File.Exists(Environment.ExpandEnvironmentVariables(.Open & Filetype)) Then
@@ -413,7 +413,7 @@ Module modImportAndExport
                         Next
                     End If
 
-                    'search for executable program in the system path as entered or with one of the above extentions
+                    'search for executable program in the system path as entered or with one of the above extensions
                     'in the case the file name as entered would not include the full path
                     For Each Filetype As String In ExecutableFileExtenstions
                         If SearchForAFileInTheSystemPath(Environment.ExpandEnvironmentVariables(Filename & Filetype)) Then
@@ -563,7 +563,7 @@ Module modImportAndExport
 
             With importedEntry
 
-                ' don't check for Description, as its the rest of the stuff the determines if the recored is a duplicate or not
+                ' don't check for Description, as its the rest of the stuff the determines if the record is a duplicate or not
 
                 If (entry.ListenFor = .ListenFor) AndAlso
                    (entry.Open = .Open) AndAlso

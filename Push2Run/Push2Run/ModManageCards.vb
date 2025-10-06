@@ -120,7 +120,7 @@ Module ModManageCards
 
         Dim XML_File_Name As String = CardToSave.Description.Trim & gPush2RunExtention
         XML_File_Name = String.Join("-", XML_File_Name.Split("\/" & IO.Path.GetInvalidFileNameChars()))  'filter out invalid filename characters
-        Dim XML_Full_File_Name As String = XML_Path_Name & "\" & XML_File_Name.Replace(" ", "_") 'v4.3 added replace; saved filename will have underscores in place of spaces in the filenam
+        Dim XML_Full_File_Name As String = XML_Path_Name & "\" & XML_File_Name.Replace(" ", "_") 'v4.3 added replace; saved filename will have underscores in place of spaces in the filename
 
         Try
 

@@ -1,10 +1,10 @@
-﻿'Copyright Rob Latour 2024
+﻿'Copyright Rob Latour 2025
 
 Imports System.Reflection
 
 Partial Public Class WindowPromptFor2FA
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowPromptFor2FA_SourceInitialized(sender As Object, e As EventArgs) Handles Me.SourceInitialized
 
         Me.ShowInTaskbar = False
@@ -13,7 +13,7 @@ Partial Public Class WindowPromptFor2FA
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub WindowNew2FA_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
 
         Try
@@ -54,7 +54,7 @@ Partial Public Class WindowPromptFor2FA
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnOK.Click
         On Error Resume Next
 

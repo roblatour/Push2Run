@@ -27,7 +27,7 @@
                     <Run Text="                    "/>
                     <Run Text=" "/>
                     <InlineUIContainer>
-                        <TextBlock><Hyperlink x:Name="WebPageDonateFromUpgrade" Foreground="Blue" NavigateUri="SetInCode" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Click here to help out with a donation"/></Hyperlink></TextBlock>
+                        <TextBlock><Hyperlink x:Name="WebPageDonateFromUpgrade" Foreground="Blue" NavigateUri="SetInCode" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Click here to be my hero (help out with a donation)"/></Hyperlink></TextBlock>
                     </InlineUIContainer>
                     <LineBreak/>
             

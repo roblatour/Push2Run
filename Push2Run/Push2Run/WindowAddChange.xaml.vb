@@ -90,7 +90,7 @@ Partial Public Class WindowAddChange
 
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub frmAddChange_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Loaded
 
         SeCursor(CursorState.Wait)
@@ -169,7 +169,7 @@ Partial Public Class WindowAddChange
     '   Dim uri = New Uri("/Push2Run;component/Resources/greendot.png", UriKind.Relative)
     '   Greendot.Source = New System.Windows.Media.Imaging.BitmapImage(uri)
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
 
         Dim CleanedUpDescription As String = CleanUpWhiteAndDuplicatedSpaces(tbDescription.Text)
@@ -269,7 +269,7 @@ Partial Public Class WindowAddChange
 
 
                 ' I don't have confidence in that these edits will not raise false positives
-                ' levaing them out for now
+                ' leaving them out for now
                 'Try
 
                 '    'if regex groups are used in the listen field, validate regex  
@@ -371,7 +371,7 @@ Partial Public Class WindowAddChange
 
                         If .ListenFor.StartsWith(Topic) AndAlso (PayloadFromListenForField = PayLoad) Then
                             Beep()
-                            Dim dummy As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "When using MQTT the 'Listen for' and 'Paramters' fields may not be the same.", "Push2Run - Info", MessageBoxButton.OK, MessageBoxImage.Warning)
+                            Dim dummy As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "When using MQTT the 'Listen for' and 'Parameters' fields may not be the same.", "Push2Run - Info", MessageBoxButton.OK, MessageBoxImage.Warning)
                             Exit Sub
                         End If
 
@@ -389,7 +389,7 @@ Partial Public Class WindowAddChange
 
                     Dim ExecutableFileExtenstions() As String = {"", ".exe", ".bat", ".vbs", ".ps1"}
 
-                    'search for executable program as entered or with one of the above extentions
+                    'search for executable program as entered or with one of the above extensions
                     'in the case the file name as entered would include the full path
                     For Each Filetype As String In ExecutableFileExtenstions
                         If File.Exists(Environment.ExpandEnvironmentVariables(.Open & Filetype)) Then
@@ -411,7 +411,7 @@ Partial Public Class WindowAddChange
                     End If
 
 
-                    'search for executable program in the system path as entered or with one of the above extentions
+                    'search for executable program in the system path as entered or with one of the above extensions
                     'in the case the file name as entered would not include the full path
                     For Each Filetype As String In ExecutableFileExtenstions
                         If SearchForAFileInTheSystemPath(Environment.ExpandEnvironmentVariables(Filename & Filetype)) Then
@@ -428,7 +428,7 @@ Partial Public Class WindowAddChange
 
                         If File.Exists(AlternateSystem32FolderName & "\" & Filename & Filetype) Then
 
-                            If TopMostMessageBox(gCurrentOwner, "It's complicated, but the program you likely want to open appears within Windows\System32 when viewed by Windows File Exporer - but it is really not there at all." & vbCrLf & vbCrLf &
+                            If TopMostMessageBox(gCurrentOwner, "It's complicated, but the program you likely want to open appears within Windows\System32 when viewed by Windows File Explorer - but it is really not there at all." & vbCrLf & vbCrLf &
                                                "Push2Run can correct for this by setting:" & vbCrLf & vbCrLf &
                                                "the 'Open' field in your Push2Run card to: " & vbCrLf & Filename & Filetype & vbCrLf & vbCrLf &
                                                "and" & vbCrLf & vbCrLf &
@@ -529,13 +529,13 @@ Partial Public Class WindowAddChange
 
 
                     If TopMostMessageBox(gCurrentOwner, "The program to open couldn't be found." & vbCrLf & vbCrLf &
-                                       "Would you like to save this infomation anyway?",
+                                       "Would you like to save this information anyway?",
                                        "Push2Run",
                                        MessageBoxButton.YesNo, MessageBoxImage.Question) = MessageBoxResult.No Then Exit Sub
 
 
                     '' search for program in the common folders
-                    'Dim Message As String = "The program to open is not found in the identifed folder." & vbCrLf & vbCrLf &
+                    'Dim Message As String = "The program to open is not found in the identified folder." & vbCrLf & vbCrLf &
                     '                        "Would you like Push2Run to search for program in other common program folders on your system?" & vbCrLf & vbCrLf &
                     '                        "PLEASE NOTE: this could take up to a minute to run, please be patient"
 
@@ -581,7 +581,7 @@ Partial Public Class WindowAddChange
         Catch ex As Exception
 
             Beep()
-            Dim dummy As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "'" & description & "' contains an invalid Regex expresssion.", "Push2Run", MessageBoxButton.OK, MessageBoxImage.Warning)
+            Dim dummy As MessageBoxResult = TopMostMessageBox(gCurrentOwner, "'" & description & "' contains an invalid Regex expression.", "Push2Run", MessageBoxButton.OK, MessageBoxImage.Warning)
             ReturnValue = False
 
         End Try
@@ -591,14 +591,14 @@ Partial Public Class WindowAddChange
     End Function
 
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
 
         CancelLogic()
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub CancelLogic()
 
         gReturnFromAddChange = "Cancel"
@@ -607,7 +607,7 @@ Partial Public Class WindowAddChange
 
     End Sub
 
-    <Obfuscation(Feature:="virtualization", Exclude:=False)>
+    
     Private Sub btnHelp_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles btnHelp.Click
 
         Me.Dispatcher.Invoke(New OpenAWebPageDelegate(AddressOf OpenAWebPage), New Object() {gWebPageHelpChangeWindow})
@@ -641,7 +641,7 @@ Partial Public Class WindowAddChange
             .StartingWindowState = cbWindowState.Text.ConvertStartingWindowStateToANumber
             .KeysToSend = tbKeysToSend.Text
 
-            Dim ShowPreview As Boolean = DropIntogCurrentlySelectedRow(e)
+            Dim ShowPreview As Boolean = DropIntoCurrentlySelectedRow(e)
 
             If ShowPreview Then
 
