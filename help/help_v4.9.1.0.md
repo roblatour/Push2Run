@@ -265,7 +265,7 @@ and in this example, say 'Siri, tell my computer to" ... pause ..  "search for b
   
 In more advanced use, you may also use [Regular Expressions](https://en.wikipedia.org/wiki/Regular_expression) (Regex) for matching.  Additionally, Regex group names used in the 'Listen for' field can be referenced in the 'Open', 'Parameters', and 'Keys to send' fields (described below).  
   
-Finally, you can also join two or more commands together by using separating words such as "and" or the word "then".  For example you can say:  
+You can also join two or more commands together by using separating words such as "and" or the word "then".  For example you can say:  
   
    open the calculator and open word  
    or  
@@ -274,6 +274,14 @@ Finally, you can also join two or more commands together by using separating wor
 and both actions will be performed assuming you have defined a Push2Run card for each.   
   
 You can change the separating words the Push2Run uses in the Options - Separating Words window.  
+
+Finally, in terms of listening for MQTT publications, you can have Push2Run listen for either the Payload only, or the Topic (and subtopics) and Payload.  This is set in the Options - MQTT window.   
+
+For example you can have Push2Run listen for a Payload of:
+true
+or a topic/subtopic and payload of 
+camera/persondetected/true 
+
   
 **Open** Open is the program, batch file, script file, file, or website that Push2Run will open when it hears the 'Listen for' phrase.  
   
