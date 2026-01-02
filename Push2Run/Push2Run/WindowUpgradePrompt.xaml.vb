@@ -179,9 +179,7 @@ Public Class WindowUpgradePrompt
 
                 If IsDownloadFileForTheCurrentlyReleasedVersion() Then
 
-                    If ConfirmDownloadFileIsCorrectlySigned(gAutomaticUpdateLocalDownloadedFileName) Then
-
-                        If gIsAdministrator Then
+                    If gIsAdministrator Then
 
                             Dim TriggerFile As String = Path.GetTempPath & gPush2RunTriggerFileName
                             File.WriteAllText(TriggerFile, "This file is used to trigger Push2Run to start with administrator privileges following an update")
@@ -213,12 +211,6 @@ Public Class WindowUpgradePrompt
                         End If
 
                     Else
-
-                        LogAndDislayMessage("The file which was downloaded for an Automatic update can't be used")
-
-                    End If
-
-                Else
 
                     LogAndDislayMessage("The file which was automatically downloaded wasn't the correct version")
 
