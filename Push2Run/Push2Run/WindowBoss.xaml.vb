@@ -1,4 +1,4 @@
-﻿'Copyright Rob Latour 2025
+﻿'Copyright Rob Latour 2026
 
 'GUI Related
 Imports System.Data
@@ -161,8 +161,6 @@ Class WindowBoss
             'build window off screen
             Me.Top = -5000
             Me.Left = -5000
-
-            Dim appPath As String = My.Application.Info.DirectoryPath
 
             'V4.6 
             gSQLiteFullDatabaseName = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) & "\Push2Run\Push2Run.db3"
@@ -1812,7 +1810,6 @@ Class WindowBoss
         Try
 
             Dim Status As String = String.Empty
-            Dim HighestMessageId As String = String.Empty
             Dim ServerResponse As String = String.Empty
 
             SendRequest("", "GET", "https://api.pushover.net/1/messages.json" & "?secret=" & EncryptionClass.Decrypt(My.Settings.PushoverSecret) & "&device_id=" & EncryptionClass.Decrypt(My.Settings.PushoverDeviceID), String.Empty, ServerResponse)
@@ -2080,9 +2077,6 @@ Class WindowBoss
 
             ReturnValue.Clear()
 
-            Dim CorrectionRequired As New MyTable1ClassForTheListView
-            Dim CorrectionTargetingID As Integer = 0
-
             Dim sSQL As String = "SELECT * FROM Table1 ORDER BY SortOrder ASC ;"
             Dim SQLiteConnect As New SQLiteConnection(gSQLiteConnectionString)
             Dim SQLiteCommand As SQLiteCommand = New SQLite.SQLiteCommand(sSQL, SQLiteConnect)
@@ -2333,16 +2327,9 @@ SkipRecord:
 
     End Sub
 
-    Friend Sub UncheckOptionsCheckbox()
-
-        Systray_MenuShowOptions.Checked = False
-
-    End Sub
-
     Friend Sub OpenOptionsWindowAndResetWebsocketsIfNeeded()
 
 
-        Dim HoldUseDropbox As Boolean = My.Settings.UseDropbox
         Dim HoldUsePushbullet As Boolean = My.Settings.UsePushbullet
         Dim HoldUsePushover As Boolean = My.Settings.UsePushover
 
@@ -2404,10 +2391,6 @@ SkipRecord:
     Private Sub OpenOptions()
 
         Try
-
-            Dim HPushoverID As String = My.Settings.PushoverID
-            Dim HPushoverSecret As String = My.Settings.PushoverSecret
-            'Dim CriticalErrorNotReportedWhenOptionsWereOpened As Boolean = Not gCriticalPushOverErrorReported
 
             Systray_MenuShowOptions.Checked = True
             Dim WindowOptions As WindowOptions = New WindowOptions
@@ -3075,7 +3058,6 @@ SkipRecord:
                         Else
 
                             Dim startingPoint As Integer = ListView1.SelectedItem.SortOrder
-                            Dim nextItemThatIsOn As Object = Nothing
 
                             Dim FoundCurrentItem As Boolean = False
                             For Each item In ListView1.Items
@@ -3868,16 +3850,6 @@ SkipRecord:
 
     End Sub
 
-
-    Private Sub ChangeTheSelectedRowNow()
-
-        With gCurrentlySelectedRow
-            ChangeARecord(.ID, .SortOrder, .DesiredStatus, .WorkingStatus, .Description, .ListenFor, .Open, .Parameters, .StartIn, .Admin, .StartingWindowState, .KeysToSend)
-        End With
-        RefreshListView(gCurrentlySelectedRow.SortOrder)
-
-    End Sub
-
     Private EditWasCancelled As Boolean
 
     Private Sub ChangeTheSelectedRow()
@@ -3945,8 +3917,6 @@ SkipRecord:
 
         Dim SelectedRow As MyTable1ClassForTheListView = ListView1.SelectedItem
         Dim SelectedRow_ID As String = SelectedRow.ID
-
-        Dim h As Integer = gCurrentlySelectedRow.SortOrder
 
         'for all switches other than the master switch, only react if master switch is turned on
         If SelectedRow_ID > 1 Then
@@ -4240,14 +4210,6 @@ SkipRecord:
         MenuContextSwitch.Header = MenuSwitch.Header
 
     End Sub
-
-
-    Private Sub SetCoreMenuItemsOnly()
-
-        MenuContextUndo.Visibility = MenuUndo.Visibility
-
-    End Sub
-
 
     Private Function GetAddChangeInfo(ByVal AddChange As String) As Boolean
 
@@ -4846,7 +4808,7 @@ SkipRecord:
 
         ' Width is set to -1 in the initial load, and is used to signify the column should be autosized
 
-        SetColumnWidths_Loading(gv, My.Settings.ViewDescription, ListViewColumns.Description, My.Settings.ColumnWidthListenFor)
+        SetColumnWidths_Loading(gv, My.Settings.ViewDescription, ListViewColumns.Description, My.Settings.ColumnWidthDescription)
         SetColumnWidths_Loading(gv, My.Settings.ViewListenFor, ListViewColumns.ListenFor, My.Settings.ColumnWidthListenFor)
         SetColumnWidths_Loading(gv, My.Settings.ViewOpen, ListViewColumns.Open, My.Settings.ColumnWidthOpen)
         SetColumnWidths_Loading(gv, My.Settings.ViewStartIn, ListViewColumns.StartIn, My.Settings.ColumnWidthStartIn)
@@ -5173,7 +5135,7 @@ SkipRecord:
     Private Sub SetColumnWidths_Saving(ByVal gv As GridView, ByVal lvColumnNumber As Integer, ByRef ColumnnWidth As Double)
 
         Try
-            If gv.Columns.Item(lvColumnNumber).Width = System.Double.NaN Then
+            If Double.IsNaN(gv.Columns.Item(lvColumnNumber).Width) Then
                 ColumnnWidth = -1
             Else
                 ColumnnWidth = gv.Columns.Item(lvColumnNumber).Width
@@ -5407,34 +5369,6 @@ SkipRecord:
     End Sub
 
 #End Region
-
-#Region "Update Mouse Cursor"
-
-    ' Sample call:
-    '  SeCursor(CursorState.Wait)
-    Delegate Sub SetCursorCallback(ByVal [CursorType] As System.Windows.Input.Cursor)
-    <System.Diagnostics.DebuggerStepThrough()>
-    Private Sub SetCursor(ByVal [CursorType] As System.Windows.Input.Cursor)
-        Me.Cursor = [CursorType]
-    End Sub
-
-
-    Delegate Sub SetWindowStateCallBack(ByVal [WindowState] As WindowState)
-    <System.Diagnostics.DebuggerStepThrough()>
-    Private Sub SetWindowState(ByVal [WindowState] As WindowState)
-        Me.WindowState = [WindowState]
-    End Sub
-
-    Delegate Sub SetWindowVisibilityCallBack(ByVal [Windowvisibility] As System.Windows.Visibility)
-    <System.Diagnostics.DebuggerStepThrough()>
-    Private Sub SetWindowvisibility(ByVal [Windowvisibility] As System.Windows.Visibility)
-        Me.Visibility = [Windowvisibility]
-    End Sub
-
-#End Region
-
-    Private Const GW_HWNDNEXT As Integer = 2
-    Private Const GW_CHILD As Integer = 5
 
     Private gPasswordConfirmationFileName As String = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) & "\Push2Run\Push2Run.dat"
 
@@ -6386,8 +6320,6 @@ SkipRecord:
 
         Dim DescriptionToUse As String = String.Empty
 
-        Dim EntryToLog As String = String.Empty
-
         Dim LogMessage As String = String.Empty
 
         If gCurrentlySelectedRow.Description.Length > 0 Then
@@ -6477,8 +6409,6 @@ SkipRecord:
         If gCurrentlySelectedRow.KeysToSend.Contains(HighValueString) Then
             gCurrentlySelectedRow.KeysToSend = Microsoft.VisualBasic.Strings.Replace(gCurrentlySelectedRow.KeysToSend, HighValueString, "$", , , CompareMethod.Text)
         End If
-
-        Dim RunRequired As Boolean = True
 
         If (SimulateSpeechInput.Length = 0) AndAlso ((ReplacementIsRequiredForOpen OrElse ReplacementIsRequiredForParms OrElse ReplacementIsRequiredForKeysToSend)) Then ' OrElse RegExReplacementIsRequiredForOpen OrElse RegExReplacementIsRequiredForParms) Then
 
@@ -6668,6 +6598,24 @@ SkipRecord:
                 SpecialProcessing_NoMatchingEnabledPhrases = True
             End If
 
+            Dim UnmatchedIncomingMessage As String = IncomingMessage
+
+            If SpecialProcessing_NoMatchingPhrases Then
+                If IncomingMessage.Length > "no matching phrases".Length Then
+                    UnmatchedIncomingMessage = IncomingMessage.Remove(0, "no matching phrases".Length).Trim
+                Else
+                    UnmatchedIncomingMessage = String.Empty
+                End If
+            End If
+
+            If SpecialProcessing_NoMatchingEnabledPhrases Then
+                If IncomingMessage.Length > "no matching enabled phrases".Length Then
+                    UnmatchedIncomingMessage = IncomingMessage.Remove(0, "no matching enabled phrases".Length).Trim
+                Else
+                    UnmatchedIncomingMessage = String.Empty
+                End If
+            End If
+
             Dim AnActionWasAttempted As Boolean = False
 
             ' LoadFromDatabase() 'always reload the database v2.5.4  
@@ -6736,10 +6684,11 @@ SkipRecord:
 
                     End Try
 
-                    If (IncomingMessage.Trim.ToUpper = SpecificPhraseToListenFor.Trim.ToUpper) OrElse
+                    If (Not SpecialProcessing_NoMatchingPhrases AndAlso Not SpecialProcessing_NoMatchingEnabledPhrases) AndAlso
+                       ((IncomingMessage.Trim.ToUpper = SpecificPhraseToListenFor.Trim.ToUpper) OrElse
                        (IncomingMessage.Trim.ToUpper Like SpecificPhraseToListenFor.Trim.ToUpper) OrElse ' v3.4.2 added to allow the like command
                        (IncomingMessage.Trim.ToUpper Like SpecificPhraseToListenFor.Trim.ToUpper.Replace("* ", "*").Replace(" *", "*")) OrElse   ' v3.6 added to improve the use of the like command
-                       RegexMatch Then 'v4.1
+                       RegexMatch) Then 'v4.1
 
                         If CommandItem.DesiredStatus = StatusValues.SwitchOn Then
 
@@ -6821,6 +6770,10 @@ SkipRecord:
 
                                 Else
                                     VariablePortionOfIncomingMessage = IncomingMessage.Remove(0, GenericMessage.Length).Trim
+                                End If
+
+                                If SpecialProcessing_NoMatchingPhrases OrElse SpecialProcessing_NoMatchingEnabledPhrases Then
+                                    VariablePortionOfIncomingMessage = UnmatchedIncomingMessage
                                 End If
 
                                 SpecialSubstitutions(CommandItem.Open, CommandItem.Parameters, VariablePortionOfIncomingMessage, ProgramToRun, Parameters)
@@ -7029,7 +6982,7 @@ EarlyOut:
 
         If ProgramTarget.Contains("$[") Then
 
-            Dim ReplacementString As String = String.Empty
+            Dim ReplacementString As String
             ReplacementString = ProgramTarget.Remove(0, ProgramTarget.IndexOf("$[") + 2)
             ReplacementString = ReplacementString.Remove(ReplacementString.Length - 1)
             ProgramToRun = ProgramTarget.Replace("$", VariablePortionOfIncomingMessage.Replace(" ", ReplacementString))
@@ -7043,7 +6996,7 @@ EarlyOut:
 
         If ParmsTarget.Contains("$[") Then
 
-            Dim ReplacementString As String = String.Empty
+            Dim ReplacementString As String
             ReplacementString = ParmsTarget.Remove(0, ProgramTarget.IndexOf("$[") + 2)
             ReplacementString = ReplacementString.Remove(ReplacementString.IndexOf("]"))
             Parameters = ParmsTarget.Replace("$", VariablePortionOfIncomingMessage.Replace(" ", ReplacementString))
@@ -7850,8 +7803,6 @@ EarlyOut:
             Dim appVersion As Version = a.GetName().Version
             Dim appVersionString As String = appVersion.ToString
 
-            Dim CurrentSettings As String = String.Empty
-
             If My.Settings.ApplicationVersion <> appVersion.ToString Then
 
                 UgradeToStronglyNamedSettings()  'v4.3
@@ -7900,7 +7851,6 @@ EarlyOut:
 
         Try
 
-            Dim settingValuesFromCurrentSettingsFile As String = String.Empty
             Dim settingValuesFromPreviousSettingsFile As String = String.Empty
 
             Dim myProgram As String = My.Application.Info.AssemblyName
@@ -8253,20 +8203,7 @@ EarlyOut:
 #End Region
 
 
-    'Protected Overloads Overrides Function HitTestcore(hitTestParameters As System.Windows.Media.PointHitTestParameters) As System.Windows.Media.HitTestResult
-    '    Return New PointHitTestResult(Me, hitTestParameters.HitPoint)
-    'End Function
-
     Private SharedObject = New Object
-
-    'ref https://msdn.microsoft.com/en-us/library/ms608753(v=vs.110).aspx
-    Public Function MyHitTestResult(ByVal result As HitTestResult) As HitTestResultBehavior
-        ' Add the hit test result to the list that will be processed after the enumeration.
-        SharedObject = result.VisualHit
-
-        ' Set the behavior to return visuals at all z-order levels.
-        Return HitTestResultBehavior.Continue
-    End Function
 
     Private Sub ClearFilters_Click(sender As Object, e As RoutedEventArgs) Handles ClearFilters.Click
 
@@ -8369,7 +8306,7 @@ EarlyOut:
 
         If My.Settings.UseDropbox Then
 
-            Dim DeleteSuccess As Boolean = DeleteDropBoxCommandFile()
+            DeleteDropBoxCommandFile()
 
             If CurrentlyWatching = My.Settings.DropboxPath Then
                 Exit Sub
@@ -8625,21 +8562,16 @@ AllDoneForThisFile:
 
     End Sub
 
-    Private Function DeleteDropBoxCommandFile() As Boolean
-
-        Dim ReturnValue As Boolean = False
+    Private Sub DeleteDropBoxCommandFile()
 
         Try
 
             My.Computer.FileSystem.DeleteFile(My.Settings.DropboxPath.Trim & My.Settings.DropboxFileName.Trim)
-            ReturnValue = True
 
         Catch ex As Exception
         End Try
 
-        Return ReturnValue
-
-    End Function
+    End Sub
 
 
 #End Region

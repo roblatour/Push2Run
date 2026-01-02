@@ -19,5 +19,5 @@ To import the .p2r card you have downloaded, with Push2Run running, just double 
  To help support Push2Run, or to just say thanks, you're welcome to 'buy me a coffee'<br><br>
 [<img alt="buy me  a coffee" width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" />](https://www.buymeacoffee.com/roblatour)
 * * *
-Copyright © 2018 - 2024 Rob Latour
+Copyright © 2018 - 2026 Rob Latour
 * * *

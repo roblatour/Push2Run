@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Push2Run automatically runs Windows programs in support of home automation")>
 <Assembly: AssemblyCompany("Rob Latour")>
 <Assembly: AssemblyProduct("Push2Run")>
-<Assembly: AssemblyCopyright("Copyright 2018 - 2025, Rob Latour")>
+<Assembly: AssemblyCopyright("Copyright 2018 - 2026, Rob Latour")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: ComVisible(false)>
 
@@ -51,5 +51,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("4.9.1.0")>
-<Assembly: AssemblyFileVersion("4.9.1.0")>
+<Assembly: AssemblyVersion("4.9.2.0")>
+<Assembly: AssemblyFileVersion("4.9.2.0")>

@@ -1,4 +1,4 @@
-﻿'Copyright Rob Latour 2025
+﻿'Copyright Rob Latour 2026
 
 Imports System.Collections.ObjectModel
 Imports System.Data
@@ -1131,7 +1131,6 @@ Module modCommon
         Try
 
             Dim Status As String = String.Empty
-            Dim HighestMessageId As String = String.Empty
 
             Dim ServerResponse As String = String.Empty
 
