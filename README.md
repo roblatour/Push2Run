@@ -44,7 +44,7 @@ For detailed help information, please [click here](https://github.com/roblatour/
 <a name="download" id="download"></a>
  ## Download
 
- To download the current version (v4.9.2) of the Push2Run Windows installer, please [click here](https://github.com/roblatour/Push2Run/releases/download/v4.9.2.0/Push2RunSetup.exe)
+ To download a zip file with the current version (v4.9.2) of the Push2Run Windows installer, please [click here](https://github.com/roblatour/Push2Run/releases/download/v4.9.2.0/Push2RunSetup.zip)
 
 ## Additional Push2Run Cards
 
