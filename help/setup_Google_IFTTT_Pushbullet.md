@@ -14,7 +14,7 @@ The example below shows you how to open the Windows calculator on your PC or lap
 
 |     |     |
 | --- | --- |
-|     | 1\. Google Home, Google Mini, Google Max, Nest or smart phone running Google Assistant  <br>  <br>2\. Windows computer  <br>  <br>3\. (free or paid) account with [PushBullet](https://www.pushbullet.com/)  <br>  <br>4\. (free) copy of [Push2Run](https://github.com/roblatour/Push2Run)  <br>  <br>5\. (free) account with [IFTTT](https://ifttt.com) (note: a free IFTTT account only allows you to create two applets / Push2Run commands) |
+|     | 1\. Google Home, Google Mini, Google Max, Nest or smart phone running Google Assistant  <br>  <br>2\. Windows computer  <br>  <br>3\. (free or paid) account with [PushBullet](https://www.pushbullet.com/)  <br>  <br>4\. (free) copy of [Push2Run](https://github.com/roblatour/Push2Run)  <br>  <br>5\.  (an [IFTTT](https://ifttt.com) Pro Account (note: an IFTTT PRO account allows you to create up to and including 20 applets / Push2Run commands) |
 
 <br>
 
