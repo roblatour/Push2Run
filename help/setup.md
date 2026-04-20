@@ -78,9 +78,9 @@ Please also see '[Using Everything](everything.html)' for optional integration w
 **B.** <br>
 For all set ups involving IFTTT:  
   
-It is possible to set up Push2Run to use one, two or three of the Dropbox, Pushbullet and Pushover services in conjunction with IFTTT. However, for this you will require a subscription to [IFTTT's Pro service](https://ifttt.com/plans).  
+It is possible to set up Push2Run to use one, two or three of the Dropbox, Pushbullet and Pushover services in conjunction with IFTTT. However, for this you will require a subscription to [IFTTT's Pro or Pro+ service](https://ifttt.com/plans).  
   
-IFTTT's Pro service provides for several advantages, but in particular for use with Push2Run it allows the triggering of more than one action.
+IFTTT's Pro / Pro+ service provides for several advantages, but in particular for use with Push2Run it allows the triggering of more than one action.
   
 The reason you might want to do this is for redundancy. For example, if one of Dropbox, Pushbullet or Pushover was down or responding slowly, triggered actions would still flow through the other two.
   
